@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon.ico?v=5.1.4">
+
+
+
+
+
+
+
+  <meta name="keywords" content="Vue笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="YHF的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="day1 MVC 和 MVVM 的区别  学习了 Vue 中最基本代码的结构  插值表达式 v-cloak v-text v-html v-bind（缩写是:） v-on（缩写是@） v-model v-for v-if v-show  事件修饰符 ： .stop .prevent .capture .self .once  el 指定要控制的区域 data 是个对象，指定了控制的区域内要用到的数">
+<meta name="keywords" content="Vue笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 重点">
+<meta property="og:url" content="http://yoursite.com/2018/10/13/Vue-Akey/index.html">
+<meta property="og:site_name" content="YHF的博客">
+<meta property="og:description" content="day1 MVC 和 MVVM 的区别  学习了 Vue 中最基本代码的结构  插值表达式 v-cloak v-text v-html v-bind（缩写是:） v-on（缩写是@） v-model v-for v-if v-show  事件修饰符 ： .stop .prevent .capture .self .once  el 指定要控制的区域 data 是个对象，指定了控制的区域内要用到的数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-14T12:30:31.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 重点">
+<meta name="twitter:description" content="day1 MVC 和 MVVM 的区别  学习了 Vue 中最基本代码的结构  插值表达式 v-cloak v-text v-html v-bind（缩写是:） v-on（缩写是@） v-model v-for v-if v-show  事件修饰符 ： .stop .prevent .capture .self .once  el 指定要控制的区域 data 是个对象，指定了控制的区域内要用到的数">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/13/Vue-Akey/"/>
+
+
+
+
+
+  <title>Vue 重点 | YHF的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YHF的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">不忘初心，方得始终</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mypro">
+          <a href="/mypro" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/13/Vue-Akey/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YHF">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/WechatIMG13.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YHF的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Vue 重点</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-13T10:41:04+08:00">
+                2018-10-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:30:31+08:00">
+                2018-10-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h1><ol>
+<li><p>MVC 和 MVVM 的区别</p>
+</li>
+<li><p>学习了 Vue 中最基本代码的结构</p>
+</li>
+<li><p>插值表达式 v-cloak v-text v-html v-bind（缩写是:） v-on（缩写是@） v-model v-for v-if v-show</p>
+</li>
+<li><p>事件修饰符 ： .stop .prevent .capture .self .once</p>
+</li>
+<li><p>el 指定要控制的区域 data 是个对象，指定了控制的区域内要用到的数据 methods 虽然带个 s 后缀，但是是个对象，这里可以自定义了方法</p>
+</li>
+<li><p>在 VM 实例中，如果要访问 data 上的数据，或者要访问 methods 中的方法， 必须带 this</p>
+</li>
+<li><p>在 v-for 要会使用 key 属性 （只接受 string / number）</p>
+</li>
+<li><p>v-model 只能应用于表单元素</p>
+</li>
+<li><p>在 vue 中绑定样式两种方式 v-bind:class v-bind:style</p>
+</li>
+</ol>
+<h1 id="day2"><a href="#day2" class="headerlink" title="day2"></a>day2</h1><ol>
+<li>filter 过滤器</li>
+<li>生命周期<ul>
+<li>beofreCreate 实例被创建前</li>
+<li>created （data created）初始化完成</li>
+<li>beforeMount 模版内存编译完成 未渲染</li>
+<li>mounted 内存模板已经挂载到页面</li>
+<li>beforeUpdate 数据以更新未同步到页面</li>
+<li>updated 数据与页面以同步</li>
+</ul>
+</li>
+<li>vue-resource 数据获取<ul>
+<li>getInfo get 发起请求</li>
+<li>postInfo post 发起请求</li>
+<li>jsonpInfo jsonp 发起请求</li>
+</ul>
+</li>
+<li>模拟客户端获取 jsonp 数据 （node）</li>
+</ol>
+<ul>
+<li>通过<script src="http://127.0.0.1:3000/index?callback=showInfo123"></script>调用并执行本地的回调函数（端口，路由，数据判断，函数）</li>
+<li>nodejs 开启端口为 3000 的服务</li>
+<li>使用前端模板引擎 express</li>
+<li>app.get 判断路由 /index</li>
+<li>通过 url 获取到传过来的数据（query）</li>
+<li>使用数据模板拼接 var scriptStr = <code>${query.callback}(${JSON.stringify(data)})</code>(query.callback 是 url 获取过来的数据于后台服务的数据拼接)</li>
+<li>res.end(data)把数据返回</li>
+<li>在页面中就可以用函数接收传过来的数据（showInfor123 就是页面自定义函数名）</li>
+</ul>
+<h1 id="day3"><a href="#day3" class="headerlink" title="day3"></a>day3</h1><ol>
+<li>动画 1 控制语句<ul>
+<li>通过@click 和 v-if 、 data 判断数据的显示隐藏</li>
+</ul>
+</li>
+<li>动画 2 transition css 控制<ul>
+<li>transition vue 官方控制用在 需要被动画控制滴元素，包裹起来</li>
+<li>css 控制<ul>
+<li>v-enter [这是一个时间点] 是进入前，元素的起始状态，此时还没有进入</li>
+<li>v-leave-to 【】是动画离开之后，离开的终止状态，此时元素动画已经结束</li>
+<li>v-enter-active 【入场动画的时间段</li>
+<li>v-leave-active 【离场动画的时间段</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动画 修改 v-前缀(在定义多个不同动画的时候，用来解决动画重复问题)<ul>
+<li><transition name="my"> 在 transition 包裹的时候给它一个 name</transition></li>
+<li>css 控制的时候<ul>
+<li>就可以把 v-enter 改为 my-enter （这个就可以同时定义多个不同的动画效果）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动画 3 使用第三方类<ul>
+<li>animate 第三方类</li>
+<li>引入 <link rel="stylesheet" href="./lib/animate.css"></li>
+<li>入场使用 bounceIn 离场使用 bounceOut （不固定去官网看效果喜欢那个用那个）</li>
+<li>enter-active-class=”bounceIn”</li>
+<li>leave-active-class=”bounceOut”</li>
+<li>使用 :duration=”{ enter: 200, leave: 400 }” 来分别设置 入场的时长 和 离场的时长</li>
+<li>用法简单添加在 transition 里面就可以</li>
+</ul>
+</li>
+<li>动画 4 钩子函数<ul>
+<li>使用 transition 元素，把 需要被动画控制滴元素，包裹起来</li>
+<li>绑定钩子方法 @before-enter=”beforeEnter” @enter=”enter” @after-enter=”afterEnter”</li>
+<li>在 methods 实现方法<ul>
+<li>beforeEnter: function(el){//动画钩子函数的第一个参数：el，表示 要执行动画的那个 DOM 元素，是个原生的 JS DOM 对象}// 函数开始前</li>
+<li>enter: function (el,done) {// done 其实就是 afterEnter 这个函数，也就是说：done 是 afterEnter 函数的引用}// 函数执行动画</li>
+<li>afterEnter: function(el){// 动画完成后}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动画 5 动画列表<ul>
+<li>在实现列表过度的时候，如果需要过渡元素，是通过 v-for 循环渲染出来的，不能使用 transition 包裹，需要使用 transitionGroup</li>
+<li>如果要为 v-for 循环创建的元素设置动画，必须给每一个元素 设置 :key 属性</li>
+<li>给 ransition-group 添加 appear 属性，实现页面刚展示出来时候，入场时候的效果</li>
+<li>通过 为 transition-group 元素，设置 tag 属性(指定渲染的类型 如：span 就会渲染成 span ul 就会渲染成 ul)，指定 transition-group 渲染为指定的元素，如果不指定 tag 属性，默认，渲染为 span 标签</li>
+</ul>
+</li>
+<li><p>组件 1</p>
+<ul>
+<li>使用 Vue-extend 来创建全局的 Vue 组件</li>
+<li>// Vue.component 第一个参赛:组件的名称，将来引用组件的时候，就是一个 标签形式 来引入 它的 第二个参赛：Vue.extend 创建的组件，其中 template 就是组件将来展示的 html 内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;myCom1&apos;, Vue.extend(&#123;</span><br><span class="line">    template: &apos;&lt;h3&gt;这是使用 Vue.extend 创建的组件&lt;/h3&gt;&apos; // 通过 template 属性，指定了组件要展示的html结构</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果要使用组件，直接，把组件的名称，以 html 的标签形式，引入到页面中，即可</li>
+<li>如果使用 Vue.component 定义组件的时候，组件名称使用了 驼峰命名，则在引用组件的时候，需要把 大写的驼峰改为小写的字母，同时，两个单词之间，使用 - 连接；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-com1&gt;&lt;/my-com1&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件 2</p>
+<ul>
+<li>在组件 1 的基础上改进 Vue.component 第二个参赛直接返回一个对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;mycom2&apos;, &#123;</span><br><span class="line"> // 注意:不论是哪种方式创建出来的组件,组件的 template 属性指向的模板内容,必须有且只能有唯一的一个根元素</span><br><span class="line"> template: &apos;&lt;div&gt;&lt;h3&gt;这是使用 Vue.extend 创建的组件&lt;/h3&gt;&lt;span&gt;123&lt;/span&gt;&lt;/div&gt;&apos; // 通过 template 属性，指定了组件要展示的html结构</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>组件 3</p>
+<ul>
+<li><p>在 被控制的 #app 外面，使用 template 元素，定义组件的 html 模板结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template id=&apos;tmp1&apos;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;这是通过 template 元素，在外部定义的组件结构，有代码的智能提示&lt;/h1&gt;</span><br><span class="line">        &lt;h4&gt;好用 不错&lt;/h4&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义全局组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;mycom3&apos;, &#123;</span><br><span class="line">    template: &apos;#tmp1&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义私有化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">components: &#123; // 定义实例内部的私有组件</span><br><span class="line">        login: &#123;</span><br><span class="line">            template: &apos;#tmp1&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>组件中的 data</p>
+<ul>
+<li>组件可以有自己的 data 数据</li>
+<li>组件的 data 和 实例的 data 有点不一样，实例中的 data 可以为一个对象，但是 组将中的 data 必须是一个方法</li>
+<li>组件的 data 除了必须为一个方法，这个方法内部，还必须返回一个对象</li>
+<li>组件中 的 data 数据 ，使用方法，和实例中的 data 使用方法完全一样！！！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data: function () &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            msg: &apos;这是组件中data的数据&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>组件的切换 1</p>
+<ul>
+<li>@click v-if v-else 控制</li>
+</ul>
+</li>
+<li><p>组件切换 2</p>
+<ul>
+<li><!-- Vue 提供了 component，来展示对应名称的组件 --></li>
+<li><!-- component 是一个占位符，:is 属性，可以用来展示组件的名称 --></li>
+<li><component :is="comName"></component></li>
+<li>通过改变 comName 这个数值改变显示组件（data 中 comName 是 login 就会显示 login 的数据 register 就会显示 register 的数据）</li>
+</ul>
+</li>
+<li>组件切换 3<ul>
+<li><transition mode="out-in"> 通过 mode 属性，设置组件切换时候的 模式 （用来给组件添加动画的时候给 css 动画知道,等待动画完成再执行另一个动画）</transition></li>
+</ul>
+</li>
+</ol>
+<h1 id="day4"><a href="#day4" class="headerlink" title="day4"></a>day4</h1><ol>
+<li>父组件向子组件传值<ul>
+<li>父组件，可以在引用子组件的时候，通过 属性绑定（v-bind：）的形式，把 需要传递给 子组件的数据， 以属性绑定的形式，传递到子组件内部，供子组件使用</li>
+<li>使用 props 把父组件传递过来的 （parentmsg）在 v-bind:parentmsg=”msg” 自定义的一个名称 msg 是父级的数据 属性，先在 props 数组中，定义一下，才能使用数据</li>
+<li>组件中的 所有 props 中的数据，都是通过 父组件传递给子组件的</li>
+<li>props 中的数据都是只读的，无法更新赋值 （其实是可以修改但是不符合规定会报错）</li>
+</ul>
+</li>
+<li><p>父组件向子组件传方法</p>
+<ul>
+<li><p>父组件向子组件 传递 方法，使用的是 事件绑定机制 v-on，当我们自定义了 一个 事件属性之后，那么，子组建就能够，通过某些方法，来调用 传递过来的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;com2 @func=&quot;show&quot;&gt;&lt;/com2&gt;//func是自定义的名称 show 是父组件的方法</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在子组件如何调用父组件方法 使用 emit 触发，调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(&apos;func&apos;,this.sonmsg)//第一个是上面调用定义的方法名 第二个参数开始是向父组件传参数，可以有多个</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>localStorage.getItem 和 localStorage.setItem 本地存储的获取和设置</p>
+<ul>
+<li>一般 getItem 是配和 JSON.parse 使用 转化为 json 数据</li>
+<li>setItem 是配合 JSON.stringfy 使用 解析为本地存储格式</li>
+</ul>
+</li>
+<li>ref 获取 dom 元素和组件<ul>
+<li>在 元素中添加 ref=”login” （login 是自定义的名称）</li>
+<li>在 父组件就可以用 this.$refs.login 获取到 dom 元素</li>
+<li>this.$refs.login.show() 可直接获取到方法（show()是 login 子组件内的方法）</li>
+</ul>
+</li>
+<li><p>router 页面路由</p>
+<ul>
+<li>vue-router 是 vue 的路由第三方插件</li>
+<li>创建一个路由对象，当 导入 vue-router 包之后，在 window 全局对象中，就有一个路由当架构函数，叫做 VueRouter</li>
+<li>linkActiveClass: ‘myactive’ // 通过 linkActiveClass 来修改样式属性名 在 vuerouter 内定义</li>
+<li>redirect 重定向</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">    // 在 new 路由对象当时候，可以为 构造函数，传递一个配置对象</span><br><span class="line">    var routerObj = new VueRouter(&#123;</span><br><span class="line">    // route // 这个配置对象中的 route 表示[路由匹配规则]的意思</span><br><span class="line">    routes: [ // 路由匹配规则</span><br><span class="line">        // 每个路由规则，都是一个对象，这个规则对象，身上，有两个必须当属性：</span><br><span class="line">        //   属性1 是 path，表示监听 那个路由链接地址</span><br><span class="line">        //   属性2 上 component，表示，如果 路由是前面匹配到的 path, 展示 component 属性对应的那个组件</span><br><span class="line">        // 注意： component 的属性值，必须是一个 组件的模版对象，不能是 组件的引用名称</span><br><span class="line"></span><br><span class="line">        // 不推荐使用</span><br><span class="line">        // &#123;</span><br><span class="line">        //     path:&quot;/&quot;,</span><br><span class="line">        //     component: login</span><br><span class="line">        // &#125;,</span><br><span class="line">        &#123; // 这里的 redirect 和 node 中的 redirect 完全啥两码事</span><br><span class="line">            path: &apos;/&apos;,</span><br><span class="line">            redirect: &apos;/login&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            path: &apos;/login&apos;,</span><br><span class="line">            component: login</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            path: &apos;/register&apos;,</span><br><span class="line">            component: register</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    linkActiveClass: &apos;myactive&apos; // 通过linkActiveClass 来修改样式属性名</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/* vue-router 提供的类名修改样式 */</span><br><span class="line">/* .router-link-active &#123;</span><br><span class="line">    color: red;</span><br><span class="line">    font-weight: 800;</span><br><span class="line">    font-style: italic;</span><br><span class="line">    font-size: 80px;</span><br><span class="line">    text-decoration: underline;</span><br><span class="line">    background-color: pink;</span><br><span class="line">&#125; */</span><br><span class="line"></span><br><span class="line">/* 自定义类名修改样式 */</span><br><span class="line">.myactive &#123;</span><br><span class="line">    color: red;</span><br><span class="line">    font-weight: 800;</span><br><span class="line">    font-style: italic;</span><br><span class="line">    font-size: 80px;</span><br><span class="line">    text-decoration: underline;</span><br><span class="line">    background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.v-enter,</span><br><span class="line">.v-leave-to &#123;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    transform: translateX(140px);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.v-enter-active,</span><br><span class="line">.v-leave-active &#123;</span><br><span class="line">    transition: all .5s ease;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>vue-router 提供的元素，专门用来 当作占位符的，将来，路由规则，匹配到的组件，就会展示到这个 router-view 中去 <router-view></router-view></li>
+<li>router-link 默认渲染为一个 a 标签</li>
+<li>tag 指定渲染类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- router-link 默认渲染为一个 a标签 --&gt;</span><br><span class="line">&lt;!-- msg 指定渲染类型 --&gt;</span><br><span class="line">&lt;router-link to=&quot;/login&quot; tag=&quot;span&quot;&gt;登录&lt;/router-link&gt;</span><br><span class="line">&lt;router-link to=&quot;/register&quot;&gt;注册&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 这是 vue-router 提供的元素，专门用来 当作占位符的，将来，路由规则，匹配到的组件，就会展示到这个 router-view 中去 --&gt;</span><br><span class="line">&lt;!-- 所以：我们可以把 router-view 认为是一个占位符 --&gt;</span><br><span class="line">&lt;!-- mode 定义过渡摸索 先out 再 in --&gt;</span><br><span class="line">&lt;transition mode=&apos;out-in&apos;&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>路由规则中定义参数 $route</p>
+<ul>
+<li><p>方法一 query</p>
+<ul>
+<li><p>如果在路由中，使用 查询字符串 则 不需要修改 路由规则对 path 属性（在router-link 直接用?拼接）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login?id=10&amp;name=李白&quot;&gt;登录&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据会存储在 $route 内的 query 的对象中 如何获取呢 因为是在子组件内部获取的本身就是自己this可写可不写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(this.$route.query);</span><br><span class="line">this.$route.query.id // 可获取到内部自己设置的id</span><br><span class="line">this.$route.query.(设置的数据名)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>方法二 params</p>
+<ul>
+<li><p>与方法一不同的是数据名不是在url设置是直接在路由设置，直接写数据就可以 /数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login/12/yhf&quot;&gt;登录&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置了url 再去设置路由判断  在路由后面以/:元素名的形式添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">routes: [&#123;</span><br><span class="line">        path: &apos;/login/:id/:name&apos;,</span><br><span class="line">        component: login</span><br><span class="line">    &#125;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据还是会存在 $route 里面但是 不是在 query 里面了 而是在 $route 内的 params 里面 获取的方法和 query 一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(this.$route.params);</span><br><span class="line">console.log(this.$route.params.id);</span><br><span class="line">console.log(this.$route.params.name);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>路由中嵌套路由</p>
+<ul>
+<li>在一个路由中我们会通过点击这个路由，展示路由中另一个路由的内容（只是更改路由处的数据不影响其他页面的显示）</li>
+<li><p>设置路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login&quot;&gt;登录&lt;/router-link&gt;// 为继承account路由 所有在数据查找的时候会在根目录查找 （也是因为后面路由的设置而判断 后面的路由继承了account 路由就不可以这样  继承的事根路由就要这样用）</span><br><span class="line">&lt;router-link to=&quot;/account/register&quot;&gt;注册&lt;/router-link&gt; // 继承在account下的路由</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    routes: [&#123;</span><br><span class="line">            path: &apos;/account&apos;,// 设置主路由</span><br><span class="line">            component: account,// 路由展示的组件</span><br><span class="line"></span><br><span class="line">            children: [// 设置嵌套的 子路由</span><br><span class="line">                // 使用 children 属性，实现子路由，同时，子路由的 path 前面，不要带 / ，否则永远以根路径开始请求，这样不方便我们用户去理解URL地址</span><br><span class="line">                //这样就是设置了根为查找目录</span><br><span class="line">                &#123;</span><br><span class="line">                    path: &apos;/login&apos;,</span><br><span class="line">                    component: login</span><br><span class="line">                &#125;,</span><br><span class="line">                // 这个就是嵌套了子路有 不需要添加 /</span><br><span class="line">                &#123;</span><br><span class="line">                    path: &apos;register&apos;,</span><br><span class="line">                    component: register</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    ``` </span><br><span class="line">8. 命名视图</span><br><span class="line">    - 在同一个页面展示多个视图 在路由判断中就会被主路由覆盖</span><br><span class="line">    - 在路由判断中 路由地址 component 不止可以存放一个地址</span><br><span class="line">    - 在存放多个地址的时候 把 components 加个s 接收对象就可以存放多个地址</span><br></pre></td></tr></table></figure>
+<p>routes: [{<br>  path: ‘/‘,<br>  components: { // 路由地址</p>
+<pre><code>&apos;default&apos;: header,// 设置多地址的时候 前面&apos;&apos; 号中填写的是这个路由的属性名（自定义） 后面的是路由地址
+&apos;left&apos;: leftBox,
+&apos;main&apos;: mainBox
+</code></pre><p>  }<br>}]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 如何使用多路由视图呢</span><br></pre></td></tr></table></figure>
+<p><router-view></router-view>// 主路由可不用写属性名<br><router-view name="left"></router-view>// 但是子路由就必须写属性名 name<br><router-view name="main"></router-view><br><code>`</code></p>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue笔记/" rel="tag"># Vue笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/12/Vue-day3/" rel="next" title="Vue day3">
+                <i class="fa fa-chevron-left"></i> Vue day3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/13/Vue-day4/" rel="prev" title="Vue day4">
+                Vue day4 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/WechatIMG13.jpeg"
+                alt="YHF" />
+            
+              <p class="site-author-name" itemprop="name">YHF</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/8987002d387c" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG9.jpeg?raw=true" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG11.jpeg?raw=true" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#day1"><span class="nav-number">1.</span> <span class="nav-text">day1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day2"><span class="nav-number">2.</span> <span class="nav-text">day2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day3"><span class="nav-number">3.</span> <span class="nav-text">day3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day4"><span class="nav-number">4.</span> <span class="nav-text">day4</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YHF</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "db.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  <script type="text/javascript" src="/js/src/click_love.js"></script>
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+</body>
+
+</html>
