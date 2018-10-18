@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2018/10/17/npm-Plug-in/</loc>
+    <lastmod>2018-10-18T13:29:48.567Z</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2018/10/16/Vue-day5/</loc>
-    <lastmod>2018-10-17T14:17:42.132Z</lastmod>
+    <lastmod>2018-10-18T13:21:38.222Z</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2018/10/16/2018-10-16/</loc>
     <lastmod>2018-10-17T14:15:26.347Z</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2018/10/17/npm-Plug-in/</loc>
-    <lastmod>2018-10-17T13:54:53.837Z</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2018/10/16/npm/</loc>
     <lastmod>2018-10-17T05:47:41.446Z</lastmod>
