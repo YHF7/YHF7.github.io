@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="不懂IT的男孩">
 <meta property="og:description" content="模块/插件 express 前端 web 模块 path 路径核心模块 art-template 模版引擎（express-art-template 的依赖所以必须安装） express-art-template 模版引擎 (视觉效果模板 子模板 模板继承) body-parser 中间件(解析表单 post 请求体) mongoose 数据库链接 bootstrap@3 css 页面开发场景 j">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-19T04:41:12.042Z">
+<meta property="og:updated_time" content="2018-10-19T12:35:26.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm&#x2F;cnpm 第三方模块&#x2F;插件安装使用">
 <meta name="twitter:description" content="模块/插件 express 前端 web 模块 path 路径核心模块 art-template 模版引擎（express-art-template 的依赖所以必须安装） express-art-template 模版引擎 (视觉效果模板 子模板 模板继承) body-parser 中间件(解析表单 post 请求体) mongoose 数据库链接 bootstrap@3 css 页面开发场景 j">
@@ -347,7 +347,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-19T12:41:12+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-19T20:35:26+08:00">
                 2018-10-19
               </time>
             
@@ -419,7 +419,7 @@
 <li>jquery js 框架</li>
 <li>blueimp-md5 密码加密</li>
 <li>npm install express-session</li>
-<li>vue 常用 <a href="https://yhf7.github.io/2018/10/16/Vue-day5/#more" target="_blank" rel="noopener">前 6 使用点看vue-day5</a> （在 vue 中安装插件尽量使用 cnpm）<ul>
+<li>vue 常用 <a href="https://yhf7.github.io/2018/10/16/Vue-day5/#more" target="_blank" rel="noopener">1-6 使用点看vue-day5</a> （在 vue 中安装插件尽量使用 cnpm）<ul>
 <li><a href="mailto:1.webpack@3.12.0" target="_blank" rel="noopener">1.webpack@3.12.0</a> 项目构建工具</li>
 <li><a href="mailto:2.webpack-dev-server@2.9.3" target="_blank" rel="noopener">2.webpack-dev-server@2.9.3</a> 自动打包</li>
 <li>3.html-webpack-plugin 把 html 打包在内存</li>
@@ -456,6 +456,12 @@
 <li>babel-plugin-transform-runtime</li>
 <li>babel-preset-env</li>
 <li>babel-preset-stage-0</li>
+</ul>
+</li>
+<li>7.vue (webpack vue)<ul>
+<li>vue vue依赖</li>
+<li>vue-loader 转换vue包依赖</li>
+<li>vue-template-compiler</li>
 </ul>
 </li>
 </ul>
@@ -629,6 +635,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i node-sass -D</span><br></pre></td></tr></table></figure>
 <h1 id="url-loader-与-file-loader"><a href="#url-loader-与-file-loader" class="headerlink" title="url-loader 与 file-loader"></a>url-loader 与 file-loader</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i url-loader file-loader -D //都是两个一起用可以一起安装</span><br></pre></td></tr></table></figure>
 <h1 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i babel-core babel-loader@7 babel-plugin-transform-runtime -D</span><br><span class="line">$ sudo cnpm i babel-preset-env babel-preset-stage-0 -D</span><br></pre></td></tr></table></figure>
+<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i vue -S</span><br></pre></td></tr></table></figure>
+<h1 id="vue-loader-vue-template-compiler"><a href="#vue-loader-vue-template-compiler" class="headerlink" title="vue-loader vue-template-compiler"></a>vue-loader vue-template-compiler</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i vue-loader vue-template-compiler -D</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -678,6 +686,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/19/Vue-day6/" rel="prev" title="Vue day6">
+                Vue day6 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -760,7 +772,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -850,7 +862,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模块-插件"><span class="nav-number">1.</span> <span class="nav-text">模块/插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模块安装与应用"><span class="nav-number">2.</span> <span class="nav-text">模块安装与应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#express-前端开发框架"><span class="nav-number">2.1.</span> <span class="nav-text">express 前端开发框架</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#art-template-模版引擎-配置在-express-中"><span class="nav-number">3.</span> <span class="nav-text">art-template 模版引擎 (配置在 express 中)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-使用"><span class="nav-number">3.1.</span> <span class="nav-text">js 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图页面输出-views"><span class="nav-number">3.2.</span> <span class="nav-text">视图页面输出 views</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#body-parser-中间件-解析表单-post-请求体"><span class="nav-number">4.</span> <span class="nav-text">body-parser 中间件(解析表单 post 请求体)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mongoose-（mongodb-数据库链接插件）"><span class="nav-number">5.</span> <span class="nav-text">mongoose （mongodb 数据库链接插件）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootstrap-css-样式前端架构"><span class="nav-number">6.</span> <span class="nav-text">bootstrap css 样式前端架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jquery-js-框架"><span class="nav-number">7.</span> <span class="nav-text">jquery js 框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#blueimp-md5-密码加密"><span class="nav-number">8.</span> <span class="nav-text">blueimp-md5 密码加密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#express-session-数据存储"><span class="nav-number">9.</span> <span class="nav-text">express-session 数据存储</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-3-12-0"><span class="nav-number">10.</span> <span class="nav-text">webpack@3.12.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">11.</span> <span class="nav-text">webpack-dev-server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html-webpack-plugin-把-html-打包在内存"><span class="nav-number">12.</span> <span class="nav-text">html-webpack-plugin 把 html 打包在内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-css-webpack-不会处理-js-以为的文件需要用其他的插件辅助"><span class="nav-number">13.</span> <span class="nav-text">webpack css (webpack 不会处理 js 以为的文件需要用其他的插件辅助)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less"><span class="nav-number">14.</span> <span class="nav-text">less</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sass"><span class="nav-number">15.</span> <span class="nav-text">sass</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#url-loader-与-file-loader"><span class="nav-number">16.</span> <span class="nav-text">url-loader 与 file-loader</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#babel"><span class="nav-number">17.</span> <span class="nav-text">babel</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模块-插件"><span class="nav-number">1.</span> <span class="nav-text">模块/插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模块安装与应用"><span class="nav-number">2.</span> <span class="nav-text">模块安装与应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#express-前端开发框架"><span class="nav-number">2.1.</span> <span class="nav-text">express 前端开发框架</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#art-template-模版引擎-配置在-express-中"><span class="nav-number">3.</span> <span class="nav-text">art-template 模版引擎 (配置在 express 中)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-使用"><span class="nav-number">3.1.</span> <span class="nav-text">js 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图页面输出-views"><span class="nav-number">3.2.</span> <span class="nav-text">视图页面输出 views</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#body-parser-中间件-解析表单-post-请求体"><span class="nav-number">4.</span> <span class="nav-text">body-parser 中间件(解析表单 post 请求体)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mongoose-（mongodb-数据库链接插件）"><span class="nav-number">5.</span> <span class="nav-text">mongoose （mongodb 数据库链接插件）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootstrap-css-样式前端架构"><span class="nav-number">6.</span> <span class="nav-text">bootstrap css 样式前端架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jquery-js-框架"><span class="nav-number">7.</span> <span class="nav-text">jquery js 框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#blueimp-md5-密码加密"><span class="nav-number">8.</span> <span class="nav-text">blueimp-md5 密码加密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#express-session-数据存储"><span class="nav-number">9.</span> <span class="nav-text">express-session 数据存储</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-3-12-0"><span class="nav-number">10.</span> <span class="nav-text">webpack@3.12.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">11.</span> <span class="nav-text">webpack-dev-server</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html-webpack-plugin-把-html-打包在内存"><span class="nav-number">12.</span> <span class="nav-text">html-webpack-plugin 把 html 打包在内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-css-webpack-不会处理-js-以为的文件需要用其他的插件辅助"><span class="nav-number">13.</span> <span class="nav-text">webpack css (webpack 不会处理 js 以为的文件需要用其他的插件辅助)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less"><span class="nav-number">14.</span> <span class="nav-text">less</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sass"><span class="nav-number">15.</span> <span class="nav-text">sass</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#url-loader-与-file-loader"><span class="nav-number">16.</span> <span class="nav-text">url-loader 与 file-loader</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#babel"><span class="nav-number">17.</span> <span class="nav-text">babel</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue"><span class="nav-number">18.</span> <span class="nav-text">Vue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-loader-vue-template-compiler"><span class="nav-number">19.</span> <span class="nav-text">vue-loader vue-template-compiler</span></a></li></ol></div>
             
 
           </div>
