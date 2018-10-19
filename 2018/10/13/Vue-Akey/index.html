@@ -68,7 +68,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="YHF的博客" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="不懂IT的男孩" type="application/atom+xml" />
 
 
 
@@ -80,10 +80,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 重点">
 <meta property="og:url" content="http://yoursite.com/2018/10/13/Vue-Akey/index.html">
-<meta property="og:site_name" content="YHF的博客">
+<meta property="og:site_name" content="不懂IT的男孩">
 <meta property="og:description" content="day1 MVC 和 MVVM 的区别  学习了 Vue 中最基本代码的结构  插值表达式 v-cloak v-text v-html v-bind（缩写是:） v-on（缩写是@） v-model v-for v-if v-show  事件修饰符 ： .stop .prevent .capture .self .once  el 指定要控制的区域 data 是个对象，指定了控制的区域内要用到的数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-14T12:30:31.601Z">
+<meta property="og:updated_time" content="2018-10-19T04:36:43.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 重点">
 <meta name="twitter:description" content="day1 MVC 和 MVVM 的区别  学习了 Vue 中最基本代码的结构  插值表达式 v-cloak v-text v-html v-bind（缩写是:） v-on（缩写是@） v-model v-for v-if v-show  事件修饰符 ： .stop .prevent .capture .self .once  el 指定要控制的区域 data 是个对象，指定了控制的区域内要用到的数">
@@ -122,7 +122,7 @@
 
 
 
-  <title>Vue 重点 | YHF的博客</title>
+  <title>Vue 重点 | 不懂IT的男孩</title>
   
 
 
@@ -151,7 +151,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">YHF的博客</span>
+        <span class="site-title">不懂IT的男孩</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -305,13 +305,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/13/Vue-Akey/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YHF">
+      <meta itemprop="name" content="Detail">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/WechatIMG13.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YHF的博客">
+      <meta itemprop="name" content="不懂IT的男孩">
     </span>
 
     
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-14T20:30:31+08:00">
-                2018-10-14
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-19T12:36:43+08:00">
+                2018-10-19
               </time>
             
           </span>
@@ -617,20 +617,20 @@
 <ul>
 <li><p>方法一 query</p>
 <ul>
-<li><p>如果在路由中，使用 查询字符串 则 不需要修改 路由规则对 path 属性（在router-link 直接用?拼接）</p>
+<li><p>如果在路由中，使用 查询字符串 则 不需要修改 路由规则对 path 属性（在 router-link 直接用?拼接）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login?id=10&amp;name=李白&quot;&gt;登录&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数据会存储在 $route 内的 query 的对象中 如何获取呢 因为是在子组件内部获取的本身就是自己this可写可不写</p>
+<li><p>数据会存储在 $route 内的 query 的对象中 如何获取呢 因为是在子组件内部获取的本身就是自己 this 可写可不写</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(this.$route.query);</span><br><span class="line">this.$route.query.id // 可获取到内部自己设置的id</span><br><span class="line">this.$route.query.(设置的数据名)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>方法二 params</p>
 <ul>
-<li><p>与方法一不同的是数据名不是在url设置是直接在路由设置，直接写数据就可以 /数据</p>
+<li><p>与方法一不同的是数据名不是在 url 设置是直接在路由设置，直接写数据就可以 /数据</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login/12/yhf&quot;&gt;登录&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>设置了url 再去设置路由判断  在路由后面以/:元素名的形式添加</p>
+<li><p>设置了 url 再去设置路由判断 在路由后面以/:元素名的形式添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">routes: [&#123;</span><br><span class="line">        path: &apos;/login/:id/:name&apos;,</span><br><span class="line">        component: login</span><br><span class="line">    &#125;]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>数据还是会存在 $route 里面但是 不是在 query 里面了 而是在 $route 内的 params 里面 获取的方法和 query 一样</p>
@@ -643,21 +643,41 @@
 <li><p>路由中嵌套路由</p>
 <ul>
 <li>在一个路由中我们会通过点击这个路由，展示路由中另一个路由的内容（只是更改路由处的数据不影响其他页面的显示）</li>
-<li><p>设置路由</p>
+<li>设置路由</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-link to=&quot;/login&quot;&gt;登录&lt;/router-link&gt;// 为继承account路由 所有在数据查找的时候会在根目录查找 （也是因为后面路由的设置而判断 后面的路由继承了account 路由就不可以这样  继承的事根路由就要这样用）</span><br><span class="line">&lt;router-link to=&quot;/account/register&quot;&gt;注册&lt;/router-link&gt; // 继承在account下的路由</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置路由</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">routes: [&#123;</span><br><span class="line">        path: &apos;/account&apos;,// 设置主路由</span><br><span class="line">        component: account,// 路由展示的组件</span><br><span class="line"></span><br><span class="line">        children: [// 设置嵌套的 子路由</span><br><span class="line">            // 使用 children 属性，实现子路由，同时，子路由的 path 前面，不要带 / ，否则永远以根路径开始请求，这样不方便我们用户去理解URL地址</span><br><span class="line">            //这样就是设置了根为查找目录</span><br><span class="line">            &#123;</span><br><span class="line">                path: &apos;/login&apos;,</span><br><span class="line">                component: login</span><br><span class="line">            &#125;,</span><br><span class="line">            // 这个就是嵌套了子路有 不需要添加 /</span><br><span class="line">            &#123;</span><br><span class="line">                path: &apos;register&apos;,</span><br><span class="line">                component: register</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>设置路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    routes: [&#123;</span><br><span class="line">            path: &apos;/account&apos;,// 设置主路由</span><br><span class="line">            component: account,// 路由展示的组件</span><br><span class="line"></span><br><span class="line">            children: [// 设置嵌套的 子路由</span><br><span class="line">                // 使用 children 属性，实现子路由，同时，子路由的 path 前面，不要带 / ，否则永远以根路径开始请求，这样不方便我们用户去理解URL地址</span><br><span class="line">                //这样就是设置了根为查找目录</span><br><span class="line">                &#123;</span><br><span class="line">                    path: &apos;/login&apos;,</span><br><span class="line">                    component: login</span><br><span class="line">                &#125;,</span><br><span class="line">                // 这个就是嵌套了子路有 不需要添加 /</span><br><span class="line">                &#123;</span><br><span class="line">                    path: &apos;register&apos;,</span><br><span class="line">                    component: register</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">    ``` </span><br><span class="line">8. 命名视图</span><br><span class="line">    - 在同一个页面展示多个视图 在路由判断中就会被主路由覆盖</span><br><span class="line">    - 在路由判断中 路由地址 component 不止可以存放一个地址</span><br><span class="line">    - 在存放多个地址的时候 把 components 加个s 接收对象就可以存放多个地址</span><br></pre></td></tr></table></figure>
-<p>routes: [{<br>  path: ‘/‘,<br>  components: { // 路由地址</p>
-<pre><code>&apos;default&apos;: header,// 设置多地址的时候 前面&apos;&apos; 号中填写的是这个路由的属性名（自定义） 后面的是路由地址
-&apos;left&apos;: leftBox,
-&apos;main&apos;: mainBox
-</code></pre><p>  }<br>}]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 如何使用多路由视图呢</span><br></pre></td></tr></table></figure>
-<p><router-view></router-view>// 主路由可不用写属性名<br><router-view name="left"></router-view>// 但是子路由就必须写属性名 name<br><router-view name="main"></router-view><br><code>`</code></p>
+<li><p>命名视图</p>
+<ul>
+<li>在同一个页面展示多个视图 在路由判断中就会被主路由覆盖</li>
+<li>在路由判断中 路由地址 component 不止可以存放一个地址</li>
+<li><p>在存放多个地址的时候 把 components 加个 s 接收对象就可以存放多个地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">routes: [&#123;</span><br><span class="line">    path: &apos;/&apos;,</span><br><span class="line">    components: &#123; // 路由地址</span><br><span class="line">        &apos;default&apos;: header,// 设置多地址的时候 前面&apos;&apos; 号中填写的是这个路由的属性名（自定义） 后面的是路由地址</span><br><span class="line">        &apos;left&apos;: leftBox,</span><br><span class="line">        &apos;main&apos;: mainBox</span><br><span class="line">    &#125;</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如何使用多路由视图呢</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view&gt;&lt;/router-view&gt;// 主路由可不用写属性名</span><br><span class="line">&lt;router-view name=&quot;left&quot;&gt;&lt;/router-view&gt;// 但是子路由就必须写属性名 name</span><br><span class="line">&lt;router-view name=&quot;main&quot;&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
+</ol>
+<h1 id="day5"><a href="#day5" class="headerlink" title="day5"></a>day5</h1><ol>
+<li>watch 监听 data 中指定数据的变化，然后触发这个 watch 中对应的 function 处理函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123; <span class="comment">// 使用这个 属性，可以监听 data 中指定数据的变化，然后触发这个 watch 中对应的 function 处理函数</span></span><br><span class="line">    <span class="comment">// firstname 是data中定义的  在function的函数操作中会有两个默认的值</span></span><br><span class="line">    <span class="comment">// newVal 是接收到监听</span></span><br><span class="line">    <span class="string">'firstname'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// this.fullname = this.firstname+'-'+this.lastname</span></span><br><span class="line">        <span class="built_in">console</span>.log(newVal+<span class="string">'----'</span>+oldVal);</span><br><span class="line">        <span class="keyword">this</span>.fullname = newVal</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'lastname'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">newVal</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.fullname = <span class="keyword">this</span>.firstname + <span class="string">'-'</span> + newVal</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>watch 监听路由地址的变化</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    <span class="comment">// $route.path 监听路由路径</span></span><br><span class="line">    <span class="string">'$route.path'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">newVal, oldVal</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// console.log(newVal + '-' + oldVal);</span></span><br><span class="line">        <span class="keyword">if</span> (newVal === <span class="string">'/login'</span>) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'登陆'</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'注册'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>computed 可以定义一些 属性，这些属性，叫做 【计算属性】， 计算属性的，本质，就是 一个方法，只不过，我们在使用 这些计算属性的时候，是把 它们的 名称，直接当作 属性来使用的；并不会把计算属性，当作方法去调用；</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    <span class="comment">// 注意1： 计算属性，在引用的时候，一定不要加 () 去调用，直接把它 当作 普通 属性去使用就好了；</span></span><br><span class="line">    <span class="comment">// 注意2： 只要 计算属性，这个 function 内部，所用到的 任何 data 中的数据发送了变化，就会 立即重新计算 这个 计算属性的值</span></span><br><span class="line">    <span class="comment">// 注意3： 计算属性的求值结果，会被缓存起来，方便下次直接使用； 如果 计算属性方法中，所以来的任何数据，都没有发生过变化，则，不会重新对 计算属性求值；</span></span><br><span class="line">    <span class="string">'fullname'</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ok'</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">'-'</span> + <span class="keyword">this</span>.middlename + <span class="string">'-'</span> + <span class="keyword">this</span>.lastname;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>webpack 使用<br><a href="https://github.com/YHF7/Vue/tree/master/webpack-study" target="_blank" rel="noopener">项目地址</a><br><a href="https://yhf7.github.io/2018/10/16/Vue-day5/#more" target="_blank" rel="noopener">项目插件安装使用</a></li>
 </ol>
 
       
@@ -782,9 +802,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/WechatIMG13.jpeg"
-                alt="YHF" />
+                alt="Detail" />
             
-              <p class="site-author-name" itemprop="name">YHF</p>
+              <p class="site-author-name" itemprop="name">Detail</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -885,7 +905,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#day1"><span class="nav-number">1.</span> <span class="nav-text">day1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day2"><span class="nav-number">2.</span> <span class="nav-text">day2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day3"><span class="nav-number">3.</span> <span class="nav-text">day3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day4"><span class="nav-number">4.</span> <span class="nav-text">day4</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#day1"><span class="nav-number">1.</span> <span class="nav-text">day1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day2"><span class="nav-number">2.</span> <span class="nav-text">day2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day3"><span class="nav-number">3.</span> <span class="nav-text">day3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day4"><span class="nav-number">4.</span> <span class="nav-text">day4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day5"><span class="nav-number">5.</span> <span class="nav-text">day5</span></a></li></ol></div>
             
 
           </div>
@@ -911,7 +931,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">YHF</span>
+  <span class="author" itemprop="copyrightHolder">Detail</span>
 
   
 </div>
