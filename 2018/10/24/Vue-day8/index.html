@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Hexo笔记," />
+  <meta name="keywords" content="Vue笔记," />
 
 
 
@@ -75,18 +75,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="Hexo笔记">
+<meta name="description" content="PromisePromise 概念 Promise 是一个 构造函数，既然是构造函数， 那么，我们就可以  new Promise() 得到一个 Promise 的实例； 在 Promise 上，有两个函数，分别叫做 resolve（成功之后的回调函数） 和 reject（失败之后的回调函数） 在 Promise 构造函数的 Prototype 属性上，有一个 .then() 方法，也就说，只要是">
+<meta name="keywords" content="Vue笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/08/24/hello-world/index.html">
+<meta property="og:title" content="Vue day8">
+<meta property="og:url" content="http://yoursite.com/2018/10/24/Vue-day8/index.html">
 <meta property="og:site_name" content="不懂IT的男孩">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="PromisePromise 概念 Promise 是一个 构造函数，既然是构造函数， 那么，我们就可以  new Promise() 得到一个 Promise 的实例； 在 Promise 上，有两个函数，分别叫做 resolve（成功之后的回调函数） 和 reject（失败之后的回调函数） 在 Promise 构造函数的 Prototype 属性上，有一个 .then() 方法，也就说，只要是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T02:20:37.700Z">
+<meta property="og:updated_time" content="2018-10-24T02:11:37.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Vue day8">
+<meta name="twitter:description" content="PromisePromise 概念 Promise 是一个 构造函数，既然是构造函数， 那么，我们就可以  new Promise() 得到一个 Promise 的实例； 在 Promise 上，有两个函数，分别叫做 resolve（成功之后的回调函数） 和 reject（失败之后的回调函数） 在 Promise 构造函数的 Prototype 属性上，有一个 .then() 方法，也就说，只要是">
 
 
 
@@ -116,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/24/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/24/Vue-day8/"/>
 
 
 
 
 
-  <title>Hello World | 不懂IT的男孩</title>
+  <title>Vue day8 | 不懂IT的男孩</title>
   
 
 
@@ -302,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/Vue-day8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Detail">
@@ -319,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hello World</h2>
+          <h2 class="post-title" itemprop="name headline">Vue day8</h2>
         
 
         <div class="post-meta">
@@ -331,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T13:21:06+08:00">
-                2018-08-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T09:56:13+08:00">
+                2018-10-24
               </time>
             
 
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-25T10:20:37+08:00">
-                2018-09-25
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-24T10:11:37+08:00">
+                2018-10-24
               </time>
             
           </span>
@@ -366,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
                   </a>
                 </span>
 
@@ -408,15 +408,49 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><h2 id="Promise-概念"><a href="#Promise-概念" class="headerlink" title="Promise 概念"></a>Promise 概念</h2><ol>
+<li>Promise 是一个 构造函数，既然是构造函数， 那么，我们就可以  new Promise() 得到一个 Promise 的实例；</li>
+<li>在 Promise 上，有两个函数，分别叫做 resolve（成功之后的回调函数） 和 reject（失败之后的回调函数）</li>
+<li>在 Promise 构造函数的 Prototype 属性上，有一个 .then() 方法，也就说，只要是 Promise 构造函数创建的实例，都可以访问到 .then() 方法</li>
+<li>Promise 表示一个 异步操作；每当我们 new 一个 Promise 的实例，这个实例，就表示一个具体的异步操作；</li>
+<li>既然 Promise 创建的实例，是一个异步操作，那么，这个 异步操作的结果，只能有两种状态：<ul>
+<li>状态1： 异步执行成功了，需要在内部调用 成功的回调函数 resolve 把结果返回给调用者；</li>
+<li>状态2： 异步执行失败了，需要在内部调用 失败的回调函数 reject 把结果返回给调用者；</li>
+<li>由于 Promise 的实例，是一个异步操作，所以，内部拿到 操作的结果后，无法使用 return 把操作的结果返回给调用者； 这时候，只能使用回调函数的形式，来把 成功 或 失败的结果，返回给调用者；</li>
+</ul>
+</li>
+<li>我们可以在 new 出来的 Promise 实例上，调用 .then() 方法，【预先】 为 这个 Promise 异步操作，指定 成功（resolve） 和 失败（reject） 回调函数；</li>
+</ol>
+<ul>
+<li>注意：这里 new 出来的 promise， 只是代表 【形式上】的一个异步操作；</li>
+<li>什么是形式上的异步操作：就是说，我们只知道它是一个异步操作，但是做什么具体的异步事情，目前还不清楚</li>
+<li>var promise = new Promise()</li>
+<li>每当 new 一个 Promise 实例的时候，就会立即 执行这个 异步操作中的代码</li>
+<li>也就是说，new 的时候，除了能够得到 一个 promise 实例之外，还会立即调用 我们为 Promise 构造函数传递的那个 function，执行这个 function 中的 异步操作代码；</li>
+</ul>
+<h2 id="Promise-使用"><a href="#Promise-使用" class="headerlink" title="Promise 使用"></a>Promise 使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个promise</span></span><br><span class="line"><span class="comment">// 初衷： 给路径，返回读取到的内容</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileByPath</span>(<span class="params">fpath</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    fs.readFile(fpath, <span class="string">'utf-8'</span>, (err, dataStr) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (err) <span class="keyword">return</span> reject(err)</span><br><span class="line">      resolve(dataStr)</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getFileByPath(path.join(__dirname, <span class="string">'./files/1.txt'</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123; <span class="comment">// .then 成功时调用</span></span><br><span class="line">    <span class="built_in">console</span>.log(data + <span class="string">'-------'</span>)</span><br><span class="line">  &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123; <span class="comment">// 第二个函数 失败时调用</span></span><br><span class="line">    <span class="built_in">console</span>.log(err.message)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Promise-使用回调地狱"><a href="#Promise-使用回调地狱" class="headerlink" title="Promise 使用回调地狱"></a>Promise 使用回调地狱</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFileByPath</span>(<span class="params">fpath</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    fs.readFile(fpath, <span class="string">'utf-8'</span>, (err, dataStr) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (err) <span class="keyword">return</span> reject(err)</span><br><span class="line">      resolve(dataStr)</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getFileByPath(<span class="string">'./files/1.txt'</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取文件2</span></span><br><span class="line">    <span class="keyword">return</span> getFileByPath(<span class="string">'./files/2.txt'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> getFileByPath(<span class="string">'./files/3.txt'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123; <span class="comment">// catch 的作用： 如果前面有任何的 Promise 执行失败，则立即终止所有 promise 的执行，并 马上进入 catch 去处理 Promise中 抛出的异常；</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'这是自己的处理方式：'</span> + err.message)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="使用mui的tab-top-webview-main完成分类滑动栏"><a href="#使用mui的tab-top-webview-main完成分类滑动栏" class="headerlink" title="使用mui的tab-top-webview-main完成分类滑动栏"></a>使用mui的<code>tab-top-webview-main</code>完成分类滑动栏</h1><h2 id="兼容问题"><a href="#兼容问题" class="headerlink" title="兼容问题"></a>兼容问题</h2><ol>
+<li><p>和 App.vue 中的 <code>router-link</code> 身上的类名 <code>mui-tab-item</code> 存在兼容性问题，导致tab栏失效，可以把<code>mui-tab-item</code>改名为<code>mui-tab-item1</code>，并复制相关的类样式，来解决这个问题；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">.mui-bar-tab .mui-tab-item1.mui-active &#123;</span><br><span class="line">  color: #007aff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.mui-bar-tab .mui-tab-item1 &#123;</span><br><span class="line">  display: table-cell;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  width: 1%;</span><br><span class="line">  height: 50px;</span><br><span class="line">  text-align: center;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  white-space: nowrap;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">  color: #929292;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.mui-bar-tab .mui-tab-item1 .mui-icon &#123;</span><br><span class="line">  top: 3px;</span><br><span class="line">  width: 24px;</span><br><span class="line">  height: 24px;</span><br><span class="line">  padding-top: 0;</span><br><span class="line">  padding-bottom: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.mui-bar-tab .mui-tab-item1 .mui-icon~.mui-tab-label &#123;</span><br><span class="line">  font-size: 11px;</span><br><span class="line">  display: block;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>tab-top-webview-main</code>组件第一次显示到页面中的时候，无法被滑动的解决方案：</p>
+<ul>
+<li><p>先导入 mui 的JS文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import mui from &apos;../../../lib/mui/js/mui.min.js&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 组件的 <code>mounted</code> 事件钩子中，注册 mui 的滚动事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">  	// 需要在组件的 mounted 事件钩子中，注册 mui 的 scroll 滚动事件</span><br><span class="line">      mui(&apos;.mui-scroll-wrapper&apos;).scroll(&#123;</span><br><span class="line">        deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006</span><br><span class="line">      &#125;);</span><br><span class="line">true&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>滑动的时候报警告：<code>Unable to preventDefault inside passive event listener due to target being treated as passive. See https://www.chromestatus.com/features/5093566007214080</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解决方法，可以加上* &#123; touch-action: none; &#125; 这句样式去掉。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>原因：（是chrome为了提高页面的滑动流畅度而新折腾出来的一个东西） <a href="http://www.cnblogs.com/pearl07/p/6589114.html" target="_blank" rel="noopener">http://www.cnblogs.com/pearl07/p/6589114.html</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/touch-action" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/touch-action</a></p>
+<h1 id="移除严格模式"><a href="#移除严格模式" class="headerlink" title="移除严格模式"></a>移除严格模式</h1><p><a href="https://github.com/genify/babel-plugin-transform-remove-strict-mode" target="_blank" rel="noopener">babel-plugin-transform-remove-strict-mode</a></p>
+<h2 id="vue-preview"><a href="#vue-preview" class="headerlink" title="vue-preview"></a><a href="https://github.com/LS1231/vue-preview" target="_blank" rel="noopener">vue-preview</a></h2><p>一个Vue集成PhotoSwipe图片预览插件</p>
 
       
     </div>
@@ -445,7 +479,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo笔记/" rel="tag"># Hexo笔记</a>
+            <a href="/tags/Vue笔记/" rel="tag"># Vue笔记</a>
           
         </div>
       
@@ -458,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/06/01-JavaScript基础/" rel="next" title="js基础">
-                <i class="fa fa-chevron-left"></i> js基础
+              <a href="/2018/10/20/Vue-day7/" rel="next" title="Vue day7">
+                <i class="fa fa-chevron-left"></i> Vue day7
               </a>
             
           </div>
@@ -468,8 +502,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/24/yhf/" rel="prev" title="yhf">
-                yhf <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/24/2018-10-24/" rel="prev" title="心态蹦">
+                心态蹦 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -643,7 +677,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-概念"><span class="nav-number">1.1.</span> <span class="nav-text">Promise 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-使用"><span class="nav-number">1.2.</span> <span class="nav-text">Promise 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-使用回调地狱"><span class="nav-number">1.3.</span> <span class="nav-text">Promise 使用回调地狱</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用mui的tab-top-webview-main完成分类滑动栏"><span class="nav-number">2.</span> <span class="nav-text">使用mui的tab-top-webview-main完成分类滑动栏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容问题"><span class="nav-number">2.1.</span> <span class="nav-text">兼容问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移除严格模式"><span class="nav-number">3.</span> <span class="nav-text">移除严格模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-preview"><span class="nav-number">3.1.</span> <span class="nav-text">vue-preview</span></a></li></ol></li></ol></div>
             
 
           </div>
