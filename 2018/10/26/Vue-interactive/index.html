@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Vue 案例," />
+  <meta name="keywords" content="交互," />
 
 
 
@@ -75,18 +75,18 @@
 
 
 
-<meta name="description" content="案例分布 父子组件直接传值 路由基础使用 webpack-study  一、 父子组件直接传值1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374&amp;lt;!DOCTYPE h">
-<meta name="keywords" content="Vue 案例">
+<meta name="description" content="前后台交互 在我们做项目的时候，会分为前端和后端 前端：前端负责界面 后端：后端负责数据处理   前端会有很多的框架和交互的方式 在我们做数据交互的时候 会碰到跨域的问题 当你使用 vue 作为页面框架的时候 就会开启前端的 vue 的 npm 服务 当你使用 node 作为页面后端的服务器的时候 就会开启后端 的 node 服务   那么问题就来了 当你开启 npm 服务 和 node 服务的时">
+<meta name="keywords" content="交互">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue day5 案例">
-<meta property="og:url" content="http://yoursite.com/2018/10/16/2018-10-16/index.html">
+<meta property="og:title" content="Vue&#x2F;node 前后台交互演练">
+<meta property="og:url" content="http://yoursite.com/2018/10/26/Vue-interactive/index.html">
 <meta property="og:site_name" content="不懂IT的男孩">
-<meta property="og:description" content="案例分布 父子组件直接传值 路由基础使用 webpack-study  一、 父子组件直接传值1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374&amp;lt;!DOCTYPE h">
+<meta property="og:description" content="前后台交互 在我们做项目的时候，会分为前端和后端 前端：前端负责界面 后端：后端负责数据处理   前端会有很多的框架和交互的方式 在我们做数据交互的时候 会碰到跨域的问题 当你使用 vue 作为页面框架的时候 就会开启前端的 vue 的 npm 服务 当你使用 node 作为页面后端的服务器的时候 就会开启后端 的 node 服务   那么问题就来了 当你开启 npm 服务 和 node 服务的时">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T14:15:26.347Z">
+<meta property="og:updated_time" content="2018-10-26T14:53:42.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue day5 案例">
-<meta name="twitter:description" content="案例分布 父子组件直接传值 路由基础使用 webpack-study  一、 父子组件直接传值1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374&amp;lt;!DOCTYPE h">
+<meta name="twitter:title" content="Vue&#x2F;node 前后台交互演练">
+<meta name="twitter:description" content="前后台交互 在我们做项目的时候，会分为前端和后端 前端：前端负责界面 后端：后端负责数据处理   前端会有很多的框架和交互的方式 在我们做数据交互的时候 会碰到跨域的问题 当你使用 vue 作为页面框架的时候 就会开启前端的 vue 的 npm 服务 当你使用 node 作为页面后端的服务器的时候 就会开启后端 的 node 服务   那么问题就来了 当你开启 npm 服务 和 node 服务的时">
 
 
 
@@ -116,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/16/2018-10-16/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/26/Vue-interactive/"/>
 
 
 
 
 
-  <title>Vue day5 案例 | 不懂IT的男孩</title>
+  <title>Vue/node 前后台交互演练 | 不懂IT的男孩</title>
   
 
 
@@ -302,7 +302,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/2018-10-16/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/26/Vue-interactive/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Detail">
@@ -319,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Vue day5 案例</h2>
+          <h2 class="post-title" itemprop="name headline">Vue/node 前后台交互演练</h2>
         
 
         <div class="post-meta">
@@ -331,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T23:26:07+08:00">
-                2018-10-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-26T21:54:22+08:00">
+                2018-10-26
               </time>
             
 
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-17T22:15:26+08:00">
-                2018-10-17
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-26T22:53:42+08:00">
+                2018-10-26
               </time>
             
           </span>
@@ -408,50 +408,78 @@
       
 
       
-        <h1 id="案例分布"><a href="#案例分布" class="headerlink" title="案例分布"></a>案例分布</h1><ol>
-<li>父子组件直接传值</li>
-<li>路由基础使用</li>
-<li>webpack-study</li>
+        <h1 id="前后台交互"><a href="#前后台交互" class="headerlink" title="前后台交互"></a>前后台交互</h1><ul>
+<li>在我们做项目的时候，会分为前端和后端<ul>
+<li>前端：前端负责界面</li>
+<li>后端：后端负责数据处理</li>
+</ul>
+</li>
+<li>前端会有很多的框架和交互的方式<ul>
+<li>在我们做数据交互的时候 会碰到跨域的问题</li>
+<li>当你使用 vue 作为页面框架的时候 就会开启前端的 vue 的 npm 服务</li>
+<li>当你使用 node 作为页面后端的服务器的时候 就会开启后端 的 node 服务</li>
+</ul>
+</li>
+<li>那么问题就来了 当你开启 npm 服务 和 node 服务的时候 分别都有两个端口<ul>
+<li>vue的 npm端口 去获取 node得服务得时候 就会出现在两个不同得服务处在不同得域内</li>
+<li>这样就出现了跨域问题了</li>
+</ul>
+</li>
+<li>既然出现了跨域问题，那么着么去解决这个跨域得问题呢<ol>
+<li>方法一：在后端服务中设置请求报文头</li>
+<li>方法二：在 vue 的 webpack 中的配置文件中设置代理跨域 （不会暂时不写）</li>
 </ol>
-<h1 id="一、-父子组件直接传值"><a href="#一、-父子组件直接传值" class="headerlink" title="一、 父子组件直接传值"></a>一、 父子组件直接传值</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 1.引包 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./lib/vue-2.5.17.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 4.调用 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 6.: 绑定数据--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 11. @添加点击事件绑定函数--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">msg</span> <span class="attr">:yf</span>=<span class="string">"yhf"</span> @<span class="attr">cl</span>=<span class="string">"getData"</span>&gt;</span><span class="tag">&lt;/<span class="name">msg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 外部板块 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"tmp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 8.在模板调用 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是一个子组件---&#123;&#123;yf&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 13.创建一个按钮用来调用传值函数 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击给父组件传值"</span> @<span class="attr">click</span>=<span class="string">"setData"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    // 2.创建子组件</span></span><br><span class="line"><span class="undefined">    let msg = &#123;</span></span><br><span class="line"><span class="undefined">        template: '#tmp',</span></span><br><span class="line"><span class="undefined">        // 7.定义父组件拿过来的数据</span></span><br><span class="line"><span class="undefined">        props: ['yf'],</span></span><br><span class="line"><span class="undefined">        // 9.定义子组件的数据</span></span><br><span class="line"><span class="undefined">        data() &#123;</span></span><br><span class="line"><span class="undefined">            return &#123;</span></span><br><span class="line"><span class="undefined">                msgData: '这是子组件传给父组建的，我是儿子'</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        methods: &#123;</span></span><br><span class="line"><span class="undefined">            // 14.定义函数用来给父组件传值</span></span><br><span class="line"><span class="undefined">            setData()&#123;</span></span><br><span class="line"><span class="undefined">                this.$emit('cl',this.msgData)</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    // 创建 Vue 实例,得到 ViewModel</span></span><br><span class="line"><span class="undefined">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="undefined">        el: '#app',</span></span><br><span class="line"><span class="undefined">        data: &#123;</span></span><br><span class="line"><span class="undefined">            // 5.定义父级数据</span></span><br><span class="line"><span class="undefined">            yhf: '这个父组建，我是你爸爸',</span></span><br><span class="line"><span class="undefined">            // 10.定义一个空字符串接收数据</span></span><br><span class="line"><span class="undefined">            msData: ''</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        methods: &#123;</span></span><br><span class="line"><span class="undefined">            // 12.定义函数接收子组件的数据 data 是传过来的数据</span></span><br><span class="line"><span class="undefined">            getData(data)&#123;</span></span><br><span class="line"><span class="undefined">                this.msData = data</span></span><br><span class="line"><span class="undefined">                console.log(this.msData);</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        components: &#123; // 3.添加组件</span></span><br><span class="line"><span class="undefined">            msg</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="二、路由基础使用"><a href="#二、路由基础使用" class="headerlink" title="二、路由基础使用"></a>二、路由基础使用</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./lib/vue-2.5.17.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 1. 引 vue-router 包 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./lib/vue-router-3.0.1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 5.调用路由 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 渲染路由标签 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/login"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/register"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 渲染路由容器 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    // 2.创建组件 登录和注册组件</span></span><br><span class="line"><span class="undefined">    let login = &#123;</span></span><br><span class="line"><span class="xml">        template: "<span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是登录组件，点击登录<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>"</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    let register = &#123;</span></span><br><span class="line"><span class="xml">        template: "<span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是注册组件，点击注册<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>"</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    // 3.创建路由</span></span><br><span class="line"><span class="undefined">    let router = new VueRouter(&#123;</span></span><br><span class="line"><span class="undefined">        routes: [&#123; //设置路由主页重定向</span></span><br><span class="line"><span class="undefined">                path: '/',</span></span><br><span class="line"><span class="undefined">                redirect: '/login'</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            &#123;</span></span><br><span class="line"><span class="undefined">                path: '/login',</span></span><br><span class="line"><span class="undefined">                component: login</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            &#123;</span></span><br><span class="line"><span class="undefined">                path: '/register',</span></span><br><span class="line"><span class="undefined">                component: register</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        ]</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    // 创建 Vue 实例,得到 ViewModel</span></span><br><span class="line"><span class="undefined">    var vm = new Vue(&#123;</span></span><br><span class="line"><span class="undefined">        el: '#app',</span></span><br><span class="line"><span class="undefined">        data: &#123;&#125;,</span></span><br><span class="line"><span class="undefined">        methods: &#123;&#125;,</span></span><br><span class="line"><span class="undefined">        router //4.挂载路由</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="三、webpack-study"><a href="#三、webpack-study" class="headerlink" title="三、webpack-study"></a>三、webpack-study</h1><h2 id="1-案例说明"><a href="#1-案例说明" class="headerlink" title="1.案例说明"></a>1.案例说明</h2><ol>
-<li>学习 webpack<ul>
-<li>安装</li>
-<li>基础使用</li>
-<li>打包</li>
+</li>
+</ul>
+<h1 id="后台服务设置跨域-设置请求报文头就可以"><a href="#后台服务设置跨域-设置请求报文头就可以" class="headerlink" title="后台服务设置跨域(设置请求报文头就可以)"></a>后台服务设置跨域(设置请求报文头就可以)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2.0 将所有api的请求响应content-type设置为application/json</span></span><br><span class="line">app.all(<span class="string">'/api/*'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">  <span class="comment">//设置允许跨域响应报文头</span></span><br><span class="line">  <span class="comment">//设置跨域</span></span><br><span class="line">  <span class="comment">// 启用 Node 服务器端的 cors 跨域</span></span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"X-Requested-With"</span>);</span><br><span class="line">  res.header(<span class="string">"Access-Control-Allow-Methods"</span>, <span class="string">"*"</span>);</span><br><span class="line"></span><br><span class="line">  res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/json;charset=utf-8'</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="项目演练"><a href="#项目演练" class="headerlink" title="项目演练"></a>项目演练</h1><ol>
+<li>项目地址<ul>
+<li><a href="https://github.com/YHF7/Vue/tree/master/vue%E5%89%8D%E5%90%8E%E5%8F%B0%E4%BA%A4%E4%BA%92" target="_blank" rel="noopener">Vue与Node交互项目演练</a></li>
 </ul>
 </li>
-<li>学习 webpack 的webpack-dev-server<ul>
-<li>安装</li>
-<li>自动打包</li>
-<li>配置</li>
+<li>使用项目<ul>
+<li>把地址里面都 vue-jh 这个包下载下来（用迅雷可以直接下载）</li>
+<li>项目分布<ul>
+<li>vue-tepmlate 是 vue 的前端案例<ul>
+<li>index.html 是渲染的主页（留坑）</li>
+<li>App.vue 是主页 vue 模块</li>
+<li>main.js 是业务逻辑</li>
+<li>router.js 路由</li>
+<li>webpack.config.js 是 vue webpack 的配置文件</li>
 </ul>
 </li>
-<li>学习 webpack 的html css等打包配置</li>
+<li>node_server 是 node 的后端服务<ul>
+<li>app.js 是node 服务</li>
+<li>controller.js 业务逻辑</li>
+<li>model.js 操作数据库</li>
+<li>router.js 路由</li>
+</ul>
+</li>
+<li>分别打开这两个文件在终端安装依赖<ul>
+<li>suco cnpm i (安装依赖包)</li>
+</ul>
+</li>
+<li>分别开启服务<ul>
+<li>vue-tepmlate<ul>
+<li>sudo npm run dev</li>
+</ul>
+</li>
+<li>node_server<ul>
+<li>sudo node app.js (或) sudo nodemon app.js</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>还有个最重要的是配置数据库<ul>
+<li>在 node_serve 中的model.js 文件中配置本地的mysql数据库</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
-<h2 id="2-第三方插件"><a href="#2-第三方插件" class="headerlink" title="2.第三方插件"></a>2.第三方插件</h2><ul>
-<li>jquery</li>
-<li><a href="mailto:webpack@3.12.0" target="_blank" rel="noopener">webpack@3.12.0</a></li>
-<li><a href="mailto:webpack-dev-server@2.6.0" target="_blank" rel="noopener">webpack-dev-server@2.6.0</a></li>
-<li>html-webpack-plugin</li>
-<li>css<ul>
-<li>style-loader</li>
-<li>css-loader</li>
-</ul>
-</li>
-<li>less<ul>
-<li>less-loader</li>
-<li>less</li>
-</ul>
-</li>
-<li>sass<ul>
-<li>sass-loader</li>
-<li>node-sass</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-项目地址"><a href="#3-项目地址" class="headerlink" title="3.项目地址"></a>3.<a href="https://github.com/YHF7/Vue/tree/master/webpack-study" target="_blank" rel="noopener">项目地址</a></h2>
+
       
     </div>
     
@@ -479,7 +507,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue-案例/" rel="tag"># Vue 案例</a>
+            <a href="/tags/交互/" rel="tag"># 交互</a>
           
         </div>
       
@@ -492,8 +520,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/13/2018-10-13/" rel="next" title="Vue day4 案例">
-                <i class="fa fa-chevron-left"></i> Vue day4 案例
+              <a href="/2018/10/24/2018-10-24/" rel="next" title="心态蹦">
+                <i class="fa fa-chevron-left"></i> 心态蹦
               </a>
             
           </div>
@@ -501,10 +529,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/16/Vue-day5/" rel="prev" title="Vue day5">
-                Vue day5 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -683,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#案例分布"><span class="nav-number">1.</span> <span class="nav-text">案例分布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、-父子组件直接传值"><span class="nav-number">2.</span> <span class="nav-text">一、 父子组件直接传值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、路由基础使用"><span class="nav-number">3.</span> <span class="nav-text">二、路由基础使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、webpack-study"><span class="nav-number">4.</span> <span class="nav-text">三、webpack-study</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-案例说明"><span class="nav-number">4.1.</span> <span class="nav-text">1.案例说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-第三方插件"><span class="nav-number">4.2.</span> <span class="nav-text">2.第三方插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-项目地址"><span class="nav-number">4.3.</span> <span class="nav-text">3.项目地址</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前后台交互"><span class="nav-number">1.</span> <span class="nav-text">前后台交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后台服务设置跨域-设置请求报文头就可以"><span class="nav-number">2.</span> <span class="nav-text">后台服务设置跨域(设置请求报文头就可以)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目演练"><span class="nav-number">3.</span> <span class="nav-text">项目演练</span></a></li></ol></div>
             
 
           </div>
