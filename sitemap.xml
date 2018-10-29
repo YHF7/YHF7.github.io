@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/10/17/npm-Plug-in/</loc>
+    
+    <lastmod>2018-10-29T03:27:39.783Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/10/24/Vue-day8/</loc>
     
     <lastmod>2018-10-26T14:54:33.572Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/2018/10/26/Vue-interactive/</loc>
     
     <lastmod>2018-10-26T14:53:42.593Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/10/17/npm-Plug-in/</loc>
-    
-    <lastmod>2018-10-26T03:37:11.853Z</lastmod>
     
   </url>
   
