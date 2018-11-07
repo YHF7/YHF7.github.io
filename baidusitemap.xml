@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2018/11/07/vue-cli/</loc>
+    <lastmod>2018-11-07T14:54:32.123Z</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2018/11/07/2018-11-07/</loc>
+    <lastmod>2018-11-07T14:28:12.073Z</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2018/11/04/2018-11-04/</loc>
     <lastmod>2018-11-04T03:34:41.412Z</lastmod>
   </url>  <url>
