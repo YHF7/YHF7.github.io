@@ -455,7 +455,7 @@ td {
     margin: 3px 0 10px 0 !important;
   }
   .post-block {
-    padding: 8px 0 !important;
+    padding: 8px 8px !important;
   }
   .post-body h2,
   .post-body h3,
@@ -1985,7 +1985,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9f5e2f;
+  background: #2817a8;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3317,9 +3317,8 @@ img:hover {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
-* {
-  cursor: url("../../images/joy.ico"), auto !important;
-}
-:active {
-  cursor: url("../../images/joy.ico"), auto !important;
+@media (max-width: 567px) {
+  .post .post-body {
+    padding: 10px !important;
+  }
 }
