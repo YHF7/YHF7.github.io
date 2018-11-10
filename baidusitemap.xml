@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2018/11/10/2018-11-10/</loc>
+    <lastmod>2018-11-10T14:43:19.911Z</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2018/11/07/vue-cli/</loc>
+    <lastmod>2018-11-10T02:09:37.484Z</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2018/11/09/2018-11-09(2)/</loc>
     <lastmod>2018-11-09T07:45:38.423Z</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2018/11/09/2018-11-09/</loc>
     <lastmod>2018-11-09T04:19:18.921Z</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2018/11/07/vue-cli/</loc>
-    <lastmod>2018-11-07T14:54:32.123Z</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2018/11/07/2018-11-07/</loc>
     <lastmod>2018-11-07T14:28:12.073Z</lastmod>
