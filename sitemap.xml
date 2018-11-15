@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/11/15/sql-fuq/</loc>
+    
+    <lastmod>2018-11-15T14:54:32.714Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/15/2018-11-15/</loc>
+    
+    <lastmod>2018-11-15T14:24:16.906Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/10/17/npm-Plug-in/</loc>
+    
+    <lastmod>2018-11-12T02:37:19.477Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/11/10/2018-11-10/</loc>
     
     <lastmod>2018-11-10T14:43:19.911Z</lastmod>
@@ -68,13 +89,6 @@
     <loc>http://yoursite.com/2018/10/24/Vue-day8%609/</loc>
     
     <lastmod>2018-11-04T02:43:03.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/10/17/npm-Plug-in/</loc>
-    
-    <lastmod>2018-10-29T03:27:39.783Z</lastmod>
     
   </url>
   
