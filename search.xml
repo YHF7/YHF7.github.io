@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue2-vuex 案例分析]]></title>
+    <url>%2F2018%2F11%2F17%2Fvue2-vuex%E6%A1%88%E4%BE%8B%2F</url>
+    <content type="text"><![CDATA[这个是我在github看到的一个vue的案例感觉好像挺有用的就下下来看，然后就写了这个分析，vue-vuex都全了很好项目地址目录分析 build 配置/打包目录 config 端口控制 happyfri 静态资源 node_modules 插件库 src 业务逻辑 components 公共组件 itemcontainer 页面 config 这个我不太懂应该是 ajax 交互用的 ajax.js rem.js images 图片 page 业务逻辑组件 home 主页面 index.vue item 答题页面 index.vue score 最后的分数页面 index.vue router 路由 router.js store vuex 的业务逻辑 index.js 创建与实例数据与方法 actioin.js 主要是负责对接外部方法 mutatoions.js 主要是复杂编写内部方法供 actionin.js 内的方法调用 style less common.less 控制页面的样式 App.vue 主组件 main.js 配置文件 index.html 主页面 其他的一下配置文件 走进 vue2 项目页面 首先这个是用 vue-cli 脚手架开启的一个 vue 项目 （作者是把原本的 8080 短端口改为了 8088） sudo cnpm dev run 开启服务 看开启无误 通过http://localhost:8088/#/ 访问主页面 开启到了服务了我们就来看结构 页面很简单看起来就几个部分 头部-内容-按钮-背景图 业务逻辑代码 进入到页面了 我们就看看 主页面 是着么得到的 当我们开启了服务的时候 就会执行 build/dev-server.js 文件 然后就会找到我们的 src 文件夹 文件夹内有个 main.js 的配置文件 在 main.js 文件中 所有的 插件与静态资源 与 vue 实例都会在里面 但是因为这样都写在一起 不仅会使得代码很乱也会很多所以分开了很多的页面去写 所以看到 main.js 其实没什么东西 ，都分到了不同的组件中 好到了我们的 main.js 就激活 vue 实例 这里 vue 就会进行内部的路由判断 我们打开了 8088 端口时默认是 / 在 router/router.js 文件就会判断并执行到相应到页面 也就是主页 router.js 在这个路由页面中我们会看到 返回到是 App 这个 主组建 children 这个是用来设置子组件的 （子组建分为了三个） “” 默认为空的话 就是去到 ../page/home 这个主页面中 “item” 答题页 “score” 结算页 component: r =&gt; require.ensure([], () =&gt; r(require(‘../page/home’)), ‘home’) 这个获取地址的方法 已经不建议如此获取 跟着路由判断 我们来到了 默认的主页面 src/page/home/index.vue template 组件 我们看到是一个类名 home_container 的 div 包着一个 外部引用组件 通过 father-component 给这个组件传一个值 ，这是用来给组件判断是主页面还是答题页面，输出不同的效果 script js import itemcontainer from ‘../../components/itemcontainer’ 引用外部的组件 name 这个就不用说了 components 挂载组件 style less 看完了 子主页面 我们顺藤摸瓜 去看看他所引用的外部组件 src/components/itemcontainer.vue template （分了两个部分，同时也分了两个页面 home/item） 头部 header 通过 刚才我们看到的 father-component 传过来的值 判断是 home 还是 item 显示不同的头部 第几周/第几题 内容 div 也是通过 father-component 判断显示那个 那么我们就分开说 home 一个 div 放着一些内容 router-link 控制的一个按钮 跳转地址是 item item div 包着的 内容 通过 itemDetail.length 来判断是否还有题目//其实是多余的 有就 继续执行 内容 header ul&gt;li 最后又两个 span 通过 itemNum &lt; itemDetail.length 来判断是下一题还是执行结算函数 script 在这里面我们可能一开始是没有注意到的 props 父子组件传值就不说了 把目光投射到代码靠后一点点 created 这个生命周期函数身上 当我们一进入这个页面时 就会马上判断是否是 home 页面 如果是 那就执行 this.initializeData(); 这是定义在 vuex 的函数 不急跳过去先看看 itemcontainer 内的 vuex 我们会看到 页面是用了 按需导入的方法 import { mapState, mapActions } from “vuex”; 在我们的使用中为了避免多次的编写 this.\$store….这样的代码 我们是用来 mapState，mapActions 这两个方法 mapState 获取 vuex 的 state 也就是 data 使用比较简单 computed: mapState([接收名:’vuexdata 名’]) computed 用来监控自己定义的变量 mapActions 获取 vuex 的函数 methods: {…mapActions([“函数名”, “函数名”])} // 将 this.方法名() 映射为 this.$store.dispatch(&#39;方法名&#39;) 用在异步操作 知道了这些我们继续回头看项目 判断是 home 就执行方法 和设置背景 style 样式这些基本工的我就不说自己摸索 既然说到了 vuex 那就顺着去看看 vuex src/store/index 进来了后我们看到的是 一些引入的插件和自定义的函数方法 在这里注册了 vuex state 就是一些定义的数据 在下面我们会看到一个 抛出的 创建 vuex 实例 state 是数据 actions 异步调用自定义的方法 mutations 同步自定义方法 了解了 vuex store 的架构后我们再继续看这个 刚才调用的方法的执行 但调用这个方法的时候 第一时间方法是找到了 src/store/index.vue 的 stroe 实例 通过前面我们知道是异步调用方法是 在 actions 这个中，这个方法来自于 当前文件夹下的 actions.vue 中 那我们进入到这个页面 终于看到了这个方法了 原来是用来初始化信息的 这个方法需要传入一个值 （但我们使用 vuex 的时候默认第一个要输入的是 vuex 的参数） 当我们看到 commit 的时候应该想到的是 vuex 同步方法调用 那么我们知道同步方法都是放在 mutations 里面 那我们就进去看看 在文件中 我们找到了 刚才调用的 INITIALIZE_DATA 方法 state 是 vuex 必须导入的 然后我们就看了了很多个 state.什么的数据 看到 state 那肯定就是 vuex 内部都数据啦 这时候返回到 index.js 对照着看 就会知道是把数据进行赋值初始化，这步是为了不要产生数据的出错，当你答完题又回去 home 的时候再次答题数据就会出错了 好我们看完了 App/home 这样的 主子组建的搭配和数据初始化后，我们在页面点击开始 点击开始就是等于 点击了 itemcontainer 内的 router-link 就会跳到 item 路由判断就会根据 /item 判断 我们就会去到 crc/page/item/index.vue 这个结构我们就不说了和 home 一样 我们说一下 created 这是生命周期函数，表示进入界面已经加载完 dom 时执行 好我们也跟着 再一次回到了 itemcontainer 页面 template 判断得到是 item 执行显示出来头部和内容 header 显示第几题 div 这个就详细说一下重点就是在这里 那我们就来重点解说一下这个 div 因为数据已经导入进来前面说过了直奔内容 先看类名为 item_list_container 这里就是 item 的内容 用来判断是否还有题目 遍历数据 header 获取 vuex 内的 itemDetail 数组中的 第 0 个对象中的 topic_name （itemNum 是用来判断是第几题的，为什么是 itemNum-1 不用我说了把） ul li 遍历出选项 在 li 绑定了点击保存答案 id 的方法 做了一个 点击按钮绑定的样式 也做了一个 abcd 的遍历，定义方法通过不同的数值表示不同的字母 获取内容 最后两个 span 是用来判断下一题还是执行结算 最后的几个 vuex 问题都在这里了 先说 li 的保存答案 li 绑定了自定义的一个函数 choosed 有两个参数值 li 遍历的第几个 和 vuex 数据中的答案 id 看到 choosed 方法 当我们选择答案的时候 就会在记录在 choosedNum 和 choosedId 中 选择了答案的选项 当然就会击下一题 触发 自定义函数 nextItem 这个函数首先判断的是 通过choosedNum判断是否有选择答案，没有就弹框 有就把choosedNum清空 这是步骤是为了检测是否真的有输入（为什么不用输入的ID做呢，因为这里执行的是异步操作，用户可以继续做题，通过是否为空去判断，id传走执行其他操作，下一次传值覆盖掉就好了） 这里通过异步调用 方法 addNum 并传入答案id 前面说过位置在哪里这里就直接看执行方法 先同步执行了 ‘REMBER_ANSWER’ 这里是把答案添加到了 vuex 内的state中的answerid数组中 然后再判断题目还有没有，有就 执行’ADD_ITEMNUM’方法 加一题 一直如此到了最后一题的时候点击 itemNum就会比itemDetail长 哪就执行submitAnswe 还是判断有没有选择题目 执行添加最后一题答案 关闭定时器 路由添加score 跳转到score页面 好终于到了最后的页面了 src/page/score/index 这个页面也是分了两部分的不过前面说了那么多你们应该看得懂这个页面的所以就不多说 直接关心数据 还是用按需导入法 获取到了answerid 就是那个答案数组然后进行答案的计算 进入页面执行 computedScore和getScoreTip函数 好了这么一个 vue2 vuex 的小案例就分析完毕了 别看这个案例好像很小但是我们也说了很多了 本人才疏学浅花了几个小时才完全弄懂 麻雀虽小五脏俱全]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue 案例</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[各数据库的开启与服务器的开启]]></title>
     <url>%2F2018%2F11%2F15%2Fsql-fuq%2F</url>
     <content type="text"><![CDATA[本人记性不好写起来方便可以开启关闭 使用就不说了很简单自己摸索吧 数据库 本人才疏学浅只会mysql和mongod、sqlserver但是没装mysql 开启：sudo /usr/local/mysql/bin/mysqld_safe –skip-grant-tables 关闭：sudo /usr/local/mysql/bin/mysqladmin -u root -proot shutdown mysql 建议装 Navicat for mysql 图形化界面工具（虽说代码才是王道倒是也可以提高效率是真，而且本人太记得sql语句很适合） mongod mongod 开启相对比较简单 开启 sudo mongod 关闭 直接结束命令行就可以12345678910111213链接(默认链接本地服务)mongo退出exit基本命令:1. show dbs 查看显示所以数据库2. db 查看当前链接打数据库3. use 数据库名称 切换到指定打数据库（如果没有会新建）4. 插入数据5. show collections 查看数据集合 6. db.students.find() 查看库中所以的数据 服务器 xamp / mamp / apache 基本什么都可以用 但是用jsp就不太可以 (个人比较爱前两个，还有很多好用的服务器但是，本人用的是mac不是什么软件都能找到) apache-tomcat 就是用了使用javaweb（jsp）xampp 这个比较简单 界面开启就好 留一个 数据库的地址老是忘记 http://localhost/phpmyadmin/ MAMP 这个也是界面不说 Apache Mac电脑自带 开启 sudo apachectl start 关闭 sudo apachectl stop 重启 sudo apachectl restar 留几个配置网址以后好找 https://www.cnblogs.com/wanxudong/p/5846907.html https://jingyan.baidu.com/article/922554467d763b851648f4dc.html https://www.linuxidc.com/Linux/2016-03/129524.htm https://www.jianshu.com/p/f56815569234 apache-tomcat 开启 进入 服务器文件夹 找到 bin文件夹 在终端打开 执行 sudo sh startup.sh 关闭 同上 sudo sh shutdown.sh 不行就看网址 https://www.cnblogs.com/xingxingLove/p/5304390.html IntelliJ IDEA 写java，javaweb装这个软件 会自动检测本地得 apache-tomcat 基本不需要自己开启 软件自动调用开启服务，如果同时自己开了得话会起冲突的，自己记清楚 node 这个不用说自己写代码自己运行 sudo node app.js (有nodemon就最好啦)]]></content>
@@ -63,7 +74,7 @@
         <category>插件/配置</category>
       </categories>
       <tags>
-        <tag>vue</tag>
+        <tag>vue插件</tag>
       </tags>
   </entry>
   <entry>
@@ -107,7 +118,7 @@
         <category>Vue</category>
       </categories>
       <tags>
-        <tag>Vue案例</tag>
+        <tag>Vue 案例</tag>
       </tags>
   </entry>
   <entry>
