@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[YHF 管理系统（javaweb）]]></title>
+    <url>%2F2018%2F12%2F01%2FJavaWeb1%2F</url>
+    <content type="text"><![CDATA[前言 这是一个期末考试项目 老师出的一个题目 要求有 数据库、css、js、等特效 至少 3 个页面以上 所有做了这么等一个小项目 项目所用技术 页面 架构主要都是 javaweb （主页是 bootcss 的页面） 部分用到了 js 数据库 mysql 插件 js jq echarts 图表插件 css bootcss 项目源码地址项目效果图登录页 注册页 主页 用户图表页 修改用户信息页 数据库结构]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>JavaWeb 案例</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mpvue搭建初始小程序]]></title>
     <url>%2F2018%2F11%2F24%2F%E6%90%AD%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
     <content type="text"><![CDATA[前言前段时间，美团开源了 mpvue 这个项目，使得我们又多了一种用来开发小程序的框架选项。由于 mpvue 框架是完全基于 Vue 框架的（重写了其 runtime 和 compiler），因此在用法上面是高度和 Vue 一致的（某些功能由于受限于小程序环境本身的原因而不能使用），这给使用过 Vue 开发 Web 应用的前端开发者提供了极低的切换门槛来开发小程序。 没学过 vue 的想去学一下先 开始1. 开发环境- 系统自己喜欢 （本人 OS 10.0） - node.js npm (最好切换为国内镜像 npm set registry https://registry.npm.taobao.org/) - vue-cli （npm install vue-cli -g） - 微信开发者工具 https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html - 开发软件 vscode （个人喜欢） - 软件内部插件 Vetur （vue语法高亮） 2. 架构第一个 mpvue 的小程序- vue init mpvue/mpvue-quickstart firstapp （在命令行运行，firstapp项目名自己定） - 然后就会看到这个 （如果自己代码不是很规范的话eslint那里请选n） 12345678910111213141516171819? Project name firstapp? wxmp appid touristappid? Project description A Mpvue project? Author kevinzhang 邮箱? Vue build runtime? Use Vuex? Yes? Use ESLint to lint your code? Yes? Pick an ESLint preset Standard? 小程序测试，敬请关注最新微信开发者工具的“测试报告”功能vue-cli · Generated "firstapp".To get started: cd firstapp npm install npm run devDocumentation can be found at http://mpvue.com - 安装好后 - cd firstapp - npm install (这一步是安装要用的插件和依赖) - 执行命令让这个代码运行起来，进入开发模式 - npm run dev - 成功运行后，这个项目代码就进入开发模式，一旦有源代码发生修改，就会触发自动编译。因为mpvue使用的是Vue + HTML Web的开发方式开发小程序，它最终还是需要被转换成小程序的代码才可以在小程序环境运行，所以这里的自动编译的目的就是要把Web代码编译成小程序代码。编译后的代码会在dist目录下： ![编译成功](/xcx/3.webp) 3. 部署到微信开发者工具- 打开微信开发者工具，选择新增项目 ![新增](/xcx/1.webp) - 项目目录选择指向firstapp目录： ![新增](/xcx/4.webp) - 点击“确定”按钮，进入小程序开发主界面，在左边的小程序模拟器中就能看到firstapp小程序的执行结果了： ![新增](/xcx/5.webp) - 【提醒】记得在微信开发者工具的菜单》设置 》编辑设置 中，将“保存时自动编译小程序”勾选上，这样当mpvue的代码自动编译完成后，模拟器才会自动刷新界面。 ![新增](/xcx/2.webp) 小结 本文简要介绍使用 mpvue 开发小程序的前期准备，后面还会继续学习再介绍其他功能]]></content>
