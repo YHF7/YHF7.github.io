@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-11T04:45:48.497Z</updated>
+  <updated>2018-12-30T16:16:22.673Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ThinkPHP xdebug安装以及报错处理</title>
+    <link href="http://yoursite.com/2018/12/30/ThinkPHP%E5%AE%89%E8%A3%85xdebug/"/>
+    <id>http://yoursite.com/2018/12/30/ThinkPHP安装xdebug/</id>
+    <published>2018-12-30T15:32:34.242Z</published>
+    <updated>2018-12-30T16:16:22.673Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul><li>在我们开发的过程中我们肯定是会有一定的错误，当我们去查错的时候有很多的方法</li><li>可以使用断点的方法运行查看错误，也可也使用输出来一点点缩小范围</li><li>但是在 ThinkPHP 中并不可以直接就插入断点来查错，所以很多的 php 工程师觉得麻烦就不去安装使用 xdebug 的插件</li><li>在这里我们就一起来安装以及配置</li></ul><h1 id="所需工具-资料"><a href="#所需工具-资料" class="headerlink" title="所需工具/资料"></a>所需工具/资料</h1><ul><li>mac 10.13.3 （自带 php 所以会出现一定的问题）</li><li>Xampp （小编使用的是集成开发的）</li><li>ThinkPHP 5.0.7（版本自己喜欢都可以的）</li><li>VS code 用来改文件</li><li><a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">https://xdebug.org/wizard.php</a> xdebug 下载网址</li></ul><h1 id="开启-xdebug-之旅"><a href="#开启-xdebug-之旅" class="headerlink" title="开启 xdebug 之旅"></a>开启 xdebug 之旅</h1><h2 id="1-开启服务"><a href="#1-开启服务" class="headerlink" title="1. 开启服务"></a>1. 开启服务</h2><ul><li>开启 xampp</li><li>在 ThinkPHP 中 public/下新建 info.php 在里面加 phpinfo();<br><img src="/tp/tp1.png" alt="tp1"></li><li><a href="http://localhost/zerg/public/info.php" target="_blank" rel="noopener">http://localhost/zerg/public/info.php</a> （zerg 是我项目名，查看 phpversion）<br><img src="/tp/tp3.png" alt="tp3"></li><li>可以搜索 xdebug 看看有没有，php 是不自带的如果不是配置来都是没有的</li></ul><h2 id="2-下载-xdebug"><a href="#2-下载-xdebug" class="headerlink" title="2. 下载 xdebug"></a>2. 下载 xdebug</h2><ul><li>打开官网 <a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener">https://xdebug.org/wizard.php</a></li><li>进入来官网直接就是下图这样的下载地方了<br><img src="/tp/tp2.png" alt="tp2"></li><li>回到 info.php 的页面右键查看源代码 （进入了界面直接 全选复制）<br><img src="/tp/tp4.png" alt="tp4"></li><li>把复制的代码放到刚才的框内，并点击 analyse my phpinfo()的那个按钮 就会自动的监测你的 php 版本需要用什么版本的 sdebug<br><img src="/tp/tp5.png" alt="tp5"></li><li>就会得到下面图所显示的页面，点击红色框的部分下载包<br><img src="/tp/tp6.png" alt="tp6"></li></ul><h2 id="3-配置-xdebug"><a href="#3-配置-xdebug" class="headerlink" title="3. 配置 xdebug"></a>3. 配置 xdebug</h2><ul><li>当我们下载好了后找到自己下载的位置 会有 xdebug-2.6.1.tgz 的压缩包</li><li>然后我们就跟着他给的步骤做，是什么步骤看上面下包的图</li><li>第一步：解压包 在终端进入到 文件的目录 sudo tar -xvzf xdebug-2.6.1.tgz 就可以解压</li><li>第二步：进入文件目录 cd xdebug-2.6.1</li><li>第三步：执行 phpize （一般没有安装 brew 和 autoconf 的都会出现下面的错误）<br><img src="/tp/tp8.png" alt="tp8"> - 有错我们只好修复这个错误（是因为没有安装 autoconf 引发的）那我们就安装一下 - 安装 autoconf 需要用 brew 所以先安装 brew - ruby -e “\$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a> -（使用上面的命令就可以安装了，如果不行就去<a href="http://brew.sh/官网看看吧）" target="_blank" rel="noopener">http://brew.sh/官网看看吧）</a></li><li>安装好我们安装 autoconf - brew install autoconf</li><li>第四步：继续执行 phpize<ul><li>一般都是直接 sudo phpize （mac 系统这样做肯定报错如图，为什么呢因为多端 php，系统自带一个 xampp 带一个 brew 也会补一个,而且系统默认是抓取本地的 php 所以无论你着么配最后都没有效果）<br><img src="/tp/tp7.png" alt="tp7"></li><li>面对这个坑我们不怕直接全路径安装就好</li><li>sudo /Applications/XAMPP/xamppfiles/bin/phpize 这样就可以了</li></ul></li><li>第五步：执行 confoigure 吃了上一次的亏这一次不可以再吃了<ul><li>sudo ./configure –with-php-config=/Applications/XAMPP/xamppfiles/bin/php-config</li></ul></li><li>第六步：这里按照图片的操作也可以，当然我是直接复制粘贴的，因为我被命令行伤透了心，找到当前目录下的 modules 文件夹，找到该文件夹下的 xdebug.so(想说爱你不容易啊)，狠狠的复制。</li><li>第七步：把复制的粘贴（如果按照图片的做跳过这一步）<ul><li>/Applications/XAMPP/xamppfiles/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so</li></ul></li><li><p>xdebug.so 探寻结束，开始配置 php.ini</p><ul><li><p>到/Applications/XAMPP/xamppfiles/etc/php.ini 目录中找到 php.ini 然后打开，在最后面添加如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[xdebug]</span><br><span class="line">zend_extension = /Applications/XAMPP/xamppfiles/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so</span><br><span class="line">xdebug.remote_autostart=on</span><br><span class="line">xdebug.remote_enable=on</span><br><span class="line">xdebug.remote_mode=&quot;req&quot;</span><br><span class="line">xdebug.remote_host=localhost</span><br><span class="line">xdebug.remote_port=9000</span><br><span class="line">xdebug.remote_handler=&quot;dbgp&quot;</span><br><span class="line">xdebug.idekey=&quot;PhpStorm&quot;</span><br><span class="line">xdebug.profiler_enable = Off</span><br></pre></td></tr></table></figure></li><li><p>最后保存，然后重启 Apache 服务，重新输出 phpinfo()信息，然后搜索一下，发现如下内容即告成功。</p></li></ul></li></ul><h2 id="4-最后效果"><a href="#4-最后效果" class="headerlink" title="4. 最后效果"></a>4. 最后效果</h2><p><img src="/tp/tp9.png" alt="tp"></p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><ul><li>这只是本人的一些解决做法，如有侵权请通知删除</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="插件/配置" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6-%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>移动web期末大作业</title>
@@ -488,31 +513,6 @@
     
     
       <category term="交互" scheme="http://yoursite.com/tags/%E4%BA%A4%E4%BA%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>心态蹦</title>
-    <link href="http://yoursite.com/2018/10/24/2018-10-24/"/>
-    <id>http://yoursite.com/2018/10/24/2018-10-24/</id>
-    <published>2018-10-24T13:13:39.493Z</published>
-    <updated>2018-10-24T13:22:37.324Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>颓废了好几天的我今天终于下定决心要走出颓废的日子，我告诉自己在这样下去真的点就输了一辈子了，不想在这样颓废下去，遇到一点点的问题，就颓废这是作为一个十几岁的青年该有的的吗，为什么要这样下去<br>后端开发是啥 我要学过后台开发啊，为啥我就写不出来呢，接口？交互？ 这些我好像都学过啊， 但是 vue 与 node php 如何交互呢？ 作为主攻前端的 是应该花时间系统的去学习后端吗 ， node 刚学完啊， 为什么不去 用 node 呢<br>有想用 node 也有想用 php 但是着么写呢 这个交互的过程着么去做呢 就因为做个练习没有后台接口 颓废了好几天？ 虽然我还没有解决这个问题 但是我不想在这样下去了，我会输掉自己的 继续努力</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="个人" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA/"/>
-    
-    
-      <category term="个人" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA/"/>
     
   </entry>
   

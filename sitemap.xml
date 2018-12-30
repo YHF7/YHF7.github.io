@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/12/30/ThinkPHP%E5%AE%89%E8%A3%85xdebug/</loc>
+    
+    <lastmod>2018-12-30T16:16:22.673Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2018-12-14T13:17:48.535Z</lastmod>
