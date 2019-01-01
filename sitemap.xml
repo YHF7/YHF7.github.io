@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2019-01-01T12:59:04.959Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/01/01/XAMPP%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%9F%9F%E5%90%8D/</loc>
+    
+    <lastmod>2019-01-01T12:57:27.366Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/01/01/JavaWeb%E5%AE%9E%E8%AE%AD/</loc>
+    
+    <lastmod>2019-01-01T12:57:16.308Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/12/31/PHPStorm%E9%85%8D%E7%BD%AE%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/</loc>
     
     <lastmod>2018-12-31T15:28:42.694Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://yoursite.com/2018/12/30/ThinkPHP%E5%AE%89%E8%A3%85xdebug/</loc>
     
     <lastmod>2018-12-30T16:16:22.673Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2018-12-14T13:17:48.535Z</lastmod>
     
   </url>
   

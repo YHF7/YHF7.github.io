@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JavaWeb 实训项目]]></title>
+    <url>%2F2019%2F01%2F01%2FJavaWeb%E5%AE%9E%E8%AE%AD%2F</url>
+    <content type="text"><![CDATA[前言 先来吐槽一下这个项目 既然是吐槽，我先从自身出发，作为一个前端为主的开发人员我看到这个界面的是我是忍不住的，哪有人做界面这么难看（不过从后端的角度出发界面也就那么回事吧能实现业务逻辑就好） 虽然是后端，也用了 java 的语言 但是这样绕来绕去的写法看得我头皮发麻，我还是喜欢简单明了的写法 不过既然是一个学习的项目那就要好好的去对待 这次只是分享项目不是写，看着可以的可以下来看看研究研究还是可以的 所需工具/资料 mac 10.13.3 mysql 5.0+ 的版本（不要太高不然链接方式有问题） Intelli IDEA 2018 （软件自己去官网下，破解不会可以私聊我） 项目源码 是存放在一个大的文件内可以全部都下了，使用浏览器迅雷可以下单独的哦 里面有 sql 直接导入就可以了 Github(https://github.com/YHF7/JavaWeb/tree/master/netstop) 效果图]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>JavaWeb 案例</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[XAMPP 配置虚拟域名/localhost重定向]]></title>
+    <url>%2F2019%2F01%2F01%2FXAMPP%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E5%9F%9F%E5%90%8D%2F</url>
+    <content type="text"><![CDATA[前言 说到这个 xampp 这个东西配置虚拟域名，小编一肚子的气啊，搞技术这些东西还是网上搞比较容易。 相同的方法同样的配置，白天弄了一天还是不行，晚上洗完澡把东西都回执到原样结果就可以了 记录下来以后配置的时候可以用 坑提醒 mac 下域名不可使用 test_1.cn 类似此种格式的域名，windows 下面可以，mac 下不可以，今天碰到的大坑 hosts 填写的域名和 httpd-vhosts.conf 中的域名请保持一致 ErrorLog 和 CustomLog 这两个最好就是不要修改吧，不然很容易出现权限不足就报错的，之前我也试过（导出错误一般都不回去看吧，也看不懂最好就不要动了） 网上说的添加什么这些不用去添加的，添加了反而错了（因为本来自带的就是有访问权限的） 1234567&lt;Directory &quot;/Applications/XAMPP/xamppfiles/htdocs&quot;&gt; #Options Indexes FollowSymLinks ExecCGI Includes #don&apos;t permission see list Options All AllowOverride All Order allow,deny Allow from all&lt;/Directory&gt; 在配置完后 localhost 地址也会被改变，无法访问同目录下的其他项目，所以我们要做一次重定向 配置完记得重启服务器不然看不到修改的效果然后就觉得自己弄错了 所需工具/资料 mac 10.13.3 Xampp （7.0 版本基本无差） VS code (vim 个人觉得麻烦还是用界面的快一点) 配置配置本地域名 前往本地的/etx/hosts 打开 hosts 文件（我用的是 vscode，你们自己可以随意，也可以用命令直接修改） 填写自己想要的域名 127.0.0.1 zerg.cn # added by Apache Friends XAMPP （我自己用的） 图片中黄色部分，可写可不写，最好写上吧 配置 xampp httpd.conf(其实就是检查开启了域名配置了没有) 前往本地 xampp/xamppfiles/etc/httpd.conf 查找 etc/extra/httpd-vhosts.conf 看看是否打开，如果被注释了去掉# 配置 xampp httpd-vhosts.conf (域名的向导) 前往本地 xampp/xamppfiles/etc/extra/httpd-vhosts.conf 添加域名导向(ServerName 必须要和定义的域名一致) *:80 表示端口 DocumentRoot 表示项目的目录 ServerName 你要使用的虚拟域名，这里和前面 host 文件中的保持一致，不然会出错 配置以上两个就可以，重启 Apache 就可以使用你配置的虚拟域名 1234567&lt;VirtualHost *:80&gt; # ServerAdmin webmaster@dummy-host2.example.com DocumentRoot &quot;/Applications/XAMPP/xamppfiles/htdocs/zerg/public&quot; ServerName zerg.cn ErrorLog &quot;logs/dummy-host2.example.com-error_log&quot; CustomLog &quot;logs/dummy-host2.example.com-access_log&quot; common&lt;/VirtualHost&gt; 最终结果（本地/自定义） 域名 本地 localhost 重定向 我们定义完后地址访问路径也会被改变，在多项目的情况下就无法查看其他的项目 解决的方法就是我们给他做一个重定向，然后重启服务器 这样我们就可以看到项目目录了 后记 完整的 XAMPP 配置虚拟域名,遇到问题欢迎添加微信 qq 一起学习交流 这只是本人的一些解决做法，个人笔记，如有侵权请通知删除]]></content>
+      <categories>
+        <category>插件/配置</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PHPStorm配置 xdebug断点调试]]></title>
     <url>%2F2018%2F12%2F31%2FPHPStorm%E9%85%8D%E7%BD%AE%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%2F</url>
     <content type="text"><![CDATA[前言 继上一节我们说了 ThinkPHP 安装 xdebug 这个断点调试的插件，但是没有说着么去结合我们的软件去使用这么的一个插件，按我们就来说一下把 所需工具/资料/ mac 10.13.3 Xampp （小编使用的是集成开发的,开启状态） PHPStorm (https://www.jetbrains.com/phpstorm/download/download-thanks.html，没有的就去官网下载，破解什么的我就不说了如果需要直接联系我) 已经安装及配置好了 xdebug 开始配置（有个提醒软件在配置前不要汉化不然打不开 preferences,亲自躺坑） 打开 phpstorm 进行配置 command+,打开 PhpStorm 的配置列表。 1. 首先，打开 Language&amp;Framework 下的 Debug,然后如图配置，这里的端口要和 php.ini 里的 xdebug.remote_port 保持一致。 2. 接下来配置 DBGp Proxy, port 要和你的 Apache 端口一致。 3. 然后是 servers 的配置，没有的同学可以点击+号创建一个，Host 和 Port 根据你的实际情况来设置，我这里用的本地环境，大家也可以用测试环境。 4. 接下来在调试页创建一个 web application 5. 配置断点开启调试 6. 成功开启调试 后记 完整的 php 断点安装配置已经完成，有什么疑问请直接添加小编微信，欢迎有更多的技术交流 这只是本人的一些解决做法，如有侵权请通知删除]]></content>
