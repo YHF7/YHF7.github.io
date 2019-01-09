@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon.ico?v=5.1.4">
+
+
+
+
+
+
+
+  <meta name="keywords" content="js笔记/案例," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="不懂IT的男孩" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="案例分析重点模拟贪吃蛇游戏,做的项目地图: 宽，高，背景颜色，因为小蛇和食物都是相对于地图显示的,这里小蛇和食物都是地图的子元素,随机位置显示,脱离文档流的,地图也需要脱离文档流–css需要设置:宽,高,背景颜色,脱标 食物—div元素elements—&amp;gt;存储div的数组(将来删除的食物div时候,先从map中删除div,再从数组中移除div)食物:宽,高,背景颜色,横坐标,纵坐标一个食物就">
+<meta name="keywords" content="js笔记&#x2F;案例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贪吃蛇案例">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/2018-09-09/index.html">
+<meta property="og:site_name" content="不懂IT的男孩">
+<meta property="og:description" content="案例分析重点模拟贪吃蛇游戏,做的项目地图: 宽，高，背景颜色，因为小蛇和食物都是相对于地图显示的,这里小蛇和食物都是地图的子元素,随机位置显示,脱离文档流的,地图也需要脱离文档流–css需要设置:宽,高,背景颜色,脱标 食物—div元素elements—&amp;gt;存储div的数组(将来删除的食物div时候,先从map中删除div,再从数组中移除div)食物:宽,高,背景颜色,横坐标,纵坐标一个食物就">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/tcsal/tcs1.png">
+<meta property="og:image" content="http://yoursite.com/tcsal/tcs2.png">
+<meta property="og:image" content="http://yoursite.com/tcsal/tcs3.png">
+<meta property="og:updated_time" content="2018-09-25T02:22:55.319Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贪吃蛇案例">
+<meta name="twitter:description" content="案例分析重点模拟贪吃蛇游戏,做的项目地图: 宽，高，背景颜色，因为小蛇和食物都是相对于地图显示的,这里小蛇和食物都是地图的子元素,随机位置显示,脱离文档流的,地图也需要脱离文档流–css需要设置:宽,高,背景颜色,脱标 食物—div元素elements—&amp;gt;存储div的数组(将来删除的食物div时候,先从map中删除div,再从数组中移除div)食物:宽,高,背景颜色,横坐标,纵坐标一个食物就">
+<meta name="twitter:image" content="http://yoursite.com/tcsal/tcs1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/10/2018-09-09/"/>
+
+
+
+
+
+  <title>贪吃蛇案例 | 不懂IT的男孩</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不懂IT的男孩</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">不忘初心，方得始终</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mypro">
+          <a href="/mypro" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/2018-09-09/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Detail">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/WechatIMG13.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不懂IT的男孩">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">贪吃蛇案例</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-10T10:08:33+08:00">
+                2018-09-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-25T10:22:55+08:00">
+                2018-09-25
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="案例分析重点"><a href="#案例分析重点" class="headerlink" title="案例分析重点"></a>案例分析重点</h1><p>模拟贪吃蛇游戏,做的项目<br>地图: 宽，高，背景颜色，因为小蛇和食物都是相对于地图显示的,这里小蛇和食物都是地图的子元素,随机位置显示,脱离文档流的,地图也需要脱离文档流–css需要设置:宽,高,背景颜色,脱标</p>
+<p>食物—div元素<br>elements—&gt;存储div的数组(将来删除的食物div时候,先从map中删除div,再从数组中移除div)<br>食物:宽,高,背景颜色,横坐标,纵坐标<br>一个食物就是一个对象,这个对象有相应的属性,这个对象需要在地图上显示<br>最终要创建食物的对象,先 有构造函数,并且把相应的值作为参数传入到构造函数中<br>食物要想显示在地图上,食物的初始化就是一个行为<br>1.食物的构造函数—&gt;创建食物对象<br>2.食物的显示的方法–&gt;通过对象调用方法,显示食物,设置相应的样式<br>2.1.1 因为食物要被小蛇吃掉,吃掉后应该再次出现食物,原来的食物就删除了<br>2.1.2 每一次初始化食物的时候先删除原来的食物,然后重新的初始化食物<br>2.1.3 通过一个私有的函数(外面不能调用的函数)删除地图上的食物,同时最开始的时候食物也相应的保存到一个数组中,再从这个数组中把食物删除<br>最后的时候,把食物的构造函数给window下的属性,这样做,外部就可以直接使用这个食物的构造函数了</p>
+<p>小蛇<br>小蛇就是一个对象<br>属性: 每个身体都有宽，高，方向<br>属性:身体分三个部分,每个部分都是一个对象,每个部分都有横纵坐标,背景颜色<br>小蛇要想显示在地图上,先删除之前的小蛇,然后再初始化小蛇(小蛇要移动)–方法</p>
+<p>小蛇要移动—方法<br>思路:把小蛇的头的坐标给小蛇第一部分的身体,第一部分的身体的坐标给下一个部分身体<br>小蛇的头,需要单独的设置:方向</p>
+<h1 id="案例效果"><a href="#案例效果" class="headerlink" title="案例效果"></a>案例效果</h1><p><img src="/tcsal/tcs1.png"><br><img src="/tcsal/tcs2.png"><br><img src="/tcsal/tcs3.png"></p>
+<h1 id="案例代码"><a href="#案例代码" class="headerlink" title="案例代码"></a>案例代码</h1><h3 id="Css"><a href="#Css" class="headerlink" title="Css"></a>Css</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Html"><a href="#Html" class="headerlink" title="Html"></a>Html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 贪吃蛇地图 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Js-Js代码均为外部引入代码"><a href="#Js-Js代码均为外部引入代码" class="headerlink" title="Js (Js代码均为外部引入代码)"></a>Js (Js代码均为外部引入代码)</h3><h3 id="引入代码一-food-js"><a href="#引入代码一-food-js" class="headerlink" title="引入代码一 food.js"></a>引入代码一 food.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Author: yhf </span></span><br><span class="line"><span class="comment"> * @Date: 2018-09-10 00:04:58 </span></span><br><span class="line"><span class="comment"> * @Last Modified by: yhf</span></span><br><span class="line"><span class="comment"> * @Last Modified time: 2018-09-10 10:23:05</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 食物就是一个对象，有宽高颜色，横纵坐标</span></span><br><span class="line"><span class="comment">// 食物自调用</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> elements = [];</span><br><span class="line">    <span class="comment">// 先有食物的对象</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Food</span>(<span class="params">x, y, width, height, color</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">        <span class="keyword">this</span>.width = width || <span class="number">20</span>;</span><br><span class="line">        <span class="keyword">this</span>.height = height || <span class="number">20</span>;</span><br><span class="line">        <span class="keyword">this</span>.color = color || <span class="string">"green"</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 私有函数--删除食物</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">remove</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; elements.length; i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> ele = elements[i];</span><br><span class="line">            <span class="comment">// 找到这个子元素的父级元素，删除</span></span><br><span class="line">            ele.parentNode.removeChild(ele);</span><br><span class="line">            <span class="comment">// 再次吧elements中的元素也要删除</span></span><br><span class="line">            elements.splice(i, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在原始添加初始化方法（作用：再页面上显示）</span></span><br><span class="line">    <span class="comment">// 因为食物要在地图上显示，所以需要在地图的这个参数（wrap--就是页面上的.class = wrap 的这个div）</span></span><br><span class="line">    Food.prototype.init = <span class="function"><span class="keyword">function</span> (<span class="params">wrap</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 先删除这个食物</span></span><br><span class="line">        <span class="comment">// 外部无法访问</span></span><br><span class="line">        remove();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建div</span></span><br><span class="line">        <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">        <span class="comment">// 把div添加到wrap上</span></span><br><span class="line">        wrap.appendChild(div);</span><br><span class="line">        <span class="comment">// 设置div的样式</span></span><br><span class="line">        div.style.width = <span class="keyword">this</span>.width + <span class="string">"px"</span>;</span><br><span class="line">        div.style.height = <span class="keyword">this</span>.height + <span class="string">"px"</span>;</span><br><span class="line">        div.style.backgroundColor = <span class="keyword">this</span>.color;</span><br><span class="line">        <span class="comment">// 脱离文档流</span></span><br><span class="line">        div.style.position = <span class="string">"absolute"</span>;</span><br><span class="line">        <span class="comment">// 随机横纵坐标</span></span><br><span class="line">        <span class="keyword">this</span>.x = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * (wrap.offsetWidth / <span class="keyword">this</span>.width)) * <span class="keyword">this</span>.width;</span><br><span class="line">        <span class="keyword">this</span>.y = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * (wrap.offsetHeight / <span class="keyword">this</span>.height)) * <span class="keyword">this</span>.height;</span><br><span class="line">        div.style.left = <span class="keyword">this</span>.x + <span class="string">"px"</span>;</span><br><span class="line">        div.style.top = <span class="keyword">this</span>.y + <span class="string">"px"</span>;</span><br><span class="line">        <span class="comment">// 把div加入到数组中</span></span><br><span class="line">        elements.push(div);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// Food暴露给力windwo，外部可以使用</span></span><br><span class="line">    <span class="built_in">window</span>.Food = Food;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<h3 id="引入代码二-Snake-js"><a href="#引入代码二-Snake-js" class="headerlink" title="引入代码二 Snake.js"></a>引入代码二 Snake.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Author: yhf </span></span><br><span class="line"><span class="comment"> * @Date: 2018-09-10 00:08:15 </span></span><br><span class="line"><span class="comment"> * @Last Modified by: yhf</span></span><br><span class="line"><span class="comment"> * @Last Modified time: 2018-09-10 00:11:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 小蛇的自调函数</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 存放蛇</span></span><br><span class="line">    <span class="keyword">var</span> elements = [];</span><br><span class="line">    <span class="comment">// 小蛇的构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Snake</span>(<span class="params">width, height, direction</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 蛇的每个部分的宽</span></span><br><span class="line">        <span class="keyword">this</span>.width = width || <span class="number">20</span>;</span><br><span class="line">        <span class="keyword">this</span>.height = height || <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 蛇的身体</span></span><br><span class="line">        <span class="keyword">this</span>.body = [&#123;</span><br><span class="line">                x: <span class="number">3</span>,</span><br><span class="line">                y: <span class="number">2</span>,</span><br><span class="line">                color: <span class="string">"red"</span></span><br><span class="line">            &#125;, <span class="comment">// 头</span></span><br><span class="line">            &#123;</span><br><span class="line">                x: <span class="number">2</span>,</span><br><span class="line">                y: <span class="number">2</span>,</span><br><span class="line">                color: <span class="string">"orange"</span></span><br><span class="line">            &#125;, <span class="comment">// 身体</span></span><br><span class="line">            &#123;</span><br><span class="line">                x: <span class="number">1</span>,</span><br><span class="line">                y: <span class="number">2</span>,</span><br><span class="line">                color: <span class="string">"orange"</span></span><br><span class="line">            &#125; <span class="comment">// 身体</span></span><br><span class="line">        ];</span><br><span class="line">        <span class="comment">// 方向</span></span><br><span class="line">        <span class="keyword">this</span>.direction = direction || <span class="string">"right"</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 添加小蛇初始化方法</span></span><br><span class="line">    Snake.prototype.init = <span class="function"><span class="keyword">function</span> (<span class="params">wrap</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 清理蛇</span></span><br><span class="line">        remove();</span><br><span class="line">        <span class="comment">// 创建div</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.body.length; i++) &#123;</span><br><span class="line">            <span class="keyword">const</span> obj = <span class="keyword">this</span>.body[i]</span><br><span class="line">            <span class="comment">// 创建div</span></span><br><span class="line">            <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">            <span class="comment">// 吧div加入到wrap</span></span><br><span class="line">            wrap.appendChild(div);</span><br><span class="line">            <span class="comment">// 设置div样式</span></span><br><span class="line">            div.style.position = <span class="string">"absolute"</span>;</span><br><span class="line">            div.style.width = <span class="keyword">this</span>.width + <span class="string">"px"</span>;</span><br><span class="line">            div.style.height = <span class="keyword">this</span>.height + <span class="string">"px"</span>;</span><br><span class="line">            <span class="comment">// 横纵坐标</span></span><br><span class="line">            div.style.left = obj.x * <span class="keyword">this</span>.width + <span class="string">"px"</span>;</span><br><span class="line">            div.style.top = obj.y * <span class="keyword">this</span>.height + <span class="string">"px"</span>;</span><br><span class="line">            <span class="comment">// 背景颜色</span></span><br><span class="line">            div.style.backgroundColor = obj.color;</span><br><span class="line">            <span class="comment">// 把div加入到数组</span></span><br><span class="line">            elements.push(div);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 小蛇动方法</span></span><br><span class="line">    Snake.prototype.move = <span class="function"><span class="keyword">function</span> (<span class="params">food, wrap</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 改变小蛇身体坐标位置</span></span><br><span class="line">        <span class="keyword">var</span> i = <span class="keyword">this</span>.body.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">this</span>.body[i].x = <span class="keyword">this</span>.body[i - <span class="number">1</span>].x;</span><br><span class="line">            <span class="keyword">this</span>.body[i].y = <span class="keyword">this</span>.body[i - <span class="number">1</span>].y;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 判断方向--改变小蛇头位置</span></span><br><span class="line">        <span class="keyword">switch</span> (<span class="keyword">this</span>.direction) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"right"</span>:</span><br><span class="line">                <span class="keyword">this</span>.body[<span class="number">0</span>].x += <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"left"</span>:</span><br><span class="line">                <span class="keyword">this</span>.body[<span class="number">0</span>].x -= <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"top"</span>:</span><br><span class="line">                <span class="keyword">this</span>.body[<span class="number">0</span>].y -= <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"bottom"</span>:</span><br><span class="line">                <span class="keyword">this</span>.body[<span class="number">0</span>].y += <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 判断有没有吃到食物</span></span><br><span class="line">        <span class="comment">// 蛇和食物的坐标一致</span></span><br><span class="line">        <span class="keyword">var</span> headX = <span class="keyword">this</span>.body[<span class="number">0</span>].x * <span class="keyword">this</span>.width;</span><br><span class="line">        <span class="keyword">var</span> headY = <span class="keyword">this</span>.body[<span class="number">0</span>].y * <span class="keyword">this</span>.height;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断蛇的头的坐标和食物的坐标是否相同</span></span><br><span class="line">        <span class="keyword">if</span> (headX == food.x &amp;&amp; headY == food.y) &#123;</span><br><span class="line">            <span class="comment">// 获取蛇的尾巴</span></span><br><span class="line">            <span class="keyword">var</span> last = <span class="keyword">this</span>.body[<span class="keyword">this</span>.body.length - <span class="number">1</span>];</span><br><span class="line">            <span class="comment">// 复制多一个</span></span><br><span class="line">            <span class="keyword">this</span>.body.push(&#123;</span><br><span class="line">                x: last.x,</span><br><span class="line">                y: last.y,</span><br><span class="line">                color: last.color</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="comment">// 把食物删除</span></span><br><span class="line">            food.init(wrap);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除小蛇都函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">remove</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 获取数组</span></span><br><span class="line">        <span class="keyword">var</span> i = elements.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="comment">// 从当前元素找到父级元素删除</span></span><br><span class="line">            <span class="keyword">const</span> ele = elements[i];</span><br><span class="line">            <span class="comment">// 从wrap删除</span></span><br><span class="line">            ele.parentNode.removeChild(ele);</span><br><span class="line">            elements.splice(i, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把Snake暴露给window</span></span><br><span class="line">    <span class="built_in">window</span>.Snake = Snake;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<h3 id="引入代码三-Game-js"><a href="#引入代码三-Game-js" class="headerlink" title="引入代码三 Game.js"></a>引入代码三 Game.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Author: yhf </span></span><br><span class="line"><span class="comment"> * @Date: 2018-09-10 00:08:23 </span></span><br><span class="line"><span class="comment"> * @Last Modified by:   yhf </span></span><br><span class="line"><span class="comment"> * @Last Modified time: 2018-09-10 00:08:23 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 自调用封装游戏对象</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="literal">null</span>;</span><br><span class="line">    <span class="comment">// 游戏构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Game</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.food = <span class="keyword">new</span> Food(); <span class="comment">// 食物对象</span></span><br><span class="line">        <span class="keyword">this</span>.snake = <span class="keyword">new</span> Snake(); <span class="comment">// 蛇对象</span></span><br><span class="line">        <span class="keyword">this</span>.wrap = wrap; <span class="comment">// 地图</span></span><br><span class="line">        that = <span class="keyword">this</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    Game.prototype.init = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 初始化游戏</span></span><br><span class="line">        <span class="comment">// 食物初始化</span></span><br><span class="line">        <span class="keyword">this</span>.food.init(<span class="keyword">this</span>.wrap);</span><br><span class="line">        <span class="comment">// 小蛇初始化</span></span><br><span class="line">        <span class="keyword">this</span>.snake.init(<span class="keyword">this</span>.wrap);</span><br><span class="line">        <span class="comment">// 调用自动移动蛇方法</span></span><br><span class="line">        <span class="keyword">this</span>.runSnake(<span class="keyword">this</span>.food, <span class="keyword">this</span>.wrap);</span><br><span class="line">        <span class="comment">// 调用按键方法</span></span><br><span class="line">        <span class="keyword">this</span>.bindKey();</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 添加原型，设小蛇跑起来</span></span><br><span class="line">    Game.prototype.runSnake = <span class="function"><span class="keyword">function</span> (<span class="params">food, wrap</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 自动移动</span></span><br><span class="line">        <span class="keyword">var</span> time = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 此时this是window</span></span><br><span class="line">            <span class="comment">// 移动蛇</span></span><br><span class="line">            <span class="keyword">this</span>.snake.move(food, wrap);</span><br><span class="line">            <span class="comment">// 初始化蛇</span></span><br><span class="line">            <span class="keyword">this</span>.snake.init(wrap);</span><br><span class="line">            <span class="comment">// 横坐标的最大值</span></span><br><span class="line">            <span class="keyword">var</span> maxX = wrap.offsetWidth / <span class="keyword">this</span>.snake.width;</span><br><span class="line">            <span class="keyword">var</span> maxY = wrap.offsetHeight / <span class="keyword">this</span>.snake.height;</span><br><span class="line">            <span class="comment">// 小蛇头坐标</span></span><br><span class="line">            <span class="keyword">var</span> headX = <span class="keyword">this</span>.snake.body[<span class="number">0</span>].x;</span><br><span class="line">            <span class="keyword">var</span> headY = <span class="keyword">this</span>.snake.body[<span class="number">0</span>].y;</span><br><span class="line">            <span class="comment">// 横坐标</span></span><br><span class="line">            <span class="keyword">if</span> (headX &lt; <span class="number">0</span> || headX &gt;= maxX) &#123;</span><br><span class="line">                <span class="comment">// 撞墙，停止定时器</span></span><br><span class="line">                clearInterval(time);</span><br><span class="line">                alert(<span class="string">"游戏结束"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 纵坐标</span></span><br><span class="line">            <span class="keyword">if</span> (headY &lt; <span class="number">0</span> || headY &gt;= maxY) &#123;</span><br><span class="line">                <span class="comment">// 撞墙，停止定时器</span></span><br><span class="line">                clearInterval(time);</span><br><span class="line">                alert(<span class="string">"游戏结束"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.bind(that), <span class="number">150</span>)</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加原型方法--设置用户按键</span></span><br><span class="line">    Game.prototype.bindKey = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 获取用户按键</span></span><br><span class="line">        <span class="built_in">document</span>.addEventListener(<span class="string">"keydown"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 此时this应该是keydown的事件对象</span></span><br><span class="line">            <span class="comment">// 所以this就是document</span></span><br><span class="line">            <span class="comment">// 获取按键值</span></span><br><span class="line">            <span class="keyword">switch</span> (e.keyCode) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">37</span>:</span><br><span class="line">                    <span class="keyword">this</span>.snake.direction = <span class="string">"left"</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">38</span>:</span><br><span class="line">                    <span class="keyword">this</span>.snake.direction = <span class="string">"top"</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">39</span>:</span><br><span class="line">                    <span class="keyword">this</span>.snake.direction = <span class="string">"right"</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">40</span>:</span><br><span class="line">                    <span class="keyword">this</span>.snake.direction = <span class="string">"bottom"</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.bind(that), <span class="literal">false</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.Game = Game;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+<h3 id="内部调用代码"><a href="#内部调用代码" class="headerlink" title="内部调用代码"></a>内部调用代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一</span></span><br><span class="line"><span class="comment">// 获取地图</span></span><br><span class="line"><span class="keyword">const</span> wrap = <span class="built_in">document</span>.querySelector(<span class="string">".wrap"</span>);</span><br><span class="line"><span class="comment">// 初始化游戏对象</span></span><br><span class="line"><span class="keyword">var</span> gm = <span class="keyword">new</span> Game(wrap);</span><br><span class="line"><span class="comment">// 开始游戏</span></span><br><span class="line">gm.init();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line"><span class="comment">// 初始化游戏对象</span></span><br><span class="line"><span class="keyword">var</span> gm = <span class="keyword">new</span> Game(<span class="built_in">document</span>.querySelector(<span class="string">".wrap"</span>));</span><br><span class="line"><span class="comment">// 开始游戏</span></span><br><span class="line">gm.init();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js笔记-案例/" rel="tag"># js笔记/案例</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/07/2018-09-07/" rel="next" title="自定义滚动条 两版本">
+                <i class="fa fa-chevron-left"></i> 自定义滚动条 两版本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/2018-09-10/" rel="prev" title="原生贪吃蛇升级版">
+                原生贪吃蛇升级版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/WechatIMG13.jpeg"
+                alt="Detail" />
+            
+              <p class="site-author-name" itemprop="name">Detail</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/8987002d387c" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG9.jpeg?raw=true" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG11.jpeg?raw=true" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/yhf7" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>码云</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5b9bafe7f265da0a9c786330" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#案例分析重点"><span class="nav-number">1.</span> <span class="nav-text">案例分析重点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例效果"><span class="nav-number">2.</span> <span class="nav-text">案例效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例代码"><span class="nav-number">3.</span> <span class="nav-text">案例代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Css"><span class="nav-number">3.0.1.</span> <span class="nav-text">Css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Html"><span class="nav-number">3.0.2.</span> <span class="nav-text">Html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Js-Js代码均为外部引入代码"><span class="nav-number">3.0.3.</span> <span class="nav-text">Js (Js代码均为外部引入代码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入代码一-food-js"><span class="nav-number">3.0.4.</span> <span class="nav-text">引入代码一 food.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入代码二-Snake-js"><span class="nav-number">3.0.5.</span> <span class="nav-text">引入代码二 Snake.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入代码三-Game-js"><span class="nav-number">3.0.6.</span> <span class="nav-text">引入代码三 Game.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部调用代码"><span class="nav-number">3.0.7.</span> <span class="nav-text">内部调用代码</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Detail</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共101.3k字</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  <script type="text/javascript" src="/js/src/click_love.js"></script>
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/live2d-widget-model-haruto/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+
+</html>
