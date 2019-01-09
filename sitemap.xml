@@ -23,9 +23,16 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/01/06/Git%E8%BF%9B%E9%98%B6/</loc>
+    <loc>http://yoursite.com/2019/01/06/vue-cli-mock/</loc>
     
-    <lastmod>2019-01-06T07:34:58.017Z</lastmod>
+    <lastmod>2019-01-06T13:47:19.774Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/01/06/Postman/</loc>
+    
+    <lastmod>2019-01-06T07:02:43.339Z</lastmod>
     
   </url>
   
@@ -40,6 +47,20 @@
     <loc>http://yoursite.com/2019/01/01/JavaWeb%E5%AE%9E%E8%AE%AD/</loc>
     
     <lastmod>2019-01-01T12:57:16.308Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/31/PHPStorm%E9%85%8D%E7%BD%AE%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95/</loc>
+    
+    <lastmod>2018-12-31T15:28:42.694Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/12/30/ThinkPHP%E5%AE%89%E8%A3%85xdebug/</loc>
+    
+    <lastmod>2018-12-30T16:16:22.673Z</lastmod>
     
   </url>
   
@@ -117,6 +138,13 @@
     <loc>http://yoursite.com/2018/11/04/yhf-vue/</loc>
     
     <lastmod>2018-11-15T15:02:20.309Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/11/15/sql-fuq/</loc>
+    
+    <lastmod>2018-11-15T14:54:32.714Z</lastmod>
     
   </url>
   
@@ -201,6 +229,13 @@
     <loc>http://yoursite.com/2018/10/19/Vue-day6/</loc>
     
     <lastmod>2018-10-19T14:16:56.476Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/10/13/Vue-Akey/</loc>
+    
+    <lastmod>2018-10-19T04:36:43.523Z</lastmod>
     
   </url>
   
