@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019-01 - 02心得]]></title>
+    <url>%2F2019%2F02%2F10%2F%E6%96%B0%E5%B9%B4%E6%84%9F%E6%82%9F%2F</url>
+    <content type="text"><![CDATA[在新的一年的这两个月中，看了书看了教学视频，也在掘金认识了一些人，加了一些学习交流群，看到了很多志同道合的人，很多也是和我一样科班出身然后也自己努力学习的前端后端的同学们，大家有问题就拿出来讨论一起学习你帮我解决一下问题你帮我解决一下问题这样的学习氛围非常的好，看到小伙伴们都很用功的学习，大年三十也是有人开着电脑敲着代码，奋力的去学习，生怕被人超越了看到被人都很努力的在学习进步，你自己就在那里玩手机玩电脑的闲着，不是老天不公平而是你自己不努力怨不得天，当别人在拼命学习的时候你在为自己的小小能力而沾沾自喜的时候你已经输了我不希望自己到了毕业也不知道找什么工作，什么工作适合自己，我想通过自己的努力改变生活改变自己的未来，所以我自己也开始了学习，但是知识永远是学不完的只能每天学一点慢慢的去积累，只有拼了才知道自己到底有多强大，也只有拼了才知道自己到底有多么的渺小，世界之大无奇不有比你强的人大有人在，比你弱的也是大有人在，为何不做人中龙凤呢？只有自己强大起来才不会被人欺负被人看不起，我不想靠别人帮我什么，欠了的人情是要还的，我一直希望的是只要实力够强大就不会需要别人的帮助，所以自己要强大起来，用什么强大自己呢，那就只有学习，不断的学习在it的领域中技术的更新换代是非常快了，我们还没来得及学完这一个，又到了下一个新的时代了，作为一个学生我非常想知道的是在职场中到底我们需要做什么可以做什么，需要很多的实战经验，但是经验是需要积累起来的，问过很多的大神在工作中要做什么，问很多的实战的东西，但是别人的回答也只是做项目做多了就会有经验了，作为一个学生而且很多都是自学的自己对于做项目我是非常的吃力的，即使我可以写出前后端交互的项目来，毕竟也是一些小的项目，对于权限分级啊、路由拦截啊等的一些我都不会，遇到稍微难一点的业务逻辑我就要很久很久才可以想出来，而且还是用了很多很笨的方法去实现，所以2019年的目标就是打好基础练好技术，找一份实习2019目标：3月完成小程序4月vue的项目实战，reacts学习5月 项目实战后面都是一些实战，暑假找一份实习锻炼一下自己]]></content>
+      <categories>
+        <category>个人</category>
+      </categories>
+      <tags>
+        <tag>个人</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[解决Git ssh 密钥忘记密码]]></title>
+    <url>%2F2019%2F02%2F10%2Fgit-ssh%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[前言 如果在之前有创建SSH的时候设置过密码，那就很有可能git操作时出现忘记密码的尴尬情况。 今天我就忘记了密码，在网上找到了解决的方法就记录下来 解决 在ssh密码忘记密码我们是无法去修改的，这个是一个保护机制，我们无法修改当是我们可以重新创建一个ssh密钥 进入本地ssh 1$ cd ~/.ssh 查看文件 ls 如果本地有ssh秘钥的话会有id_rsa.pub，config，known_hosts等文件。如果本地没有ssh的话cd ~/.ssh这一步可能就会有找不到文件的提示了。 一般忘记密码都是已经有的我们就不说了 创建新的ssh 输入这个后面改自己git的邮箱1$ ssh-keygen -t rsa -b 4096 -C "905477376@qq.com" 新密码 如果本地有ssh，会出现如下提示：这里选择y，表示覆盖本地的ssh key，这也就是ssh秘钥删除的意思。接着就是让你输入密码的，可以直接回车不设置密码，我还是设置密码的 查看密钥 把之前的公钥删掉添加新的 输入代码查看密钥然后复制到 GitHub或者码云上1$ cat ~/.ssh/id_rsa.pub 后记 这就是我实践了的方法 欢迎一起学习交流]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vue动画多个元素嵌套使用过渡]]></title>
+    <url>%2F2019%2F01%2F17%2Fvue%20%E5%8A%A8%E7%94%BB%E5%B5%8C%E5%A5%97%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[前言 在我们前端的工作中我们的去写页面，总会觉得这样的效果给到用户好像很干没有什么体验 那我们就想搞搞新意思？ 弄点动画上去憋，那么弄动画我又想他滚动又想他偏移又想有渐变效果 渐变和移动可以写在一起，但是滚动和偏移好像不可以一起执行喔 那我们就要分开两步来执行但是，vue的transition里面好像不可以同时执行两个transform 所以我们就来解决这个问题 其实嘛是可以嵌套使用的哦 工具/资料 mac os 10.13.3 vue官方文档 https://cn.vuejs.org/v2/guide/transitions.html vs code 开始 套用我们的 transition 在我们需要定义效果的外面包上 transition 这个 name 呢是自定义的也可以不写，个人认为最好是写一下12345&lt;transition name="move"&gt; &lt;div class="cart-decrease" v-show="food.count&gt;0" @click="decreaseCart"&gt; &lt;span class="inner icon-remove_circle_outline"&gt;&lt;/span&gt; &lt;/div&gt;&lt;/transition&gt; 定义Css 如果使用name了，-前面写的就是name定义的名称，如果没有写那就直接用v就好 在我们要嵌套动画的地方也是向平时css关系那些嵌套进去就好了1234567891011121314151617181920/* 这里我们定义了滑动和渐变 */.move-enter-active, .move-leave-active transition: all .4s linear opacity: 1 transform translate3d(0,0,0).move-enter, .move-leave-to /* .fade-leave-active below version 2.1.8 */ opacity: 0 transform translate3d(24px,0,0)/* 定义滚动 这里我是动画下的，span想添加效果 那么我们就把类名拼接在后面去使用就好了 如果添加了不生效，那就换一个类名，因为有一些是官方的类名是不允许使用的 */.move-enter-active .inner, .move-leave-active .inner transition: all .4s linear transform rotate(0).move-enter .inner, .move-leave-to .inner transform rotate(180deg) 这样我们就实现了即滚动也偏移 后记 看了有没有发现很简单哈，其实本来也就是很简单嘛，只是一开始傻乎乎的用了in使得效果没粗来以为不可以这样用 这是本人的学习问题记录的笔记，有需要的可以借鉴 欢迎添加微信交流学习]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[安装/解决Hexo next搜索错误笔记]]></title>
     <url>%2F2019%2F01%2F09%2F%E6%90%9C%E7%B4%A2%E9%94%99%E8%AF%AF%2F</url>
     <content type="text"><![CDATA[前言 搜索功能无效，一直在哪转圈圈，头都晕了 说起就来气，添加了那么多篇文章，突然就这几天就不可以用hexo的搜索功能，我写了那么多篇文章突然今天写项目发现不记得想来查一下居然用不了气得我 横看竖看都不知道错哪里，配置了好几遍也是不行 最后还是被我ko了 赶紧记录下来下一次就不用怕了 所需工具/资料 mac 10.13.3 VS code (软件很多自己喜欢，这个失败了一会说原因) Chrome Sublime (这个是解决问题的关键哦) 开始ko错误之旅 查错第一步（其实和安装没有啥区别） 查看package 根目录 package.json看看有没有 hexo-generator-searchdb 看这个的主要原因的看看有没有安装这个中间件，如果没有安装就安装一下1$ npm install hexo-generator-searchdb --save 查看 /themes/next/_config.yml 配置 搜索 local_search看看这个下面的enable 是否处于12local_search: enable: true 查看添加配置（这个我个人觉得嘛加和不加没有区别） 添加 /themes/next/_config.yml12345search: path: search.xml field: post format: html limit: 10000 查错第二步 有可能是文字的数量太多引起的 可以修改刚才配置的 search：内的limit 把数值加大试试 查看文件名什么的有没有定义错误或者是什么弄错了 直接 sudo hexo g 打包就知道了，如果报错了那就是文件有问题 差错第三步（关键，很多的问题会出在这里） 有可能是文章内部的一下符号引起的错误 （我就知道是这样引起的为什么不执行我真的不懂）（这样的错误有可能是因为跟编辑器或者输入法有关系） 字符错误 Bytes: 0x08 0xE4 0xB8 0x80 其实也是空格只是不识别的软件才可以看的出了 在我们的 vs code 这个软件呢就是识别了这种符号所以并没有显示出了 在我们的Sublime 就是不识别直接就可以显示出来了解决问题方法一 （这些只可以在sublime或者其他的软件中做，vs code不可以的哦） 直接就在 search.xml 文件中 直接搜索 \x08 或者 \u0008删掉 但是呢这样的方法治标不治本啊 在你下一次的添加文件编译的时候还是会带上的解决方法二（方法一治标不治本那我们再来一个方法） 直接找到错误文件 这里我是把文件都考出来然后把一些比较早点文件先放回去 然后后面都文件一个一个那样去测试找到错误文件 （主要是我一开始不知道是这样的错误才那样去找） 现在知道了错误直接就在 Sublime 打开所有的md看看有没有 上面的错误字符 有就删掉就可以了 这个是我的错误（每个人的都可能不一样） 后记 终于吐槽完，也说完错误了，这是我个人的一个查错以及解决的方法，希望有缘人看到可以帮到你 这些都是我的一些笔记，欢迎一起学习讨论]]></content>
