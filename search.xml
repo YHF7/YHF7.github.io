@@ -850,7 +850,7 @@
   <entry>
     <title><![CDATA[yhf]]></title>
     <url>%2F2018%2F08%2F24%2Fyhf%2F</url>
-    <content type="text"><![CDATA[yhf测试文章123function show()&#123; console.log('hello yhf');&#125;]]></content>
+    <content type="text"><![CDATA[yhf测试文章123function show()&#123; console.log('hello world');&#125;]]></content>
       <categories>
         <category>个人</category>
       </categories>
