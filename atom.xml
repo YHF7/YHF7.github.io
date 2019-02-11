@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-10T15:54:43.982Z</updated>
+  <updated>2019-02-11T02:47:42.050Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git ssh 重构</title>
+    <link href="http://yoursite.com/2019/02/11/gitshh-%E9%87%8D%E6%9E%84/"/>
+    <id>http://yoursite.com/2019/02/11/gitshh-重构/</id>
+    <published>2019-02-11T02:20:52.229Z</published>
+    <updated>2019-02-11T02:47:42.050Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul><li>昨天我说了忘记密码，今天我想说一下ssh的配置</li><li>有时候可以用但是ssh内部公钥可能会存在问题</li><li>所以今天我就来重构ssh</li></ul><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><ol><li><p>进入.ssh</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> .ssh/</span><br></pre></td></tr></table></figure></li><li><p>备份文件</p><ul><li>把公钥文件拷贝出来以防万一</li></ul></li><li><p>生成公钥</p><ul><li>生成密钥</li><li>输入后后面所有的都是直接回车就可以了</li><li>如果你要设置密码那就设置吧，ssh本来就是用来免密登录的，最好就是不用密码吧<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen</span><br></pre></td></tr></table></figure></li></ul></li></ol><p><img src="/git/git-ssh5.png" alt="git-ssh"></p><ol start="4"><li>查看密钥<ul><li>查看密钥配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></li></ul></li></ol><p><img src="/git/git-ssh1.png" alt="git-ssh"></p><ol start="5"><li><p>添加密钥</p><ul><li>把查看密钥生成的代码拷贝到Github或码云</li><li>删除原有的输入新的就可以了<br><img src="/git/git-ssh2.png" alt="git-ssh"></li></ul></li><li><p>ssh下载项目</p><ul><li>复制项目到ssh地址下载</li><li>第一次使用ssh遇到Are you sure you want to continue connecting (yes/no)? yes 要输入yes表示同意验证本地ssh<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@gitee.com:yhf7/zerg.git</span><br></pre></td></tr></table></figure></li></ul></li></ol><p><img src="/git/git-ssh3.png" alt="git-ssh"></p><ol start="7"><li>查看ssh配置了什么地方<ul><li>要在.ssh文件下</li><li>在什么地方设置了会看的出来<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat known_hosts</span><br></pre></td></tr></table></figure></li></ul></li></ol><p><img src="/git/git-ssh4.png" alt="git-ssh"></p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><pre><code>- 才疏学浅，遇到了问题还好有大哥教我重构才得以解决，马上记录解决办法</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>2019-01 - 02心得</title>
@@ -488,31 +513,6 @@
     
     
       <category term="Vue 案例" scheme="http://yoursite.com/tags/Vue-%E6%A1%88%E4%BE%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>各数据库的开启与服务器的开启</title>
-    <link href="http://yoursite.com/2018/11/15/sql-fuq/"/>
-    <id>http://yoursite.com/2018/11/15/sql-fuq/</id>
-    <published>2018-11-15T14:24:57.477Z</published>
-    <updated>2018-11-15T14:54:32.714Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul><li>本人记性不好写起来方便可以开启关闭</li><li>使用就不说了很简单自己摸索吧</li></ul><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ul><li>本人才疏学浅只会mysql和mongod、sqlserver但是没装<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2></li><li>开启：sudo /usr/local/mysql/bin/mysqld_safe –skip-grant-tables</li><li>关闭：sudo /usr/local/mysql/bin/mysqladmin -u root -proot shutdown</li><li>mysql 建议装 Navicat for mysql 图形化界面工具（虽说代码才是王道倒是也可以提高效率是真，而且本人太记得sql语句很适合）</li></ul><h2 id="mongod"><a href="#mongod" class="headerlink" title="mongod"></a>mongod</h2><ul><li>mongod 开启相对比较简单</li><li>开启 sudo mongod</li><li>关闭 直接结束命令行就可以<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">链接(默认链接本地服务)</span><br><span class="line">mongo</span><br><span class="line"></span><br><span class="line">退出</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">基本命令:</span><br><span class="line">1. show dbs 查看显示所以数据库</span><br><span class="line">2. db 查看当前链接打数据库</span><br><span class="line">3. use 数据库名称  切换到指定打数据库（如果没有会新建）</span><br><span class="line">4. 插入数据</span><br><span class="line">5. show collections 查看数据集合 </span><br><span class="line">6. db.students.find() 查看库中所以的数据</span><br></pre></td></tr></table></figure></li></ul><h1 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h1><ul><li>xamp / mamp / apache 基本什么都可以用 但是用jsp就不太可以 (个人比较爱前两个，还有很多好用的服务器但是，本人用的是mac不是什么软件都能找到)</li><li>apache-tomcat 就是用了使用javaweb（jsp）<h2 id="xampp"><a href="#xampp" class="headerlink" title="xampp"></a>xampp</h2></li><li>这个比较简单 界面开启就好</li><li>留一个 数据库的地址老是忘记 <a href="http://localhost/phpmyadmin/" target="_blank" rel="noopener">http://localhost/phpmyadmin/</a></li></ul><h2 id="MAMP"><a href="#MAMP" class="headerlink" title="MAMP"></a>MAMP</h2><ul><li>这个也是界面不说</li></ul><h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><ul><li>Mac电脑自带</li><li>开启 sudo apachectl start</li><li>关闭 sudo apachectl stop</li><li>重启 sudo apachectl restar</li><li>留几个配置网址以后好找</li><li><a href="https://www.cnblogs.com/wanxudong/p/5846907.html" target="_blank" rel="noopener">https://www.cnblogs.com/wanxudong/p/5846907.html</a></li><li><a href="https://jingyan.baidu.com/article/922554467d763b851648f4dc.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/922554467d763b851648f4dc.html</a></li><li><a href="https://www.linuxidc.com/Linux/2016-03/129524.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2016-03/129524.htm</a></li><li><a href="https://www.jianshu.com/p/f56815569234" target="_blank" rel="noopener">https://www.jianshu.com/p/f56815569234</a></li></ul><h2 id="apache-tomcat"><a href="#apache-tomcat" class="headerlink" title="apache-tomcat"></a>apache-tomcat</h2><ul><li>开启 进入 服务器文件夹 找到 bin文件夹 在终端打开 执行 sudo sh startup.sh</li><li>关闭 同上 sudo sh shutdown.sh </li><li>不行就看网址 <a href="https://www.cnblogs.com/xingxingLove/p/5304390.html" target="_blank" rel="noopener">https://www.cnblogs.com/xingxingLove/p/5304390.html</a></li><li>IntelliJ IDEA 写java，javaweb装这个软件 会自动检测本地得 apache-tomcat 基本不需要自己开启</li><li>软件自动调用开启服务，如果同时自己开了得话会起冲突的，自己记清楚</li></ul><h2 id="node"><a href="#node" class="headerlink" title="node"></a>node</h2><ul><li>这个不用说自己写代码自己运行</li><li>sudo node app.js (有nodemon就最好啦)</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="插件/配置" scheme="http://yoursite.com/categories/%E6%8F%92%E4%BB%B6-%E9%85%8D%E7%BD%AE/"/>
-    
-    
-      <category term="数据库/服务器" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
