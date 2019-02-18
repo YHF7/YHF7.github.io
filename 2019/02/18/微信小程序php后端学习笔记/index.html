@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon.ico?v=5.1.4">
+
+
+
+
+
+
+
+  <meta name="keywords" content="小程序 笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="不懂IT的男孩" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="微信小程序商城构建全栈应用 php+微信小程序全栈应用  软件/素材 mac os 10.13.3 PhpStorm 2018 Postman XAMPP 7.0.2-1 ThinkPHP 5.0.7  项目目录结构1234567891011121314151617├─application           应用目录  ├─api                公共模块目录（可以更改）  │">
+<meta name="keywords" content="小程序 笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序后端笔记">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/微信小程序php后端学习笔记/index.html">
+<meta property="og:site_name" content="不懂IT的男孩">
+<meta property="og:description" content="微信小程序商城构建全栈应用 php+微信小程序全栈应用  软件/素材 mac os 10.13.3 PhpStorm 2018 Postman XAMPP 7.0.2-1 ThinkPHP 5.0.7  项目目录结构1234567891011121314151617├─application           应用目录  ├─api                公共模块目录（可以更改）  │">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-18T08:49:39.727Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小程序后端笔记">
+<meta name="twitter:description" content="微信小程序商城构建全栈应用 php+微信小程序全栈应用  软件/素材 mac os 10.13.3 PhpStorm 2018 Postman XAMPP 7.0.2-1 ThinkPHP 5.0.7  项目目录结构1234567891011121314151617├─application           应用目录  ├─api                公共模块目录（可以更改）  │">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/18/微信小程序php后端学习笔记/"/>
+
+
+
+
+
+  <title>微信小程序后端笔记 | 不懂IT的男孩</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不懂IT的男孩</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">不忘初心，方得始终</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mypro">
+          <a href="/mypro" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/微信小程序php后端学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Detail">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/WechatIMG13.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不懂IT的男孩">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">微信小程序后端笔记</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-18T16:46:28+08:00">
+                2019-02-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-18T16:49:39+08:00">
+                2019-02-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="微信小程序商城构建全栈应用"><a href="#微信小程序商城构建全栈应用" class="headerlink" title="微信小程序商城构建全栈应用"></a>微信小程序商城构建全栈应用</h1><ul>
+<li>php+微信小程序全栈应用</li>
+</ul>
+<h1 id="软件-素材"><a href="#软件-素材" class="headerlink" title="软件/素材"></a>软件/素材</h1><ul>
+<li>mac os 10.13.3</li>
+<li>PhpStorm 2018</li>
+<li>Postman</li>
+<li>XAMPP 7.0.2-1</li>
+<li>ThinkPHP 5.0.7</li>
+</ul>
+<h1 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">├─application           应用目录</span><br><span class="line">  ├─api                公共模块目录（可以更改）</span><br><span class="line">  │  │-controller      控制器目录  （版本以及业务）</span><br><span class="line">  │  │-model           模型目录  （关联模型处理）</span><br><span class="line">  │  │-service         模型服务层（相对复杂的业务处理）</span><br><span class="line">  │  └─validate        验证层     （客户端数据验证）</span><br><span class="line">  ├─extra              自定义公共资源层（tp5自带的）</span><br><span class="line">  ├─lib                模块目录</span><br><span class="line">  │  ├─enum            枚举</span><br><span class="line">  │  └─exception       全局异常处理目录</span><br><span class="line">  │</span><br><span class="line">  ├─command.php        命令行工具配置文件</span><br><span class="line">  ├─common.php         公共函数文件</span><br><span class="line">  ├─config.php         公共配置文件</span><br><span class="line">  ├─route.php          路由配置文件</span><br><span class="line">  ├─tags.php           应用行为扩展定义文件</span><br><span class="line">  └─database.php       数据库配置文件</span><br></pre></td></tr></table></figure>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><h3 id="数据表关系分析-（写着写着就绕了）"><a href="#数据表关系分析-（写着写着就绕了）" class="headerlink" title="数据表关系分析 （写着写着就绕了）"></a>数据表关系分析 （写着写着就绕了）</h3><ol>
+<li>数据表之间的关系： 1 对 1 1 对多 多对多<ul>
+<li>如何判断数据表之间的结构</li>
+</ul>
+</li>
+<li>首先确立是否是一个多对多的关系<ul>
+<li>查看表与表之间是否存在双方的外建均能被多个表调用，如果不是那就去除多对多关系</li>
+</ul>
+</li>
+<li>1 对 1 1 对多<ul>
+<li>在 thinkphp 中问题不大</li>
+<li>如何去分析 1 对多或 1 对 1</li>
+<li>1 对 1 的关系中， 两个表直接同时并且单次被执行，就是说一个关联请求中，表 1 一次只可以调用一个表 2 的元素，并且表 2 也只是被调用了一次</li>
+<li>1 对多 的关系中， 表 1 通过一个外建，调用了多个表 2 的数据,并且表 2 的数据不能属于多个表 1，这样就是 1 对多的表现了</li>
+</ul>
+</li>
+</ol>
+<h3 id="模型关联（我们确立了-er-关系再来做这么的一个关联）"><a href="#模型关联（我们确立了-er-关系再来做这么的一个关联）" class="headerlink" title="模型关联（我们确立了 er 关系再来做这么的一个关联）"></a>模型关联（我们确立了 er 关系再来做这么的一个关联）</h3><ol>
+<li><p>模型关联查询</p>
+<ul>
+<li>在我们的 model 是作为一个 ORM 模式的模型结构</li>
+<li>在这之前我们就已经定义了模型了</li>
+<li>我们有两个模型 Banner 与 BannerItem</li>
+<li>tp5 对我们提供了关联查询的方法 hasMany</li>
+<li><p>定义关联查询</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在当前模型 Banner 新建类  类名自定义喜欢什么来什么</span></span><br><span class="line"><span class="comment">// 函数体要写在 Banner 这个主模型中，BannerItem是被关联模型</span></span><br><span class="line"><span class="comment">// 调用模型关联时要清晰的知道 外键 以及主建（某程度下是不用写后面两个，不建议）</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">items</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 关联查询方法hasMany 关联模型      外建      当前模型 banner id主建</span></span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(<span class="string">'BannerItem'</span>,<span class="string">'banner_id'</span>,<span class="string">'id'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用关联查询</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//  在调用 模型的时候加上 with这么个方法 （括号内填写的就是刚才定义的函数名）</span></span><br><span class="line">$banner = BannerModel::with(<span class="string">'items'</span>)-&gt;find($id);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>模型嵌套关联查询</p>
+<ul>
+<li>在我们的 查询中 会存在被关联体中还关联着变得关联体，在 tp5 中就形成了嵌套查询</li>
+<li>当然 tp5 也给我们提供了方法：belongsTo</li>
+<li>嵌套关系 Banner -&gt; BannerItem -&gt; Image (这里就存在了多重的嵌套)</li>
+<li>模型 Banner BannerItem Image</li>
+<li>是 BannerItem 关联 Image 所以关联函数我们写在 BannerItem 中</li>
+<li>定义嵌套查询</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">img</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//        处理方法名其他都是一样的，这里就不多说了</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsTo(<span class="string">'Image'</span>,<span class="string">'img_id'</span>,<span class="string">'id'</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>调用查询 (这个比较关键，不过还是很简单的)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// with 可以是字符串也可以是数组（嵌套关联时就会用数组）</span></span><br><span class="line"><span class="comment">// 为什么是items.img 而不是 直接img呢，因为是嵌套关系，在模型中可以嵌套这里也是可以的</span></span><br><span class="line"><span class="comment">// 但是在 嵌套时 是items 关联的 img ，这里就会用.来链接</span></span><br><span class="line"><span class="comment">// 这个解释比较绕但是，知道方法就是要这样去用的就好啦</span></span><br><span class="line">$banner = BannerModel::with([<span class="string">'items'</span>,<span class="string">'items.img'</span>])-&gt;find($id);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="隐藏模型字段-模型自带"><a href="#隐藏模型字段-模型自带" class="headerlink" title="隐藏模型字段 (模型自带)"></a>隐藏模型字段 (模型自带)</h3><ol>
+<li>hidden 方法隐藏字段</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数据      方法      字段名</span></span><br><span class="line"> $banner-&gt;hidden([<span class="string">'字段名例：id'</span>])</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>visible 只显示的字段</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$banner-&gt;visible([<span class="string">'字段名例：id'</span>,<span class="string">'update_time])</span></span><br></pre></td></tr></table></figure>
+<h3 id="模型内部隐藏字段-（自定义模型的内部隐藏-把一些前端不需要的字段隐藏了）"><a href="#模型内部隐藏字段-（自定义模型的内部隐藏-把一些前端不需要的字段隐藏了）" class="headerlink" title="模型内部隐藏字段 （自定义模型的内部隐藏,把一些前端不需要的字段隐藏了）"></a>模型内部隐藏字段 （自定义模型的内部隐藏,把一些前端不需要的字段隐藏了）</h3><ul>
+<li>hidden 隐藏</li>
+<li>直接在 model 定义的模型内添加方法 （以 Banner 为例）</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">api</span>\<span class="title">model</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Banner</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">     <span class="comment">// 直接添加 $hidden的数组填入要隐藏的字段即可</span></span><br><span class="line">     <span class="comment">// visible 等方法用法一样，那个模型内部的字段要隐藏就在那个模型内部设置</span></span><br><span class="line">    <span class="keyword">protected</span> $hidden = [<span class="string">'id'</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">items</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                                <span class="comment">// 关联模型           外建                当前模型 banner id主建</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(<span class="string">'BannerItem'</span>,<span class="string">'banner_id'</span>,<span class="string">'id'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getBannerByID</span><span class="params">($id)</span> </span>&#123;</span><br><span class="line">        $banner = <span class="keyword">self</span>::with([<span class="string">'items'</span>,<span class="string">'items.img'</span>])-&gt;find($id);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> $banner;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h3><ul>
+<li>/application/extra （extra 自己新建的，凡是放在这里面的配置文件都会被自动加载）</li>
+<li>手动配置一个本地的 img 图片路径</li>
+</ul>
+<ol>
+<li>在 extra 下 新建 setting.php</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> [</span><br><span class="line">    <span class="comment">//  名称                 域名   路径（直接放在public下的images就是这样写就可以了）</span></span><br><span class="line">    <span class="string">'img_prefix'</span> =&gt; <span class="string">'http://zerg.cn/images'</span></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用自定义变量<ul>
+<li>因为是在 extra 内部定义的所以会自动调用，那么我们用 config 就可以去掉用到了<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">      <span class="comment">// 配置文件名.变量名</span></span><br><span class="line">config(<span class="string">'setting.img_prefix'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="静态文件存放"><a href="#静态文件存放" class="headerlink" title="静态文件存放"></a>静态文件存放</h3><ul>
+<li>静态的外部文件，例如图片啊文本啊等的文件，必须放在 public 这个公共目录下</li>
+<li>并不是放在 application 的这个开发目录下，因为 tp5 的架构里面只有 public 这个目录是对外开放的</li>
+<li>所以文件都必须是要放在 public 目录下</li>
+</ul>
+<h3 id="tp-模型读取器-数据拼合"><a href="#tp-模型读取器-数据拼合" class="headerlink" title="tp 模型读取器 (数据拼合)"></a>tp 模型读取器 (数据拼合)</h3><ul>
+<li>为了获取数据/修改数据，tp5 给出了一个读取器的方法</li>
+<li>用来给我们读取数据修改数据用的</li>
+<li>那个模型要修改数据就在哪个模型定义</li>
+</ul>
+<ol>
+<li>定义读取器（其实也是一个函数方法）<ul>
+<li>读取器命名规范 开头 get 必须有 + 读取数据的名称并且开头要大写例 Url + Attr 必须加的（利用驼峰命名法）</li>
+<li>getUrlAttr （完整的编写，除了中间的那个数据，其他都是必须有的，中间数据名开头必须大写）</li>
+<li>传入一个值，名字自定义 （这个传入的数据其实就是我们要获取到要修改的数据）</li>
+<li>每一次传入一个数据，有多个输出就会重复的执行读取器</li>
+<li>因为在我们的业务逻辑中会调用到当前模型的其他数据，但是第一个参数只是获取到的是当前读取器的数据，并无法读取到其他的数据</li>
+<li>所以添加了第二个参数 （这个参数会给我们返回一个这个模型的数据，就是所有的数据）</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUrlAttr</span> <span class="params">($value,$data)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用读取器 （做数据的修改然后返回）</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUrlAttr</span> <span class="params">($value)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 这里我们只是做了一个自定义的 变量和url路径的拼接</span></span><br><span class="line">    <span class="keyword">return</span> config(<span class="string">'setting.img_prefix'</span>).$value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>业务逻辑添加</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUrlAttr</span> <span class="params">($value,$data)</span> </span>&#123;</span><br><span class="line">$finalUrl = $value;</span><br><span class="line">    <span class="comment">// 判断是否要拼接</span></span><br><span class="line"><span class="keyword">if</span> ($data[<span class="string">'from'</span>] === <span class="number">1</span>) &#123;</span><br><span class="line">    $finalUrl = config(<span class="string">'setting.img_prefix'</span>) . $value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> $finalUrl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义基类-（面向对象，提取模型读取器）"><a href="#自定义基类-（面向对象，提取模型读取器）" class="headerlink" title="自定义基类 （面向对象，提取模型读取器）"></a>自定义基类 （面向对象，提取模型读取器）</h3><ul>
+<li>一开始这样做会觉得好像代码还多了啊，这么不就是做无用功吗，在业务不断增加的时候，后期修改就可以看出来好处了</li>
+<li>集中业务逻辑</li>
+<li>创建 BaseModel.php 作为模型基类</li>
+<li>把让所有的模型都继承这个基类</li>
+</ul>
+<ol>
+<li><p>把读取器提取到 模型基类 （这样做是一个面向对象的思想）</p>
+<ul>
+<li>但是提取了模型基类后我们所有的子模型都会自动的去执行模型</li>
+<li>这样可能会造成一些数据的变更和错误，比如说，两个命名一样但是代表的数据不同是就会出现错误</li>
+<li>所以我们把它封装为一个自调用的方法<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BaseModel</span></span><br><span class="line"><span class="comment">// 读取器</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">prefixImgUrl</span> <span class="params">($value,$data)</span> </span>&#123;</span><br><span class="line">    $finalUrl = $value;</span><br><span class="line">    <span class="keyword">if</span> ($data[<span class="string">'from'</span>] === <span class="number">1</span>) &#123;</span><br><span class="line">        $finalUrl = config(<span class="string">'setting.img_prefix'</span>) . $value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $finalUrl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>子模型调用基类方法</p>
+<ul>
+<li>Image<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getUrlAttr</span> <span class="params">($value,$data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;prefixImgUrl($value,$data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="定义-api-版本号"><a href="#定义-api-版本号" class="headerlink" title="定义 api 版本号"></a>定义 api 版本号</h3><ul>
+<li>在互联网的项目中，我们会对项目版本对升级，以及业务逻辑改变和变更</li>
+<li>同时也是需要去兼容旧版本，所以会保留旧版本的 api</li>
+</ul>
+<ol>
+<li>开发开闭原则<ul>
+<li>代码对拓展开发，对修改封闭</li>
+<li>添加功能直接以拓展的方式添加就可以，不需要去改变代码</li>
+<li>修改是封闭的，业务变更上升版本</li>
+<li>不可以修改原来的版本代码，会破坏了原版本的代码，和影响功能调用的风险</li>
+<li>需要修改就要添加新的版本</li>
+</ul>
+</li>
+<li>多版本<ul>
+<li>版本的分离，新旧版本不发生冲突</li>
+<li>新老版本的兼容问题</li>
+<li>给用户缓冲时间，也不能兼容太多的版本，成本太高</li>
+<li>v1 做 v1 版本层</li>
+<li>v2 做 v2 版本层</li>
+</ul>
+</li>
+</ol>
+<h3 id="路由-api-动态变更"><a href="#路由-api-动态变更" class="headerlink" title="路由 api 动态变更"></a>路由 api 动态变更</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//              动态版本 实现传什么就调用什么版本的api，同时也是要修改版本指向接口</span></span><br><span class="line"><span class="comment">//                 传 v1 就是 v1</span></span><br><span class="line"><span class="comment">//                 传 v2 就是 v2           动态写入</span></span><br><span class="line">Route::get(<span class="string">'api/:version/banner/:id'</span>,<span class="string">'api/:version.Banner/getBanner'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="一对一关系选择关联方法"><a href="#一对一关系选择关联方法" class="headerlink" title="一对一关系选择关联方法"></a>一对一关系选择关联方法</h3><ol>
+<li>belongsTo<ul>
+<li>在有外建的表内请求就用 belongsTo</li>
+</ul>
+</li>
+<li>hasOne<ul>
+<li>在没有外建的表亲求就用 hasOne</li>
+</ul>
+</li>
+</ol>
+<h3 id="多对多查询-（belongsToMany）"><a href="#多对多查询-（belongsToMany）" class="headerlink" title="多对多查询 （belongsToMany）"></a>多对多查询 （belongsToMany）</h3><p>-</p>
+<ul>
+<li>多对多的查询呢 就比一对多和 1 对 1 的查询要多了一个参数</li>
+<li>在参数中第二个是放入第三个表也就是中间表</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">products</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">                                    <span class="comment">// 关联表名        中间表名                 关联表id            主建</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(<span class="string">'Product'</span>,<span class="string">'theme_product'</span>,<span class="string">'product_id'</span>,<span class="string">'theme_id'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="开启路由完整匹配模式"><a href="#开启路由完整匹配模式" class="headerlink" title="开启路由完整匹配模式"></a>开启路由完整匹配模式</h3><ul>
+<li>开我们开发的过程中难免会有 api 相同当是请求的方式以及传参的不同，但是又需要相同的 api 名称</li>
+<li>在我们的 tp5 中，会自动追寻一个半路径的匹配，所以当匹配到了相关的路由时就会停止匹配</li>
+<li>但是这样返回的结果肯定不是我们要的，所以就要开启这个完整的路由匹配模式</li>
+<li>在 config.php 配置文件中，我们就可以来更改了</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  只有找到这句话改变就可以了   false -&gt; true</span></span><br><span class="line"><span class="comment">// 路由使用完整匹配</span></span><br><span class="line"><span class="string">'route_complete_match'</span>   =&gt; <span class="keyword">true</span>,</span><br></pre></td></tr></table></figure>
+<h3 id="合理利用数据冗余"><a href="#合理利用数据冗余" class="headerlink" title="合理利用数据冗余"></a>合理利用数据冗余</h3><ul>
+<li>在查询量上来的时候避免数据量大多表查询之间耗时</li>
+<li>合理的利用数据冗余来减少联合表的查询减少查询时间</li>
+<li>但不要太过多但使用，只是为了减少数据库压力</li>
+<li>在数据库中做相关的优化</li>
+</ul>
+<h3 id="collection-字符集"><a href="#collection-字符集" class="headerlink" title="collection 字符集"></a>collection 字符集</h3><ul>
+<li>我们使用获取到的数据是字符集更方便让我们来修改数据</li>
+</ul>
+<ol>
+<li>tp5 修改获取返回数据 （/application/database.php）</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 找到这个吧 arr改为 collection</span></span><br><span class="line"><span class="comment">// 数据集返回类型</span></span><br><span class="line"><span class="string">'resultset_type'</span>  =&gt; <span class="string">'collection'</span>,</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>使用字符集就可以轻松的临时隐藏字段</p>
+<ul>
+<li>当我们在开发的过程中，不是所有业务逻辑都需要隐藏的字段，我们就不可以在关联模型中直接就隐藏字段</li>
+<li>我们会使用临时隐藏字段</li>
+<li>当然数组我们是不可以直接这样来隐藏的，但是使用字符集的话就可以直接的去使用函数进行数据的隐藏<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用hidden进行隐藏</span></span><br><span class="line">$products = $products-&gt;hidden([<span class="string">'summary'</span>]);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>字符集判空</p>
+<ul>
+<li>isEmpty 内置函数</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断空抛出异常</span></span><br><span class="line"><span class="keyword">if</span> ($products-&gt;isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> ProductException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##第九章</p>
+<h3 id="service-建立在-model-上的，用来处理复制的业务"><a href="#service-建立在-model-上的，用来处理复制的业务" class="headerlink" title="service (建立在 model 上的，用来处理复制的业务)"></a>service (建立在 model 上的，用来处理复制的业务)</h3><ul>
+<li>在我们的 tp5 中，我们的 model 代表的一个很重要的位置</li>
+<li>可以写业务逻辑，也访问数据库</li>
+<li>但是 service 不可以用来访问数据库，因为上建立在 model 之上的</li>
+<li>我们都会把复杂的业务逻辑放在 service 层中</li>
+</ul>
+<h3 id="公共应用文件-common-php"><a href="#公共应用文件-common-php" class="headerlink" title="公共应用文件 common.php"></a>公共应用文件 common.php</h3><ul>
+<li>编写公共的 http 请求</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> string $url get 请求地址</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> int $httpCode 返回状态码</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curl_get</span> <span class="params">($url,&amp;$httpCode = <span class="number">0</span>)</span> </span>&#123;</span><br><span class="line"> $ch = curl_init();</span><br><span class="line"> curl_setopt($ch,CURLOPT_URL,$url);</span><br><span class="line"> curl_setopt($ch,CURLOPT_RETURNTRANSFER,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//    不做证书校验，部署在linux环境下请改为true</span></span><br><span class="line"> curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,<span class="keyword">false</span>);</span><br><span class="line"> curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,<span class="number">10</span>);</span><br><span class="line"> $file_contents = curl_exec($ch);</span><br><span class="line"> $httpCode = curl_getinfo($ch,CURLINFO_HTTP_CODE);</span><br><span class="line"> curl_close($ch);</span><br><span class="line"> <span class="keyword">return</span> $file_contents;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="模型插入数据（create）"><a href="#模型插入数据（create）" class="headerlink" title="模型插入数据（create）"></a>模型插入数据（create）</h3><ul>
+<li>在 tp5 中如何向数据库插入数据</li>
+<li>tp5 模型给我们准备了 create 的方法</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//  模型名   create方法 数组传入要添加的字段和数据</span></span><br><span class="line">$user = UserModel::create([</span><br><span class="line">        <span class="string">'openid'</span> =&gt; $openid</span><br><span class="line">    ]);</span><br></pre></td></tr></table></figure>
+<h3 id="动态传入数值随机生成字符串方法"><a href="#动态传入数值随机生成字符串方法" class="headerlink" title="动态传入数值随机生成字符串方法"></a>动态传入数值随机生成字符串方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 生成随机字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRandChar</span> <span class="params">($length)</span> </span>&#123;</span><br><span class="line">    $str = <span class="keyword">null</span>;</span><br><span class="line">    $strPol = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz"</span>;</span><br><span class="line">    $max = strlen($strPol) - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> ($i=<span class="number">0</span>;$i &lt; $length; $i++) &#123;</span><br><span class="line">        $str .= $strPol[rand(<span class="number">0</span>,$max)];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> $str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="文件缓存-chache"><a href="#文件缓存-chache" class="headerlink" title="文件缓存 chache"></a>文件缓存 chache</h3><ul>
+<li>使用 cache 写入缓存</li>
+<li>使用文件存储的方式</li>
+<li>缓存的地址在目录文件/runtime/cache 文件内</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$request = cache($key,$value,$expire_in);</span><br></pre></td></tr></table></figure>
+<h3 id="路由分组"><a href="#路由分组" class="headerlink" title="路由分组"></a>路由分组</h3><ul>
+<li>由于我们 api 接口的不断增加</li>
+<li>在一个分类中会有很多的相同的接口路由</li>
+<li>这个时候如果我们业务的变更修改起来就会很麻烦</li>
+<li>所以我们是用来路由分组来实现</li>
+<li>group 方法</li>
+<li>第一个是公共的路由部分，第二个是一个闭包（也就是一个 function 的方法）</li>
+<li>在里面还是安装路由一样去定义就可以了</li>
+<li>也能提高路由的效率</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//Route::get('api/:version/product/recent','api/:version.Product/getRecent');</span></span><br><span class="line"><span class="comment">//Route::get('api/:version/product/by_category','api/:version.Product/getAllInCategory');</span></span><br><span class="line"><span class="comment">//Route::get('api/:version/product/:id','api/:version.Product/getOne',[],['id'=&gt;'\d+']);</span></span><br><span class="line"></span><br><span class="line">Route::group(<span class="string">'api/:version/product'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    Route::get(<span class="string">'/recent'</span>,<span class="string">'api/:version.Product/getRecent'</span>);</span><br><span class="line">    Route::get(<span class="string">'/by_category'</span>,<span class="string">'api/:version.Product/getAllInCategory'</span>);</span><br><span class="line">    Route::get(<span class="string">'/:id'</span>,<span class="string">'api/:version.Product/getOne'</span>,[],[<span class="string">'id'</span>=&gt;<span class="string">'\d+'</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="关联模型下个关联数据排序（tp5-没有的，重点）"><a href="#关联模型下个关联数据排序（tp5-没有的，重点）" class="headerlink" title="关联模型下个关联数据排序（tp5 没有的，重点）"></a>关联模型下个关联数据排序（tp5 没有的，重点）</h3><ul>
+<li>使用 模型+query 添加排序</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关联模型 imgs  properties 查询</span></span><br><span class="line"><span class="comment">// 模型的嵌套 imgurl</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getProductDetail</span> <span class="params">($id)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在 with 中 嵌套function</span></span><br><span class="line">    <span class="comment">// 在内部添加 query</span></span><br><span class="line">    $product = <span class="keyword">self</span>::with([<span class="string">'imgs'</span> =&gt; <span class="function"><span class="keyword">function</span> <span class="params">($query)</span> </span>&#123;</span><br><span class="line">        $query-&gt;with([<span class="string">'imgUrl'</span>])-&gt;order(<span class="string">'order'</span>,<span class="string">'asc'</span>);</span><br><span class="line">    &#125;])-&gt;with([<span class="string">'properties'</span>])-&gt;find($id);</span><br><span class="line">    <span class="keyword">return</span> $product;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用-关联模型-添加-更新数据"><a href="#使用-关联模型-添加-更新数据" class="headerlink" title="使用 关联模型 添加/更新数据"></a>使用 关联模型 添加/更新数据</h3><ul>
+<li>添加数据的方法有很多，我们来使用一下关联模型的方法</li>
+<li>两个的区别在于 修改操作的 关联 不可以用括号</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用 user 中的 address 关联 使用 save方法添加数据</span></span><br><span class="line">$user-&gt;address()-&gt;save($dataArray);</span><br><span class="line"><span class="comment">// 调用 user 中的 address 关联 使用 save方法修改数据</span></span><br><span class="line">$user-&gt;address-&gt;save($dataArray);</span><br></pre></td></tr></table></figure>
+<h2 id="第十章"><a href="#第十章" class="headerlink" title="第十章"></a>第十章</h2><h3 id="前置操作"><a href="#前置操作" class="headerlink" title="前置操作"></a>前置操作</h3><ul>
+<li>在我们编写 api 业务逻辑的时候，我们会想在调用 api 接口之前，需要满足某些条件</li>
+<li>这样才可以去访问我们的接口中的业务逻辑</li>
+<li>所以我们要在做一个前置操作，抵挡不满足条件的抛出异常</li>
+</ul>
+<ol>
+<li>tp5 中使用前置操作需要基础自带的一个基类 Controller</li>
+<li>定义一个名为 \$beforeActionList 的数组</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Controller</span></span><br><span class="line"></span><br><span class="line"> <span class="title">class</span> <span class="title">Address</span> <span class="title">extends</span> <span class="title">Controller</span></span><br><span class="line"> &#123;</span><br><span class="line">     // 定义前置属性</span><br><span class="line">     // 第一个字段是 访问<span class="title">api</span>接口前 需要 访问的一个前置方法</span><br><span class="line">     // 箭指的 是一个数组</span><br><span class="line">     // 数组内部定义一个箭指数据，也可以直接是一个字符串（内部填入<span class="title">api</span>接口函数就可以了）</span><br><span class="line">     // 否则向下面这样写</span><br><span class="line">     // 多<span class="title">api</span>编写</span><br><span class="line">     <span class="title">protected</span> $<span class="title">beforeActionList</span> = [</span><br><span class="line">         '<span class="title">first</span>' =&gt; ['<span class="title">only</span>' =&gt; '<span class="title">second</span>,<span class="title">third</span>']</span><br><span class="line">     ];</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 触发api前 执行的前置函数</span></span><br><span class="line">     <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">first</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">echo</span> <span class="string">'first'</span>;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// api接口</span></span><br><span class="line">     <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">second</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">echo</span> <span class="string">'second'</span>;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// api接口</span></span><br><span class="line">     <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">third</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">echo</span> <span class="string">'third'</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重构前置验证操作-（实现面向对象）"><a href="#重构前置验证操作-（实现面向对象）" class="headerlink" title="重构前置验证操作 （实现面向对象）"></a>重构前置验证操作 （实现面向对象）</h3><ul>
+<li>提取验证业务逻辑到 service 的基类中</li>
+<li>提取前置方法到 BaseController 的基类中</li>
+<li>继承基类，执行前置方法</li>
+</ul>
+<ol>
+<li>提取出一个前置的基类 BaseController （继承内置 Controller）</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">app</span>\<span class="title">api</span>\<span class="title">service</span>\<span class="title">Token</span> <span class="title">as</span> <span class="title">TokenService</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="comment">// 前置方法</span></span><br><span class="line"> <span class="comment">// 验证初级权限作用域,用户和cms都可以访问</span></span><br><span class="line"> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">checkPrimaryScope</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 向Token调用验证方法</span></span><br><span class="line">     TokenService::needPrimaryScope();</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 验证权限，只有用户可以访问，cms无法访问</span></span><br><span class="line"> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">checkExclusiveScope</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">     TokenService::needExclusiveScope();</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>提取验证业务逻辑（因为是 token 相关的就归并到 token 的 service 业务层中）</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重构前置方法，验证权限</span></span><br><span class="line"><span class="comment">// 用户和cms管理员都可以访问的权限</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">needPrimaryScope</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 调用token中的方法获取scope</span></span><br><span class="line">    $scope = <span class="keyword">self</span>::getCurrentTokenVar(<span class="string">'scope'</span>);</span><br><span class="line">    <span class="comment">// 判断是否存在</span></span><br><span class="line">    <span class="keyword">if</span> ($scope) &#123;</span><br><span class="line">        <span class="comment">// 判断 scope的权限大小</span></span><br><span class="line">        <span class="keyword">if</span> ($scope &gt;= ScopeEnum::User) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ForbiddenException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> TokenException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>继承 BaseController 基类使用前置方法</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">         <span class="comment">// 继承基类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Address</span> <span class="keyword">extends</span> <span class="title">BaseController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="comment">// 调用前置的方法</span></span><br><span class="line"> <span class="keyword">protected</span> $beforeActionList = [</span><br><span class="line">     <span class="comment">// 前置验证的方法名                   需要前置验证的函数</span></span><br><span class="line">     <span class="string">'checkPrimaryScope'</span> =&gt; [<span class="string">'only'</span> =&gt; <span class="string">'createOrUpdateAddress'</span>]</span><br><span class="line"> ];</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@url</span> api/v1/address</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">createOrUpdateAddress</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="验证器数据自定义子项验证"><a href="#验证器数据自定义子项验证" class="headerlink" title="验证器数据自定义子项验证"></a>验证器数据自定义子项验证</h3><ul>
+<li>自定义子项验证，通过自定义的方法调用实现</li>
+<li>当我们在验证时，传入的是一个二维数组，就可以使用来验证子项</li>
+<li>我们就自定义一个验证的方法，通过基类的验证的调用</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 整体验证</span></span><br><span class="line"><span class="keyword">protected</span> $rule = [</span><br><span class="line">  <span class="string">'products'</span> =&gt; <span class="string">'checkProducts'</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数据子项的验证</span></span><br><span class="line"><span class="keyword">protected</span> $singleRule = [</span><br><span class="line">    <span class="string">'product_id'</span> =&gt; <span class="string">'require|isPositiveInteger'</span>,</span><br><span class="line">    <span class="string">'count'</span> =&gt; <span class="string">'require|isPositiveInteger'</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 自定义整体验证</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">checkProducts</span> <span class="params">($values)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 验证是不是数组</span></span><br><span class="line">    <span class="keyword">if</span> (!is_array($values)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ParameterException([</span><br><span class="line">            <span class="string">'msg'</span> =&gt; <span class="string">'商品参数不正确'</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 验证不为空</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">empty</span>($values)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ParameterException([</span><br><span class="line">            <span class="string">'msg'</span> =&gt; <span class="string">'商品列表不能为空'</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 循环对每一项进行验证</span></span><br><span class="line">    <span class="keyword">foreach</span> ($values <span class="keyword">as</span> $value) &#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;checkProduct($value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 基础调用子项验证</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">checkProduct</span> <span class="params">($value)</span> </span>&#123;</span><br><span class="line">    $validate = <span class="keyword">new</span> BaseValidate(<span class="keyword">$this</span>-&gt;singleRule);</span><br><span class="line">    $result = $validate-&gt;check($value);</span><br><span class="line">    <span class="keyword">if</span> (!$result) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ParameterException([</span><br><span class="line">            <span class="string">'msg'</span> =&gt; <span class="string">'商品参数不正确'</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自动添加时间戳（TP5-内置添加时间戳）"><a href="#自动添加时间戳（TP5-内置添加时间戳）" class="headerlink" title="自动添加时间戳（TP5 内置添加时间戳）"></a>自动添加时间戳（TP5 内置添加时间戳）</h3><ul>
+<li>在我们的操作中，我们的数据中会带有数据，tp5 为我们提供了自动添加时间戳</li>
+</ul>
+<ol>
+<li>找到自己要添加的时间戳的模型 我是在 order 添加那我就去 orde 人的模型中</li>
+<li>\$autoWriteTimestamp 添加为 true，需要是模型的方式才可以使用的</li>
+<li>创建 修改 删除</li>
+<li>默认为 create_time update_time delete_time</li>
+<li>修改方法名 在模型下修改</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自动写入时间戳</span></span><br><span class="line"><span class="keyword">protected</span> $autoWriteTimestamp = <span class="keyword">true</span>;</span><br><span class="line"><span class="comment">// 修改字段名</span></span><br><span class="line"><span class="comment">//         内置名称           自定义修改的名称</span></span><br><span class="line"><span class="keyword">protected</span> $createTime = <span class="string">'create_timestamp'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Tp5-事务应用"><a href="#Tp5-事务应用" class="headerlink" title="Tp5 事务应用"></a>Tp5 事务应用</h3><ul>
+<li>在我们的应用中可能会出现分步的操作，可能会本地与服务端出现不一致</li>
+<li>所以我们使用事务来做处理</li>
+<li>在中间出现错误就会把数据回滚保持数据的一致性</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开头加入开始</span></span><br><span class="line">    Db::startTrans();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        $orderNo = <span class="keyword">$this</span>-&gt;makeOrderNo();</span><br><span class="line">        $order = <span class="keyword">new</span> \app\api\model\Order();</span><br><span class="line">        $order-&gt;user_id = <span class="keyword">$this</span>-&gt;uid;</span><br><span class="line">        $order-&gt;order_no = $orderNo;</span><br><span class="line">        $order-&gt;total_price = $snap[<span class="string">'orderPrice'</span>];</span><br><span class="line">        $order-&gt;total_count = $snap[<span class="string">'totalCount'</span>];</span><br><span class="line">        $order-&gt;snap_img = $snap[<span class="string">'snapImg'</span>];</span><br><span class="line">        $order-&gt;snap_name = $snap[<span class="string">'snapName'</span>];</span><br><span class="line">        $order-&gt;snap_address = $snap[<span class="string">'snapAddress'</span>];</span><br><span class="line">        $order-&gt;snap_items = json_encode($snap[<span class="string">'pStatus'</span>]);</span><br><span class="line"></span><br><span class="line">        $order-&gt;save();</span><br><span class="line"></span><br><span class="line">        $orderID = $order-&gt;id;</span><br><span class="line">        $create_time = $order-&gt;create_time;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;oProducts <span class="keyword">as</span> &amp;$p) &#123;</span><br><span class="line">            $p[<span class="string">'order_id'</span>] = $orderID;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $orderProduct = <span class="keyword">new</span> OrderProduct();</span><br><span class="line">        $orderProduct-&gt;saveAll(<span class="keyword">$this</span>-&gt;oProducts);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 结尾加上结束</span></span><br><span class="line">        Db::commit();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="string">'order_no'</span> =&gt; $orderNo,</span><br><span class="line">            <span class="string">'order_id'</span> =&gt; $orderID,</span><br><span class="line">            <span class="string">'create_time'</span> =&gt; $create_time</span><br><span class="line">        ];</span><br><span class="line">    &#125; <span class="keyword">catch</span> (<span class="keyword">Exception</span> $ex) &#123;</span><br><span class="line">        <span class="comment">// 异常出现回滚</span></span><br><span class="line">        Db::rollback();</span><br><span class="line">        <span class="keyword">throw</span> $ex;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引入没有命名空间的文件与调用-Loader-，手动引入微信支付-php"><a href="#引入没有命名空间的文件与调用-Loader-，手动引入微信支付-php" class="headerlink" title="引入没有命名空间的文件与调用(Loader)，手动引入微信支付 php"></a>引入没有命名空间的文件与调用(Loader)，手动引入微信支付 php</h3><ul>
+<li>使用 loader 的 import 方法</li>
+<li>extend/WxPay/WePay.Api.php</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//         文件开头的第一个  文件路径       // 类的名称</span></span><br><span class="line">Loader::import(<span class="string">'WxPay.WxPay'</span>,EXTEND_PATH,<span class="string">'.Api.php'</span>);</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="comment">// 调用的时候前面要加反斜杠</span></span><br><span class="line">$wxOrderData = <span class="keyword">new</span> \WxPayUnifiedOrder();</span><br></pre></td></tr></table></figure>
+<h3 id="TP5-模型实现数据减少-setDec"><a href="#TP5-模型实现数据减少-setDec" class="headerlink" title="TP5 模型实现数据减少 setDec"></a>TP5 模型实现数据减少 setDec</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">                                            <span class="comment">// 前面是查询  第一个数是写要改变的字段  第二个是要减少的数量</span></span><br><span class="line">Product::where(<span class="string">'id'</span>,<span class="string">'='</span>,$singlePStatus[<span class="string">'id'</span>])-&gt;setDec(<span class="string">'stock'</span>,$singlePStatus[<span class="string">'count'</span>]);</span><br></pre></td></tr></table></figure>
+<h3 id="数据库锁与事务锁的区别"><a href="#数据库锁与事务锁的区别" class="headerlink" title="数据库锁与事务锁的区别"></a>数据库锁与事务锁的区别</h3><ul>
+<li>数据库模型-&gt;lock(true)</li>
+<li>事务锁 Db</li>
+</ul>
+<ol>
+<li>事务锁是等待整个事务提交才会执行第二次事务，但是数据库模型锁只是单步的锁着了数据库查询语句</li>
+<li>在后面的操作还没有执行时，数据库模型锁已经放开了</li>
+</ol>
+<h3 id="外部网址使用"><a href="#外部网址使用" class="headerlink" title="外部网址使用"></a>外部网址使用</h3><ul>
+<li>要从根目录一直到 index.php</li>
+<li>后面才是路由</li>
+<li><a href="http://www.yhf7/zerg/public/index.php/api/v1/pay/notify" target="_blank" rel="noopener">www.yhf7/zerg/public/index.php/api/v1/pay/notify</a></li>
+</ul>
+<h3 id="模型分页查询-paginate"><a href="#模型分页查询-paginate" class="headerlink" title="模型分页查询(paginate)"></a>模型分页查询(paginate)</h3><ul>
+<li>第一个参数是分类数</li>
+<li>第二个数是否简洁模式</li>
+<li>第三个是数组填入分页数</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getSummaryByUser</span> <span class="params">($uid,$page=<span class="number">1</span>,$size=<span class="number">15</span>)</span> </span>&#123;</span><br><span class="line">    $paginData = <span class="keyword">self</span>::where(<span class="string">'user_id'</span>,<span class="string">'='</span>,$uid)-&gt;order(<span class="string">'create_time desc'</span>)-&gt;paginate($size,<span class="keyword">true</span>,[<span class="string">'page'</span> =&gt; $page]);</span><br><span class="line">    <span class="keyword">return</span> $paginData;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/小程序-笔记/" rel="tag"># 小程序 笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/11/gitshh-重构/" rel="next" title="Git ssh 重构">
+                <i class="fa fa-chevron-left"></i> Git ssh 重构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/WechatIMG13.jpeg"
+                alt="Detail" />
+            
+              <p class="site-author-name" itemprop="name">Detail</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/8987002d387c" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG9.jpeg?raw=true" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG11.jpeg?raw=true" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/yhf7" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>码云</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5b9bafe7f265da0a9c786330" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微信小程序商城构建全栈应用"><span class="nav-number">1.</span> <span class="nav-text">微信小程序商城构建全栈应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件-素材"><span class="nav-number">2.</span> <span class="nav-text">软件/素材</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目目录结构"><span class="nav-number">3.</span> <span class="nav-text">项目目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#笔记"><span class="nav-number">4.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第八章"><span class="nav-number">4.1.</span> <span class="nav-text">第八章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据表关系分析-（写着写着就绕了）"><span class="nav-number">4.1.1.</span> <span class="nav-text">数据表关系分析 （写着写着就绕了）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型关联（我们确立了-er-关系再来做这么的一个关联）"><span class="nav-number">4.1.2.</span> <span class="nav-text">模型关联（我们确立了 er 关系再来做这么的一个关联）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏模型字段-模型自带"><span class="nav-number">4.1.3.</span> <span class="nav-text">隐藏模型字段 (模型自带)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型内部隐藏字段-（自定义模型的内部隐藏-把一些前端不需要的字段隐藏了）"><span class="nav-number">4.1.4.</span> <span class="nav-text">模型内部隐藏字段 （自定义模型的内部隐藏,把一些前端不需要的字段隐藏了）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义配置"><span class="nav-number">4.1.5.</span> <span class="nav-text">自定义配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态文件存放"><span class="nav-number">4.1.6.</span> <span class="nav-text">静态文件存放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tp-模型读取器-数据拼合"><span class="nav-number">4.1.7.</span> <span class="nav-text">tp 模型读取器 (数据拼合)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义基类-（面向对象，提取模型读取器）"><span class="nav-number">4.1.8.</span> <span class="nav-text">自定义基类 （面向对象，提取模型读取器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-api-版本号"><span class="nav-number">4.1.9.</span> <span class="nav-text">定义 api 版本号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由-api-动态变更"><span class="nav-number">4.1.10.</span> <span class="nav-text">路由 api 动态变更</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一对一关系选择关联方法"><span class="nav-number">4.1.11.</span> <span class="nav-text">一对一关系选择关联方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多对多查询-（belongsToMany）"><span class="nav-number">4.1.12.</span> <span class="nav-text">多对多查询 （belongsToMany）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启路由完整匹配模式"><span class="nav-number">4.1.13.</span> <span class="nav-text">开启路由完整匹配模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合理利用数据冗余"><span class="nav-number">4.1.14.</span> <span class="nav-text">合理利用数据冗余</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#collection-字符集"><span class="nav-number">4.1.15.</span> <span class="nav-text">collection 字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#service-建立在-model-上的，用来处理复制的业务"><span class="nav-number">4.1.16.</span> <span class="nav-text">service (建立在 model 上的，用来处理复制的业务)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公共应用文件-common-php"><span class="nav-number">4.1.17.</span> <span class="nav-text">公共应用文件 common.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型插入数据（create）"><span class="nav-number">4.1.18.</span> <span class="nav-text">模型插入数据（create）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态传入数值随机生成字符串方法"><span class="nav-number">4.1.19.</span> <span class="nav-text">动态传入数值随机生成字符串方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件缓存-chache"><span class="nav-number">4.1.20.</span> <span class="nav-text">文件缓存 chache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由分组"><span class="nav-number">4.1.21.</span> <span class="nav-text">路由分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联模型下个关联数据排序（tp5-没有的，重点）"><span class="nav-number">4.1.22.</span> <span class="nav-text">关联模型下个关联数据排序（tp5 没有的，重点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-关联模型-添加-更新数据"><span class="nav-number">4.1.23.</span> <span class="nav-text">使用 关联模型 添加/更新数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第十章"><span class="nav-number">4.2.</span> <span class="nav-text">第十章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前置操作"><span class="nav-number">4.2.1.</span> <span class="nav-text">前置操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重构前置验证操作-（实现面向对象）"><span class="nav-number">4.2.2.</span> <span class="nav-text">重构前置验证操作 （实现面向对象）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证器数据自定义子项验证"><span class="nav-number">4.2.3.</span> <span class="nav-text">验证器数据自定义子项验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动添加时间戳（TP5-内置添加时间戳）"><span class="nav-number">4.2.4.</span> <span class="nav-text">自动添加时间戳（TP5 内置添加时间戳）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tp5-事务应用"><span class="nav-number">4.2.5.</span> <span class="nav-text">Tp5 事务应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入没有命名空间的文件与调用-Loader-，手动引入微信支付-php"><span class="nav-number">4.2.6.</span> <span class="nav-text">引入没有命名空间的文件与调用(Loader)，手动引入微信支付 php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TP5-模型实现数据减少-setDec"><span class="nav-number">4.2.7.</span> <span class="nav-text">TP5 模型实现数据减少 setDec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库锁与事务锁的区别"><span class="nav-number">4.2.8.</span> <span class="nav-text">数据库锁与事务锁的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部网址使用"><span class="nav-number">4.2.9.</span> <span class="nav-text">外部网址使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型分页查询-paginate"><span class="nav-number">4.2.10.</span> <span class="nav-text">模型分页查询(paginate)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Detail</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共204.8k字</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  <script type="text/javascript" src="/js/src/click_love.js"></script>
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/live2d-widget-model-haruto/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+
+</html>
