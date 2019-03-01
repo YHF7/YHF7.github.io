@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="不懂IT的男孩">
 <meta property="og:description" content="我知道也用过的有两种 vue-resource （已不维护了） axios （越来越多人用） vue代理跨域（补充）  那我们就来说是着么用吧1. vue-resource 引入的方法有 3 种  引入 1 直接使用网络的引用地址  （速度会慢一点） 引入 2 把包下载下来本地引用  引入 3 在项目中 用 npm 下载引用  在main.js文件内配置 下载 npm i vue-resource">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-23T12:11:59.862Z">
+<meta property="og:updated_time" content="2019-03-01T12:27:37.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue通过请求获取api接口数据&#x2F;代理跨域">
 <meta name="twitter:description" content="我知道也用过的有两种 vue-resource （已不维护了） axios （越来越多人用） vue代理跨域（补充）  那我们就来说是着么用吧1. vue-resource 引入的方法有 3 种  引入 1 直接使用网络的引用地址  （速度会慢一点） 引入 2 把包下载下来本地引用  引入 3 在项目中 用 npm 下载引用  在main.js文件内配置 下载 npm i vue-resource">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T20:11:59+08:00">
-                2018-11-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-01T20:27:37+08:00">
+                2019-03-01
               </time>
             
           </span>
@@ -448,8 +448,9 @@
 <li>虽然上面的方法都挺好但是面对跨域问题，如果后端不去设置的话就会出现跨域获取出错的问题</li>
 <li>这里只是说 vue-cli 开启的项目设置代理跨域因为其他的我不太会</li>
 <li>现在流行前后台分离开发，就是前端先前端的页面，后端写后端的接口。但是，当两者的工作合并的时候，要么前端自己搭建一个服务器，要么后端开启跨域让前端访问接口，我一般在开发的时候采用的是后者。但是这个是很坑的，经常出现无法跨域的错误。</li>
-<li><p>Vue-cli中自带了代理，当你配置了这个代理之后，你访问他人电脑的接口的时候，就像访问自己本机的接口一样，避免了跨域的问题。</p>
-</li>
+<li>Vue-cli中自带了代理，当你配置了这个代理之后，你访问他人电脑的接口的时候，就像访问自己本机的接口一样，避免了跨域的问题。</li>
+</ul>
+<h4 id="cli2"><a href="#cli2" class="headerlink" title="cli2"></a>cli2</h4><ul>
 <li><p>首先找到，config下面的index.js，然后，打开，关键代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">dev: &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Paths</span></span><br><span class="line">    assetsSubDirectory: <span class="string">'static'</span>,</span><br><span class="line">    assetsPublicPath: <span class="string">'/'</span>,</span><br><span class="line">    proxyTable: &#123;</span><br><span class="line">      <span class="string">'/Home'</span> : &#123;</span><br><span class="line">        target: <span class="string">'https://lit-plains-29389.herokuapp.com'</span>,</span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"/api"</span>:&#123;</span><br><span class="line">        target: <span class="string">'https://lit-plains-29389.herokuapp.com'</span>,</span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">'/'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  <span class="comment">// Various Dev Server settings</span></span><br><span class="line">  host: <span class="string">'localhost'</span>, <span class="comment">// can be overwritten by process.env.HOST</span></span><br><span class="line">  port: <span class="number">8080</span>, <span class="comment">// can be overwritten by process.env.PORT, if port is in use, a free one will be determined</span></span><br><span class="line">  autoOpenBrowser: <span class="literal">false</span>,</span><br><span class="line">  errorOverlay: <span class="literal">true</span>,</span><br><span class="line">  notifyOnErrors: <span class="literal">true</span>,</span><br><span class="line">  poll: <span class="literal">false</span>, <span class="comment">// https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Use Eslint Loader?</span></span><br><span class="line">  <span class="comment">// If true, your code will be linted during bundling and</span></span><br><span class="line">  <span class="comment">// linting errors and warnings will be shown in the console.</span></span><br><span class="line">  useEslint: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// If true, eslint errors and warnings will also be shown in the error overlay</span></span><br><span class="line">  <span class="comment">// in the browser.</span></span><br><span class="line">  showEslintErrorsInOverlay: <span class="literal">false</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Source Maps</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// https://webpack.js.org/configuration/devtool/#development</span></span><br><span class="line">  devtool: <span class="string">'cheap-module-eval-source-map'</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// If you have problems debugging vue-files in devtools,</span></span><br><span class="line">  <span class="comment">// set this to false - it *may* help</span></span><br><span class="line">  <span class="comment">// https://vue-loader.vuejs.org/en/options.html#cachebusting</span></span><br><span class="line">  cacheBusting: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">  cssSourceMap: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -458,6 +459,17 @@
 <li><p>简单点说就是做一个替换</p>
 </li>
 <li><p>说明：我的vue-cli所在的端口是localhos:8080</p>
+</li>
+</ul>
+<h4 id="cli3"><a href="#cli3" class="headerlink" title="cli3"></a>cli3</h4><ul>
+<li>cli3 和cli2 有一定的区别，就是cli3没有了配置文件，那么我们需要自己去配置</li>
+<li><ol>
+<li>在根目录新建 vue.config.js 这个文件作为配置文件</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>写入配置代码<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 修改的配置</span></span><br><span class="line">  <span class="comment">// 将baseUrl: '/api',改为baseUrl: '/',</span></span><br><span class="line">  baseUrl: <span class="string">'/'</span>,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    proxy: &#123; <span class="comment">// 代理跨域</span></span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// 代理url关键字</span></span><br><span class="line">        target: <span class="string">'http://localhost:5000'</span>, <span class="comment">// 需要代理的地址</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>, <span class="comment">// 是否跨域</span></span><br><span class="line">        pathRewrite: &#123; <span class="comment">// 用来做字节更换，比如接口没有api的，那我们前端调用接口用api开头，在这里就把api替换为空，那就和后端结合了，如果不需要那就不加这个</span></span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 </li>
 </ul>
 
@@ -698,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#我知道也用过的有两种"><span class="nav-number">1.</span> <span class="nav-text">我知道也用过的有两种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那我们就来说是着么用吧"><span class="nav-number">2.</span> <span class="nav-text">那我们就来说是着么用吧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-vue-resource"><span class="nav-number">3.</span> <span class="nav-text">1. vue-resource</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-axios"><span class="nav-number">4.</span> <span class="nav-text">2.axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-代理跨域"><span class="nav-number">5.</span> <span class="nav-text">3.代理跨域</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#我知道也用过的有两种"><span class="nav-number">1.</span> <span class="nav-text">我知道也用过的有两种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那我们就来说是着么用吧"><span class="nav-number">2.</span> <span class="nav-text">那我们就来说是着么用吧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-vue-resource"><span class="nav-number">3.</span> <span class="nav-text">1. vue-resource</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-axios"><span class="nav-number">4.</span> <span class="nav-text">2.axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-代理跨域"><span class="nav-number">5.</span> <span class="nav-text">3.代理跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cli2"><span class="nav-number">5.1.</span> <span class="nav-text">cli2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cli3"><span class="nav-number">5.2.</span> <span class="nav-text">cli3</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -731,7 +743,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共204.8k字</span>
+  <span class="post-count">博客全站共204.9k字</span>
 </div>
 
 
