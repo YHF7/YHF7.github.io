@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="不懂IT的男孩">
 <meta property="og:description" content="模块/插件 express 前端 web 模块 path 路径核心模块 art-template 模版引擎（express-art-template 的依赖所以必须安装） express-art-template 模版引擎 (视觉效果模板 子模板 模板继承) body-parser 中间件(解析表单 post 请求体) mongoose 数据库链接 bootstrap@3 css 页面开发场景 j">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-12T02:37:19.477Z">
+<meta property="og:updated_time" content="2019-03-02T02:12:31.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm&#x2F;cnpm 第三方模块&#x2F;插件安装使用">
 <meta name="twitter:description" content="模块/插件 express 前端 web 模块 path 路径核心模块 art-template 模版引擎（express-art-template 的依赖所以必须安装） express-art-template 模版引擎 (视觉效果模板 子模板 模板继承) body-parser 中间件(解析表单 post 请求体) mongoose 数据库链接 bootstrap@3 css 页面开发场景 j">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-12T10:37:19+08:00">
-                2018-11-12
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-02T10:12:31+08:00">
+                2019-03-02
               </time>
             
           </span>
@@ -649,16 +649,34 @@
 <h1 id="Mint-UI"><a href="#Mint-UI" class="headerlink" title="Mint-UI"></a>Mint-UI</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i mint-ui -S</span><br></pre></td></tr></table></figure>
 <h1 id="babel-plugin-componen"><a href="#babel-plugin-componen" class="headerlink" title="babel-plugin-componen"></a>babel-plugin-componen</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install babel-plugin-component -D</span><br></pre></td></tr></table></figure>
 <h1 id="vue-resource"><a href="#vue-resource" class="headerlink" title="vue-resource"></a>vue-resource</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i vue-resource -S</span><br></pre></td></tr></table></figure>
-<h1 id="babel-plugin-transform-remove-strict-mode"><a href="#babel-plugin-transform-remove-strict-mode" class="headerlink" title="babel-plugin-transform-remove-strict-mode"></a>babel-plugin-transform-remove-strict-mode</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i babel-plugin-transform-remove-strict-mode -D</span><br></pre></td></tr></table></figure>
+<h1 id="babel-plugin-transform-remove-strict-mode"><a href="#babel-plugin-transform-remove-strict-mode" class="headerlink" title="babel-plugin-transform-remove-strict-mode"></a>babel-plugin-transform-remove-strict-mode</h1><ol>
+<li>安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i babel-plugin-transform-remove-strict-mode -D</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>配置 .babelrc 文件 没有就在根目录创建</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"plugins"</span>: [<span class="string">"transform-remove-strict-mode"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>使用</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 以mui为例</span></span><br><span class="line">  <span class="comment">// 在vue里面，因为这个mui.js 写法比较旧所以编译时会报错，所以我们去除严格模式</span></span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  <span class="comment">// 1. 导入 mui 的js文件</span></span><br><span class="line">  <span class="keyword">import</span> mui <span class="keyword">from</span> <span class="string">"../../lib/mui/js/mui.js"</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>清理报错/报警</li>
+</ol>
+<ul>
+<li>加入这个样式就可以了</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">touch-action</span>: pan-y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="vue2-preview"><a href="#vue2-preview" class="headerlink" title="vue2-preview"></a>vue2-preview</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://www.npmjs.com/package/vue2-preview</span><br><span class="line">$ sudo cnpm i vue2-preview -S</span><br><span class="line">http://www.mamicode.com/info-detail-2462808.html</span><br></pre></td></tr></table></figure>
 <h1 id="moment"><a href="#moment" class="headerlink" title="moment"></a>moment</h1><ol>
-<li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i moment -S</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在main.js里面全局配置</span></span><br><span class="line"><span class="comment">// 导入时间插件</span></span><br><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span></span><br><span class="line"><span class="comment">// 定义全局的过滤器 dateFormat 是调用方法名  dataStr 是传入参数 patter 是格式</span></span><br><span class="line">Vue.filter(<span class="string">'dateFormat'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">dataStr, pattern = <span class="string">'YYYY-MM-DD HH:mm:ss'</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> moment(dataStr).format(pattern)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
+<li>安装</li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cnpm i moment -S</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在main.js里面全局配置</span></span><br><span class="line"><span class="comment">// 导入时间插件</span></span><br><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment'</span></span><br><span class="line"><span class="comment">// 定义全局的过滤器 dateFormat 是调用方法名  dataStr 是传入参数 patter 是格式</span></span><br><span class="line">Vue.filter(<span class="string">'dateFormat'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">dataStr, pattern = <span class="string">'YYYY-MM-DD HH:mm:ss'</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> moment(dataStr).format(pattern)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -930,7 +948,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共204.9k字</span>
+  <span class="post-count">博客全站共205k字</span>
 </div>
 
 
