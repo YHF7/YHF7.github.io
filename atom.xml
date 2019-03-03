@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-18T08:49:39.727Z</updated>
+  <updated>2019-03-03T02:24:44.739Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>配置maven 下载jar包，配置Idea maven , 导入项目 下包</title>
+    <link href="http://yoursite.com/2019/03/03/Mac%20%E5%AE%89%E8%A3%85maven/"/>
+    <id>http://yoursite.com/2019/03/03/Mac 安装maven/</id>
+    <published>2019-03-03T01:38:50.603Z</published>
+    <updated>2019-03-03T02:24:44.739Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul><li>maven其实我也不是很会，只是帮助一位朋友解决前后的交互问题需要用到，据说maven现在比较流行都是这样了应用和下包</li><li>我很久没有接触java 对这个不是很了解，在他的帮助下知道了要搭建maven和构建好项目</li><li>所以把这个方法记录下来以后遇到还能用起来</li></ul><h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><ol><li>插入指令时要把位置配置成自己的配置，我的图片哪里有一点点选错了，知道就好了我不再去修改那个图片</li></ol><h1 id="配置-工具"><a href="#配置-工具" class="headerlink" title="配置/工具"></a>配置/工具</h1><ol><li>Mac Os 10.13.3</li><li>maven 包 我下载的是3.6.0（一会说着么下载）</li><li>控制台</li><li>Intelli IDEA （我的是2018）</li><li>apache-tomcat 服务器（我的是9.0.11）</li></ol><h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="第一步maven包"><a href="#第一步maven包" class="headerlink" title="第一步maven包"></a>第一步maven包</h2><ol><li><a href="https://maven.apache.org/download.cgi" target="_blank" rel="noopener">点击进入官网</a></li><li>下载 maven 包<br><img src="/Java/java-maven1.png" alt="java-maven"></li><li>解压 maven 包</li></ol><ul><li>直接电脑双击解压</li></ul><ol start="4"><li>存放</li></ol><ul><li>放在系统文件夹下，哪里都可以自己要记住后面要用(记住这个地址后面配置需要)</li><li>我是放在/Users/yhf/apache-maven-3.6.0</li></ul><h2 id="第二步-安装"><a href="#第二步-安装" class="headerlink" title="第二步 安装"></a>第二步 安装</h2><ol><li><p>打开控制台</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.bash_profile</span><br></pre></td></tr></table></figure></li><li><p>插入配置指令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export M2_HOME=/Users/yhf/apache-maven-3.6.0</span><br><span class="line">export PATH=$PATH:$M2_HOME/bin</span><br></pre></td></tr></table></figure></li></ol><ul><li>说明一下图片里面选错了，是红框和红框下面那句，反正接着export后面哪里加入就好了<br><img src="/Java/java-maven2.png" alt="java-maven"><br><img src="/Java/java-maven3.png" alt="java-maven"></li></ul><ol start="3"><li><p>运行指令</p><ul><li>这一条是运行刚才的配置文件</li><li>输入命令以使bash_profile生效<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure></li></ul></li><li><p>输入mvn -v查看Maven是否安装成功</p><ul><li>看到下面这样就是配置成功了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn -v</span><br></pre></td></tr></table></figure></li></ul></li></ol><p><img src="/Java/java-maven4.png" alt="java-maven"></p><h2 id="第三步-配置Idea-maven"><a href="#第三步-配置Idea-maven" class="headerlink" title="第三步 配置Idea maven"></a>第三步 配置Idea maven</h2><ul><li>按照图片的来就可以了<br><img src="/Java/java-maven5.png" alt="java-maven"><br><img src="/Java/java-maven6.png" alt="java-maven"></li></ul><h2 id="导入项目"><a href="#导入项目" class="headerlink" title="导入项目"></a>导入项目</h2><ol><li>导入pom.xml<br><img src="/Java/java-idea1.png" alt="java-maven"><br><img src="/Java/java-idea2.png" alt="java-maven"><br><img src="/Java/java-idea3.png" alt="java-maven"></li><li>下载jar包<ul><li>刚才我们导入了现在下jar包</li><li>点开右侧的maven projects</li><li>选择安装<br><img src="/Java/java-idea4.png" alt="java-maven"><br><img src="/Java/java-idea5.png" alt="java-maven"></li></ul></li><li>安装好配置<br><img src="/Java/java-idea6.png" alt="java-maven"></li></ol><h2 id="开启项目跑起来"><a href="#开启项目跑起来" class="headerlink" title="开启项目跑起来"></a>开启项目跑起来</h2><pre><code>- 配置serve，然后跑起来</code></pre><p><img src="/Java/java-idea7.png" alt="java-maven"><br><img src="/Java/java-idea8.png" alt="java-maven"></p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><ul><li>这个就是我安装mave 导入项目 和配置mave 跑起来的笔记，希望能帮到有缘人</li><li>如有什么问题加微信我们互相学习共同讨论</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+    
+      <category term="Java 配置" scheme="http://yoursite.com/tags/Java-%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>微信小程序后端笔记</title>
@@ -488,31 +513,6 @@
     
     
       <category term="Vue笔记" scheme="http://yoursite.com/tags/Vue%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>仿写 vue2-vuex 案例</title>
-    <link href="http://yoursite.com/2018/11/21/2018-11-21/"/>
-    <id>http://yoursite.com/2018/11/21/2018-11-21/</id>
-    <published>2018-11-21T05:21:48.662Z</published>
-    <updated>2018-11-21T05:27:44.056Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="案例心得"><a href="#案例心得" class="headerlink" title="案例心得"></a>案例心得</h2><ul><li>在分析完那个vuex的小案例后，我觉得自己好像真的明白了vuex是着么写的</li><li>但是在我重新去仿照这个案例写的时候，还是发现了自己有很多的不足</li><li>那也只可以一点点的去查一点点的去写</li><li>在仿写的过程中，也有向源码学习</li><li>从中知道和学到了很多之前自己不会的方法和技巧</li></ul><h2 id="仿写源码"><a href="#仿写源码" class="headerlink" title="仿写源码"></a><a href="https://github.com/YHF7/Vue/tree/master/vue2-vuex-yhf" target="_blank" rel="noopener">仿写源码</a></h2><h2 id="vue2-vuex案例分析"><a href="#vue2-vuex案例分析" class="headerlink" title="vue2-vuex案例分析"></a><a href="https://yhf7.github.io/2018/11/17/vue2-vuex%E6%A1%88%E4%BE%8B/#more" target="_blank" rel="noopener">vue2-vuex案例分析</a></h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
-    
-    
-      <category term="Vue 案例" scheme="http://yoursite.com/tags/Vue-%E6%A1%88%E4%BE%8B/"/>
     
   </entry>
   
