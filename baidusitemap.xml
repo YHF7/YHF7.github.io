@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/03/07/TypeScript%E7%AC%94%E8%AE%B02/</loc>
+    <lastmod>2019-03-08T08:10:51.721Z</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/03/03/TypeScript%E7%AC%94%E8%AE%B01/</loc>
     <lastmod>2019-03-07T13:20:30.255Z</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/03/07/TypeScript%E7%AC%94%E8%AE%B02/</loc>
-    <lastmod>2019-03-07T13:20:06.693Z</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/07/ES6+%E7%9A%84%E7%94%A8%E6%B3%95%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2019-03-07T06:57:07.877Z</lastmod>
