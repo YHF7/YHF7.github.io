@@ -75,18 +75,18 @@
 
 
 
-<meta name="description" content="介绍 TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。  接口初探 类型检查器会查看printLabel的调用。 printLabel有一个参数，并要求这个对象参数有一个名为label类型为string的属性。 需要注意的是，我们传入的对象参">
+<meta name="description" content="前言 个人学习笔记，仅供参考  介绍 TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。  接口初探 类型检查器会查看printLabel的调用。 printLabel有一个参数，并要求这个对象参数有一个名为label类型为string的属性。">
 <meta name="keywords" content="TypeScript 笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TypeScript 自学笔记3 接口">
 <meta property="og:url" content="http://yoursite.com/2019/03/09/TypeScript笔记3/index.html">
 <meta property="og:site_name" content="不懂IT的男孩">
-<meta property="og:description" content="介绍 TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。  接口初探 类型检查器会查看printLabel的调用。 printLabel有一个参数，并要求这个对象参数有一个名为label类型为string的属性。 需要注意的是，我们传入的对象参">
+<meta property="og:description" content="前言 个人学习笔记，仅供参考  介绍 TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。  接口初探 类型检查器会查看printLabel的调用。 printLabel有一个参数，并要求这个对象参数有一个名为label类型为string的属性。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-09T15:29:39.207Z">
+<meta property="og:updated_time" content="2019-03-11T13:04:35.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TypeScript 自学笔记3 接口">
-<meta name="twitter:description" content="介绍 TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。  接口初探 类型检查器会查看printLabel的调用。 printLabel有一个参数，并要求这个对象参数有一个名为label类型为string的属性。 需要注意的是，我们传入的对象参">
+<meta name="twitter:description" content="前言 个人学习笔记，仅供参考  介绍 TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。  接口初探 类型检查器会查看printLabel的调用。 printLabel有一个参数，并要求这个对象参数有一个名为label类型为string的属性。">
 
 
 
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-09T23:29:39+08:00">
-                2019-03-09
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T21:04:35+08:00">
+                2019-03-11
               </time>
             
           </span>
@@ -408,7 +408,10 @@
       
 
       
-        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>个人学习笔记，仅供参考</li>
+</ul>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
 <li>TypeScript的核心原则之一是对值所具有的结构进行类型检查。 它有时被称做“鸭式辨型法”或“结构性子类型化”。 在TypeScript里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。</li>
 </ul>
 <h1 id="接口初探"><a href="#接口初探" class="headerlink" title="接口初探"></a>接口初探</h1><ul>
@@ -595,6 +598,11 @@
 </li>
 <li>在Control类内部，是允许通过SelectableControl的实例来访问私有成员state的。 实际上， SelectableControl接口和拥有select方法的Control类是一样的。 Button和TextBox类是SelectableControl的子类（因为它们都继承自Control并有select方法），但Image和Location类并不是这样的</li>
 </ul>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><ul>
+<li>这个就是我学习Ts的第三天的笔记，欢迎更多的同行大哥指导交流</li>
+<li><a href="https://yhf7.github.io/" target="_blank" rel="noopener">欢迎进入我的博客</a>：<a href="https://yhf7.github.io/" target="_blank" rel="noopener">https://yhf7.github.io/</a></li>
+<li>如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！</li>
+</ul>
 
       
     </div>
@@ -645,6 +653,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/10/TypeScript笔记4/" rel="prev" title="TypeScript 自学笔记4 类">
+                TypeScript 自学笔记4 类 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -727,7 +739,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -829,7 +841,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口初探"><span class="nav-number">2.</span> <span class="nav-text">接口初探</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可选属性"><span class="nav-number">3.</span> <span class="nav-text">可选属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#只读属性-（readonly）"><span class="nav-number">4.</span> <span class="nav-text">只读属性 （readonly）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReadonlyArray-只读数组"><span class="nav-number">4.1.</span> <span class="nav-text">ReadonlyArray 只读数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readonly-vs-const"><span class="nav-number">4.2.</span> <span class="nav-text">readonly vs const</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#额外的属性检查"><span class="nav-number">5.</span> <span class="nav-text">额外的属性检查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#额外检查错误"><span class="nav-number">5.1.</span> <span class="nav-text">额外检查错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决额外检查错误（绕开检查）"><span class="nav-number">5.2.</span> <span class="nav-text">解决额外检查错误（绕开检查）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法一-（断言）"><span class="nav-number">5.2.1.</span> <span class="nav-text">解决方法一 （断言）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法二-（完美解法，添加一个字符串索引签名）"><span class="nav-number">5.2.2.</span> <span class="nav-text">解决方法二 （完美解法，添加一个字符串索引签名）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法三-（耍赖皮-没有理解，我觉得这样是一个漏洞）"><span class="nav-number">5.2.3.</span> <span class="nav-text">解决方法三 （耍赖皮,没有理解，我觉得这样是一个漏洞）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数类型"><span class="nav-number">6.</span> <span class="nav-text">函数类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可索引的类型"><span class="nav-number">7.</span> <span class="nav-text">可索引的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字索引-数组"><span class="nav-number">7.1.</span> <span class="nav-text">数字索引(数组)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串索引（对象）"><span class="nav-number">7.2.</span> <span class="nav-text">字符串索引（对象）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防止索引被篡改-只读"><span class="nav-number">7.3.</span> <span class="nav-text">防止索引被篡改 (只读)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类类型"><span class="nav-number">8.</span> <span class="nav-text">类类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现接口"><span class="nav-number">8.1.</span> <span class="nav-text">实现接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类静态部分与实例部分的区别-（令人费解的地方，未知）"><span class="nav-number">8.2.</span> <span class="nav-text">类静态部分与实例部分的区别 （令人费解的地方，未知）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承接口"><span class="nav-number">9.</span> <span class="nav-text">继承接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#混合类型"><span class="nav-number">10.</span> <span class="nav-text">混合类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口继承类"><span class="nav-number">11.</span> <span class="nav-text">接口继承类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口初探"><span class="nav-number">3.</span> <span class="nav-text">接口初探</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可选属性"><span class="nav-number">4.</span> <span class="nav-text">可选属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#只读属性-（readonly）"><span class="nav-number">5.</span> <span class="nav-text">只读属性 （readonly）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReadonlyArray-只读数组"><span class="nav-number">5.1.</span> <span class="nav-text">ReadonlyArray 只读数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readonly-vs-const"><span class="nav-number">5.2.</span> <span class="nav-text">readonly vs const</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#额外的属性检查"><span class="nav-number">6.</span> <span class="nav-text">额外的属性检查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#额外检查错误"><span class="nav-number">6.1.</span> <span class="nav-text">额外检查错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决额外检查错误（绕开检查）"><span class="nav-number">6.2.</span> <span class="nav-text">解决额外检查错误（绕开检查）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法一-（断言）"><span class="nav-number">6.2.1.</span> <span class="nav-text">解决方法一 （断言）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法二-（完美解法，添加一个字符串索引签名）"><span class="nav-number">6.2.2.</span> <span class="nav-text">解决方法二 （完美解法，添加一个字符串索引签名）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法三-（耍赖皮-没有理解，我觉得这样是一个漏洞）"><span class="nav-number">6.2.3.</span> <span class="nav-text">解决方法三 （耍赖皮,没有理解，我觉得这样是一个漏洞）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数类型"><span class="nav-number">7.</span> <span class="nav-text">函数类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可索引的类型"><span class="nav-number">8.</span> <span class="nav-text">可索引的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数字索引-数组"><span class="nav-number">8.1.</span> <span class="nav-text">数字索引(数组)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串索引（对象）"><span class="nav-number">8.2.</span> <span class="nav-text">字符串索引（对象）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防止索引被篡改-只读"><span class="nav-number">8.3.</span> <span class="nav-text">防止索引被篡改 (只读)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类类型"><span class="nav-number">9.</span> <span class="nav-text">类类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现接口"><span class="nav-number">9.1.</span> <span class="nav-text">实现接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类静态部分与实例部分的区别-（令人费解的地方，未知）"><span class="nav-number">9.2.</span> <span class="nav-text">类静态部分与实例部分的区别 （令人费解的地方，未知）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承接口"><span class="nav-number">10.</span> <span class="nav-text">继承接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#混合类型"><span class="nav-number">11.</span> <span class="nav-text">混合类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口继承类"><span class="nav-number">12.</span> <span class="nav-text">接口继承类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">13.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
@@ -862,7 +874,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共217.8k字</span>
+  <span class="post-count">博客全站共222.4k字</span>
 </div>
 
 

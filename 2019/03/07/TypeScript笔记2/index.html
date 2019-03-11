@@ -75,18 +75,18 @@
 
 
 
-<meta name="description" content="Var 声明 可以在函数内部定义变量 可以在其它函数内部访问相同的变量123456789101112131415function f() &amp;#123;    var a = 1;    a = 2;    var b = g();    a = 3;    return b;    function g() &amp;#123;        return a;    &amp;#125;&amp;#125;f(); /">
+<meta name="description" content="前言 个人学习笔记，仅供参考  Var 声明 可以在函数内部定义变量 可以在其它函数内部访问相同的变量123456789101112131415function f() &amp;#123;    var a = 1;    a = 2;    var b = g();    a = 3;    return b;    function g() &amp;#123;        return a;    &amp;#">
 <meta name="keywords" content="TypeScript 笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TypeScript 自学笔记2 变量声明">
 <meta property="og:url" content="http://yoursite.com/2019/03/07/TypeScript笔记2/index.html">
 <meta property="og:site_name" content="不懂IT的男孩">
-<meta property="og:description" content="Var 声明 可以在函数内部定义变量 可以在其它函数内部访问相同的变量123456789101112131415function f() &amp;#123;    var a = 1;    a = 2;    var b = g();    a = 3;    return b;    function g() &amp;#123;        return a;    &amp;#125;&amp;#125;f(); /">
+<meta property="og:description" content="前言 个人学习笔记，仅供参考  Var 声明 可以在函数内部定义变量 可以在其它函数内部访问相同的变量123456789101112131415function f() &amp;#123;    var a = 1;    a = 2;    var b = g();    a = 3;    return b;    function g() &amp;#123;        return a;    &amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-08T08:10:51.721Z">
+<meta property="og:updated_time" content="2019-03-11T01:49:44.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TypeScript 自学笔记2 变量声明">
-<meta name="twitter:description" content="Var 声明 可以在函数内部定义变量 可以在其它函数内部访问相同的变量123456789101112131415function f() &amp;#123;    var a = 1;    a = 2;    var b = g();    a = 3;    return b;    function g() &amp;#123;        return a;    &amp;#125;&amp;#125;f(); /">
+<meta name="twitter:description" content="前言 个人学习笔记，仅供参考  Var 声明 可以在函数内部定义变量 可以在其它函数内部访问相同的变量123456789101112131415function f() &amp;#123;    var a = 1;    a = 2;    var b = g();    a = 3;    return b;    function g() &amp;#123;        return a;    &amp;#">
 
 
 
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-08T16:10:51+08:00">
-                2019-03-08
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T09:49:44+08:00">
+                2019-03-11
               </time>
             
           </span>
@@ -408,7 +408,10 @@
       
 
       
-        <h1 id="Var-声明"><a href="#Var-声明" class="headerlink" title="Var 声明"></a>Var 声明</h1><ul>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>个人学习笔记，仅供参考</li>
+</ul>
+<h1 id="Var-声明"><a href="#Var-声明" class="headerlink" title="Var 声明"></a>Var 声明</h1><ul>
 <li>可以在函数内部定义变量</li>
 <li>可以在其它函数内部访问相同的变量<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    a = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">var</span> b = g();</span><br><span class="line">    a = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">// returns 2</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -541,7 +544,13 @@
 </ul>
 <hr>
 <ul>
-<li>对象展开还有其它一些意想不到的限制。 首先，它仅包含对象 自身的可枚举属性。 大体上是说当你展开一个对象实例时，你会丢失其方法：<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> C &#123;</span><br><span class="line">  p = <span class="number">12</span>;</span><br><span class="line">  m() &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">new</span> C();</span><br><span class="line"><span class="keyword">let</span> clone = &#123; ...c &#125;;</span><br><span class="line">clone.p; <span class="comment">// ok</span></span><br><span class="line">clone.m(); <span class="comment">// error!</span></span><br></pre></td></tr></table></figure></li>
+<li>对象展开还有其它一些意想不到的限制。 首先，它仅包含对象 自身的可枚举属性。 大体上是说当你展开一个对象实例时，你会丢失其方法：<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> C &#123;</span><br><span class="line">  p = <span class="number">12</span>;</span><br><span class="line">  m() &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">new</span> C();</span><br><span class="line"><span class="keyword">let</span> clone = &#123; ...c &#125;;</span><br><span class="line">clone.p; <span class="comment">// ok</span></span><br><span class="line">clone.m(); <span class="comment">// error!</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><ul>
+<li>这个就是我学习Ts的第二天的笔记，欢迎更多的同行大哥指导交流</li>
+<li><a href="https://yhf7.github.io/" target="_blank" rel="noopener">欢迎进入我的博客</a>：<a href="https://yhf7.github.io/" target="_blank" rel="noopener">https://yhf7.github.io/</a></li>
+<li>如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！</li>
 </ul>
 
       
@@ -679,7 +688,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -781,7 +790,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Var-声明"><span class="nav-number">1.</span> <span class="nav-text">Var 声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域规则"><span class="nav-number">1.1.</span> <span class="nav-text">作用域规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获变量怪异之处"><span class="nav-number">1.2.</span> <span class="nav-text">捕获变量怪异之处</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Let声明"><span class="nav-number">2.</span> <span class="nav-text">Let声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#块作用域"><span class="nav-number">2.1.</span> <span class="nav-text">块作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#暂时性死区"><span class="nav-number">2.1.1.</span> <span class="nav-text">暂时性死区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定义及屏蔽"><span class="nav-number">2.2.</span> <span class="nav-text">重定义及屏蔽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重定义"><span class="nav-number">2.2.1.</span> <span class="nav-text">重定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏蔽"><span class="nav-number">2.2.2.</span> <span class="nav-text">屏蔽</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级作用域变量的获取"><span class="nav-number">2.3.</span> <span class="nav-text">块级作用域变量的获取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const-声明"><span class="nav-number">3.</span> <span class="nav-text">const 声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解构【es6特性】"><span class="nav-number">4.</span> <span class="nav-text">解构【es6特性】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组解构"><span class="nav-number">4.1.</span> <span class="nav-text">数组解构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象解构"><span class="nav-number">4.2.</span> <span class="nav-text">对象解构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性重命名"><span class="nav-number">4.2.1.</span> <span class="nav-text">属性重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-number">4.2.2.</span> <span class="nav-text">默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明"><span class="nav-number">4.2.3.</span> <span class="nav-text">函数声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展开"><span class="nav-number">4.3.</span> <span class="nav-text">展开</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Var-声明"><span class="nav-number">2.</span> <span class="nav-text">Var 声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域规则"><span class="nav-number">2.1.</span> <span class="nav-text">作用域规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获变量怪异之处"><span class="nav-number">2.2.</span> <span class="nav-text">捕获变量怪异之处</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Let声明"><span class="nav-number">3.</span> <span class="nav-text">Let声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#块作用域"><span class="nav-number">3.1.</span> <span class="nav-text">块作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#暂时性死区"><span class="nav-number">3.1.1.</span> <span class="nav-text">暂时性死区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定义及屏蔽"><span class="nav-number">3.2.</span> <span class="nav-text">重定义及屏蔽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重定义"><span class="nav-number">3.2.1.</span> <span class="nav-text">重定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏蔽"><span class="nav-number">3.2.2.</span> <span class="nav-text">屏蔽</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级作用域变量的获取"><span class="nav-number">3.3.</span> <span class="nav-text">块级作用域变量的获取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#const-声明"><span class="nav-number">4.</span> <span class="nav-text">const 声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解构【es6特性】"><span class="nav-number">5.</span> <span class="nav-text">解构【es6特性】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组解构"><span class="nav-number">5.1.</span> <span class="nav-text">数组解构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象解构"><span class="nav-number">5.2.</span> <span class="nav-text">对象解构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性重命名"><span class="nav-number">5.2.1.</span> <span class="nav-text">属性重命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-number">5.2.2.</span> <span class="nav-text">默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数声明"><span class="nav-number">5.2.3.</span> <span class="nav-text">函数声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#展开"><span class="nav-number">5.3.</span> <span class="nav-text">展开</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">6.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
@@ -814,7 +823,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共217.8k字</span>
+  <span class="post-count">博客全站共222.4k字</span>
 </div>
 
 

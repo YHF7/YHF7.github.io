@@ -75,18 +75,18 @@
 
 
 
-<meta name="description" content="笔记目录 安装ts 第一个ts 项目使用 五分钟上手ts 基础类型  安装ts 全局安装ts 1$ sudo npm install -g typescript  全局安装编译环境tsc 1$ sudo npm install -g tsc   第一个ts 创建 greeter.ts文件 文件内部写一个greeter的函数 123456function greeter(person) &amp;#123;">
+<meta name="description" content="前言 现在Ts也是比较流行，想自学一下ts 所以就一起来学习一下，做下笔记吧  笔记目录 安装ts 第一个ts 项目使用 五分钟上手ts 基础类型  安装ts 全局安装ts 1$ sudo npm install -g typescript  全局安装编译环境tsc 1$ sudo npm install -g tsc   第一个ts 创建 greeter.ts文件 文件内部写一个greeter的">
 <meta name="keywords" content="TypeScript 笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TypeScript 自学笔记1 基础类型">
 <meta property="og:url" content="http://yoursite.com/2019/03/03/TypeScript笔记1/index.html">
 <meta property="og:site_name" content="不懂IT的男孩">
-<meta property="og:description" content="笔记目录 安装ts 第一个ts 项目使用 五分钟上手ts 基础类型  安装ts 全局安装ts 1$ sudo npm install -g typescript  全局安装编译环境tsc 1$ sudo npm install -g tsc   第一个ts 创建 greeter.ts文件 文件内部写一个greeter的函数 123456function greeter(person) &amp;#123;">
+<meta property="og:description" content="前言 现在Ts也是比较流行，想自学一下ts 所以就一起来学习一下，做下笔记吧  笔记目录 安装ts 第一个ts 项目使用 五分钟上手ts 基础类型  安装ts 全局安装ts 1$ sudo npm install -g typescript  全局安装编译环境tsc 1$ sudo npm install -g tsc   第一个ts 创建 greeter.ts文件 文件内部写一个greeter的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T13:20:30.255Z">
+<meta property="og:updated_time" content="2019-03-11T01:48:10.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TypeScript 自学笔记1 基础类型">
-<meta name="twitter:description" content="笔记目录 安装ts 第一个ts 项目使用 五分钟上手ts 基础类型  安装ts 全局安装ts 1$ sudo npm install -g typescript  全局安装编译环境tsc 1$ sudo npm install -g tsc   第一个ts 创建 greeter.ts文件 文件内部写一个greeter的函数 123456function greeter(person) &amp;#123;">
+<meta name="twitter:description" content="前言 现在Ts也是比较流行，想自学一下ts 所以就一起来学习一下，做下笔记吧  笔记目录 安装ts 第一个ts 项目使用 五分钟上手ts 基础类型  安装ts 全局安装ts 1$ sudo npm install -g typescript  全局安装编译环境tsc 1$ sudo npm install -g tsc   第一个ts 创建 greeter.ts文件 文件内部写一个greeter的">
 
 
 
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T21:20:30+08:00">
-                2019-03-07
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-11T09:48:10+08:00">
+                2019-03-11
               </time>
             
           </span>
@@ -408,7 +408,11 @@
       
 
       
-        <h1 id="笔记目录"><a href="#笔记目录" class="headerlink" title="笔记目录"></a>笔记目录</h1><ol>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>现在Ts也是比较流行，想自学一下ts</li>
+<li>所以就一起来学习一下，做下笔记吧</li>
+</ul>
+<h1 id="笔记目录"><a href="#笔记目录" class="headerlink" title="笔记目录"></a>笔记目录</h1><ol>
 <li>安装ts</li>
 <li>第一个ts</li>
 <li>项目使用</li>
@@ -499,6 +503,12 @@
 <li>两种形式是等价的。 至于使用哪个大多数情况下是凭个人喜好；然而，当你在TypeScript里使用JSX时，只有 as语法断言是被允许的。</li>
 </ul>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">"this is a string"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (&lt;<span class="built_in">string</span>&gt;someValue).length;</span><br><span class="line"></span><br><span class="line"><span class="comment">// as 语法 和上面一样的,但是就这样运行跑不起来，等到后面jsx的时候再去看看</span></span><br><span class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">"this is a string"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (someValue <span class="keyword">as</span> <span class="built_in">string</span>).length;</span><br></pre></td></tr></table></figure>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><ul>
+<li>这个就是我学习Ts的第一天的笔记，欢迎更多的同行大哥指导交流</li>
+<li><a href="https://yhf7.github.io/" target="_blank" rel="noopener">欢迎进入我的博客</a>：<a href="https://yhf7.github.io/" target="_blank" rel="noopener">https://yhf7.github.io/</a></li>
+<li>如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！</li>
+</ul>
+
       
     </div>
     
@@ -634,7 +644,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -736,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#笔记目录"><span class="nav-number">1.</span> <span class="nav-text">笔记目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装ts"><span class="nav-number">2.</span> <span class="nav-text">安装ts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一个ts"><span class="nav-number">3.</span> <span class="nav-text">第一个ts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目使用"><span class="nav-number">4.</span> <span class="nav-text">项目使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五分钟上手TypeScript"><span class="nav-number">5.</span> <span class="nav-text">五分钟上手TypeScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义类型实现规范化，类型注解"><span class="nav-number">5.1.</span> <span class="nav-text">定义类型实现规范化，类型注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">5.2.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">5.3.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在web如何使用ts"><span class="nav-number">5.4.</span> <span class="nav-text">在web如何使用ts</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础类型"><span class="nav-number">6.</span> <span class="nav-text">基础类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔值"><span class="nav-number">6.1.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字"><span class="nav-number">6.2.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">6.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">6.4.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组-其实还是数组"><span class="nav-number">6.5.</span> <span class="nav-text">元组 (其实还是数组)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举-（和js比起来容易实现很多）"><span class="nav-number">6.6.</span> <span class="nav-text">枚举 （和js比起来容易实现很多）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Any-（简称任意类型什么都可以支持）"><span class="nav-number">6.7.</span> <span class="nav-text">Any （简称任意类型什么都可以支持）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Void-不能拥有返回类型，就是无返回类型"><span class="nav-number">6.8.</span> <span class="nav-text">Void (不能拥有返回类型，就是无返回类型)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null-undefined"><span class="nav-number">6.9.</span> <span class="nav-text">null/undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Never-永远无法到达的类型…"><span class="nav-number">6.10.</span> <span class="nav-text">Never (永远无法到达的类型…)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-简单点就是对象"><span class="nav-number">6.11.</span> <span class="nav-text">Object (简单点就是对象)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型断言-（明确类型）"><span class="nav-number">6.12.</span> <span class="nav-text">类型断言 （明确类型）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#笔记目录"><span class="nav-number">2.</span> <span class="nav-text">笔记目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装ts"><span class="nav-number">3.</span> <span class="nav-text">安装ts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一个ts"><span class="nav-number">4.</span> <span class="nav-text">第一个ts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目使用"><span class="nav-number">5.</span> <span class="nav-text">项目使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五分钟上手TypeScript"><span class="nav-number">6.</span> <span class="nav-text">五分钟上手TypeScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义类型实现规范化，类型注解"><span class="nav-number">6.1.</span> <span class="nav-text">定义类型实现规范化，类型注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">6.2.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">6.3.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在web如何使用ts"><span class="nav-number">6.4.</span> <span class="nav-text">在web如何使用ts</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础类型"><span class="nav-number">7.</span> <span class="nav-text">基础类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔值"><span class="nav-number">7.1.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字"><span class="nav-number">7.2.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">7.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">7.4.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元组-其实还是数组"><span class="nav-number">7.5.</span> <span class="nav-text">元组 (其实还是数组)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举-（和js比起来容易实现很多）"><span class="nav-number">7.6.</span> <span class="nav-text">枚举 （和js比起来容易实现很多）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Any-（简称任意类型什么都可以支持）"><span class="nav-number">7.7.</span> <span class="nav-text">Any （简称任意类型什么都可以支持）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Void-不能拥有返回类型，就是无返回类型"><span class="nav-number">7.8.</span> <span class="nav-text">Void (不能拥有返回类型，就是无返回类型)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null-undefined"><span class="nav-number">7.9.</span> <span class="nav-text">null/undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Never-永远无法到达的类型…"><span class="nav-number">7.10.</span> <span class="nav-text">Never (永远无法到达的类型…)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-简单点就是对象"><span class="nav-number">7.11.</span> <span class="nav-text">Object (简单点就是对象)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型断言-（明确类型）"><span class="nav-number">7.12.</span> <span class="nav-text">类型断言 （明确类型）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">8.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
@@ -769,7 +779,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共217.8k字</span>
+  <span class="post-count">博客全站共222.4k字</span>
 </div>
 
 
