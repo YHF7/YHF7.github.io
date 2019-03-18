@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2019-03-18T15:02:40.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/18/TypeScript%E7%AC%94%E8%AE%B05/</loc>
+    
+    <lastmod>2019-03-18T14:54:15.870Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/18/%E9%A2%9C%E8%89%B2%E6%90%9C%E9%9B%86/</loc>
+    
+    <lastmod>2019-03-18T03:39:18.328Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/17/2019-03-17/</loc>
     
     <lastmod>2019-03-17T15:11:28.649Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://yoursite.com/2019/03/17/h5%E5%A4%9A%E6%AC%A1%E6%8B%96%E6%8B%BD%E6%98%BE%E7%A4%BA/</loc>
     
     <lastmod>2019-03-17T14:18:14.178Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2019-03-16T08:06:39.817Z</lastmod>
     
   </url>
   
