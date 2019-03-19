@@ -78,14 +78,14 @@
 <meta name="description" content="… 数组/对象的扩展 在我一开始看到…后面带参数是我写vue中时使用vuex引入数据的时候使用的 在一开始我只是以为它只是vuex引入数据的写法 但是在我再次遇到的时候我对这个表示很疑惑，所以就问人 通过查阅资料和他人的告知我知道了这个是数组/对象的扩展是es6以上的知识 我就去查阅了es6+的资料并知道了是着么的一个东西 相当于把整个对象搬迁过来本地一样   对象 (分开放test.js) 12">
 <meta name="keywords" content="js笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6 以上的个人遇到的知识">
+<meta property="og:title" content="ES6 以上的个人遇到的知识积累">
 <meta property="og:url" content="http://yoursite.com/2019/03/07/ES6+的用法笔记/index.html">
 <meta property="og:site_name" content="不懂IT的男孩">
 <meta property="og:description" content="… 数组/对象的扩展 在我一开始看到…后面带参数是我写vue中时使用vuex引入数据的时候使用的 在一开始我只是以为它只是vuex引入数据的写法 但是在我再次遇到的时候我对这个表示很疑惑，所以就问人 通过查阅资料和他人的告知我知道了这个是数组/对象的扩展是es6以上的知识 我就去查阅了es6+的资料并知道了是着么的一个东西 相当于把整个对象搬迁过来本地一样   对象 (分开放test.js) 12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T06:57:07.877Z">
+<meta property="og:updated_time" content="2019-03-19T06:01:51.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6 以上的个人遇到的知识">
+<meta name="twitter:title" content="ES6 以上的个人遇到的知识积累">
 <meta name="twitter:description" content="… 数组/对象的扩展 在我一开始看到…后面带参数是我写vue中时使用vuex引入数据的时候使用的 在一开始我只是以为它只是vuex引入数据的写法 但是在我再次遇到的时候我对这个表示很疑惑，所以就问人 通过查阅资料和他人的告知我知道了这个是数组/对象的扩展是es6以上的知识 我就去查阅了es6+的资料并知道了是着么的一个东西 相当于把整个对象搬迁过来本地一样   对象 (分开放test.js) 12">
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <title>ES6 以上的个人遇到的知识 | 不懂IT的男孩</title>
+  <title>ES6 以上的个人遇到的知识积累 | 不懂IT的男孩</title>
   
 
 
@@ -319,7 +319,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">ES6 以上的个人遇到的知识</h2>
+          <h2 class="post-title" itemprop="name headline">ES6 以上的个人遇到的知识积累</h2>
         
 
         <div class="post-meta">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-07T14:57:07+08:00">
-                2019-03-07
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T14:01:51+08:00">
+                2019-03-19
               </time>
             
           </span>
@@ -421,8 +421,20 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = &#123;</span><br><span class="line">    test1 (e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;test&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>引入方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;test&#125;  <span class="keyword">from</span> <span class="string">'./test.js'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 小程序中使用</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  <span class="comment">// 函数的扩展 es6+  等于new一个类</span></span><br><span class="line">  ...detailsTpl,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  test() &#123;</span><br><span class="line">      <span class="comment">// 在内部就可以直接用this来使用，相当于把整个函数搬迁过来了</span></span><br><span class="line">      <span class="keyword">this</span>.test1(<span class="string">'测试'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;test&#125;  <span class="keyword">from</span> <span class="string">'./test.js'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 小程序中使用</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  <span class="comment">// 函数的扩展 es6+  等于new一个类</span></span><br><span class="line">  ...detailsTpl,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  test() &#123;</span><br><span class="line">      <span class="comment">// 在内部就可以直接用this来使用，相当于把整个函数搬迁过来了</span></span><br><span class="line">      <span class="keyword">this</span>.test1(<span class="string">'测试'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<h1 id="for-in-for-of"><a href="#for-in-for-of" class="headerlink" title="for in/for of"></a>for in/for of</h1><ul>
+<li>for of一直都没着么关注看到别人说是es6的语法改进了for in 的不足就去看看</li>
+<li>这个of 呢不能用在对象哦，用在数组是可以的</li>
+<li>这个of和foreach好像没啥区别啊….,官网说是用来代替foreach实例的<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>];</span><br><span class="line"><span class="comment">// 这个呢是用了做一个小实验</span></span><br><span class="line">arr.foo = <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 先看看 数组的情况</span></span><br><span class="line"><span class="comment">// of里面是不会输出上面的foo的</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> e <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">&#125; <span class="comment">// a,b,c,d,e</span></span><br><span class="line"><span class="comment">// 看看foreach</span></span><br><span class="line"><span class="comment">// foreach 这个也是一样的</span></span><br><span class="line">arr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;)<span class="comment">// a,b,c,d,e</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个就不同的，它会输出foo</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> e <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">&#125; <span class="comment">// 0,1,2,3,4,foo</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>看看用在对象里面</li>
+<li>对象是不可以使用的，直接报错<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> object = &#123;<span class="string">'a'</span>:<span class="number">11</span>,<span class="string">'b'</span>:<span class="number">22</span>,<span class="string">'c'</span>:<span class="number">33</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先看看 数组的情况</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> e <span class="keyword">of</span> object) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">&#125; <span class="comment">// error</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> e <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)</span><br><span class="line">&#125; <span class="comment">// // a,b,c,d,e</span></span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -559,7 +571,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -661,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#…-数组-对象的扩展"><span class="nav-number">1.</span> <span class="nav-text">… 数组/对象的扩展</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#…-数组-对象的扩展"><span class="nav-number">1.</span> <span class="nav-text">… 数组/对象的扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for-in-for-of"><span class="nav-number">2.</span> <span class="nav-text">for in/for of</span></a></li></ol></div>
             
 
           </div>
@@ -694,7 +706,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共236.7k字</span>
+  <span class="post-count">博客全站共239.8k字</span>
 </div>
 
 

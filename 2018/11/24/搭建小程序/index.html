@@ -83,10 +83,16 @@
 <meta property="og:site_name" content="不懂IT的男孩">
 <meta property="og:description" content="前言前段时间，美团开源了 mpvue 这个项目，使得我们又多了一种用来开发小程序的框架选项。由于 mpvue 框架是完全基于 Vue 框架的（重写了其 runtime 和 compiler），因此在用法上面是高度和 Vue 一致的（某些功能由于受限于小程序环境本身的原因而不能使用），这给使用过 Vue 开发 Web 应用的前端开发者提供了极低的切换门槛来开发小程序。 没学过 vue 的想去学一下先">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-24T13:31:03.506Z">
+<meta property="og:image" content="http://yoursite.com/xcx/w3.png">
+<meta property="og:image" content="http://yoursite.com/xcx/w1.png">
+<meta property="og:image" content="http://yoursite.com/xcx/w4.png">
+<meta property="og:image" content="http://yoursite.com/xcx/w5.png">
+<meta property="og:image" content="http://yoursite.com/xcx/w2.png">
+<meta property="og:updated_time" content="2019-03-19T12:32:51.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mpvue搭建初始小程序">
 <meta name="twitter:description" content="前言前段时间，美团开源了 mpvue 这个项目，使得我们又多了一种用来开发小程序的框架选项。由于 mpvue 框架是完全基于 Vue 框架的（重写了其 runtime 和 compiler），因此在用法上面是高度和 Vue 一致的（某些功能由于受限于小程序环境本身的原因而不能使用），这给使用过 Vue 开发 Web 应用的前端开发者提供了极低的切换门槛来开发小程序。 没学过 vue 的想去学一下先">
+<meta name="twitter:image" content="http://yoursite.com/xcx/w3.png">
 
 
 
@@ -347,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-24T21:31:03+08:00">
-                2018-11-24
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-19T20:32:51+08:00">
+                2019-03-19
               </time>
             
           </span>
@@ -410,32 +416,38 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前段时间，美团开源了 mpvue 这个项目，使得我们又多了一种用来开发小程序的框架选项。由于 mpvue 框架是完全基于 Vue 框架的（重写了其 runtime 和 compiler），因此在用法上面是高度和 Vue 一致的（某些功能由于受限于小程序环境本身的原因而不能使用），这给使用过 Vue 开发 Web 应用的前端开发者提供了极低的切换门槛来开发小程序。</p>
 <p>没学过 vue 的想去学一下先</p>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="1-开发环境"><a href="#1-开发环境" class="headerlink" title="1. 开发环境"></a>1. 开发环境</h2><pre><code>- 系统自己喜欢 （本人 OS 10.0）
-- node.js npm (最好切换为国内镜像 npm set registry https://registry.npm.taobao.org/)
-- vue-cli （npm install vue-cli -g）
-- 微信开发者工具 https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
-- 开发软件 vscode （个人喜欢）
-- 软件内部插件 Vetur （vue语法高亮）
-</code></pre><h2 id="2-架构第一个-mpvue-的小程序"><a href="#2-架构第一个-mpvue-的小程序" class="headerlink" title="2. 架构第一个 mpvue 的小程序"></a>2. 架构第一个 mpvue 的小程序</h2><pre><code>- vue init mpvue/mpvue-quickstart firstapp  （在命令行运行，firstapp项目名自己定）
-- 然后就会看到这个 （如果自己代码不是很规范的话eslint那里请选n）
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="1-开发环境"><a href="#1-开发环境" class="headerlink" title="1. 开发环境"></a>1. 开发环境</h2><ul>
+<li>系统自己喜欢 （本人 OS 10.0）</li>
+<li>node.js npm (最好切换为国内镜像 npm set registry <a href="https://registry.npm.taobao.org/" target="_blank" rel="noopener">https://registry.npm.taobao.org/</a>)</li>
+<li>vue-cli （npm install vue-cli -g）</li>
+<li>微信开发者工具 <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></li>
+<li>开发软件 vscode （个人喜欢）</li>
+<li>软件内部插件 Vetur （vue语法高亮）</li>
+</ul>
+<h2 id="2-架构第一个-mpvue-的小程序"><a href="#2-架构第一个-mpvue-的小程序" class="headerlink" title="2. 架构第一个 mpvue 的小程序"></a>2. 架构第一个 mpvue 的小程序</h2><ul>
+<li>vue init mpvue/mpvue-quickstart firstapp  （在命令行运行，firstapp项目名自己定）</li>
+<li><p>然后就会看到这个 （如果自己代码不是很规范的话eslint那里请选n）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">? Project name firstapp</span><br><span class="line">? wxmp appid touristappid</span><br><span class="line">? Project description A Mpvue project</span><br><span class="line">? Author kevinzhang 邮箱</span><br><span class="line">? Vue build runtime</span><br><span class="line">? Use Vuex? Yes</span><br><span class="line">? Use ESLint to lint your code? Yes</span><br><span class="line">? Pick an ESLint preset Standard</span><br><span class="line">? 小程序测试，敬请关注最新微信开发者工具的“测试报告”功能</span><br><span class="line"></span><br><span class="line">vue-cli · Generated <span class="string">"firstapp"</span>.</span><br><span class="line"></span><br><span class="line">To get started:</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cd</span> firstapp</span><br><span class="line">    npm install</span><br><span class="line">    npm run dev</span><br><span class="line"></span><br><span class="line">Documentation can be found at http://mpvue.com</span><br></pre></td></tr></table></figure>
-
-- 安装好后
-    - cd firstapp
-    - npm install (这一步是安装要用的插件和依赖)
-- 执行命令让这个代码运行起来，进入开发模式
-    - npm run dev
-- 成功运行后，这个项目代码就进入开发模式，一旦有源代码发生修改，就会触发自动编译。因为mpvue使用的是Vue + HTML Web的开发方式开发小程序，它最终还是需要被转换成小程序的代码才可以在小程序环境运行，所以这里的自动编译的目的就是要把Web代码编译成小程序代码。编译后的代码会在dist目录下：
-![编译成功](/xcx/3.webp)
-</code></pre><h2 id="3-部署到微信开发者工具"><a href="#3-部署到微信开发者工具" class="headerlink" title="3. 部署到微信开发者工具"></a>3. 部署到微信开发者工具</h2><pre><code>- 打开微信开发者工具，选择新增项目
-![新增](/xcx/1.webp)
-- 项目目录选择指向firstapp目录：
-![新增](/xcx/4.webp)
-- 点击“确定”按钮，进入小程序开发主界面，在左边的小程序模拟器中就能看到firstapp小程序的执行结果了：
-![新增](/xcx/5.webp)
-- 【提醒】记得在微信开发者工具的菜单》设置 》编辑设置 中，将“保存时自动编译小程序”勾选上，这样当mpvue的代码自动编译完成后，模拟器才会自动刷新界面。
-![新增](/xcx/2.webp)
-</code></pre><h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
+</li>
+<li><p>安装好后</p>
+<ul>
+<li>cd firstapp</li>
+<li>npm install (这一步是安装要用的插件和依赖)</li>
+</ul>
+</li>
+<li>执行命令让这个代码运行起来，进入开发模式<ul>
+<li>npm run dev</li>
+</ul>
+</li>
+<li>成功运行后，这个项目代码就进入开发模式，一旦有源代码发生修改，就会触发自动编译。因为mpvue使用的是Vue + HTML Web的开发方式开发小程序，它最终还是需要被转换成小程序的代码才可以在小程序环境运行，所以这里的自动编译的目的就是要把Web代码编译成小程序代码。编译后的代码会在dist目录下：<br><img src="/xcx/w3.png" alt="编译成功"></li>
+</ul>
+<h2 id="3-部署到微信开发者工具"><a href="#3-部署到微信开发者工具" class="headerlink" title="3. 部署到微信开发者工具"></a>3. 部署到微信开发者工具</h2><ul>
+<li>打开微信开发者工具，选择新增项目<br><img src="/xcx/w1.png" alt="新增"></li>
+<li>项目目录选择指向firstapp目录：<br><img src="/xcx/w4.png" alt="新增"></li>
+<li>点击“确定”按钮，进入小程序开发主界面，在左边的小程序模拟器中就能看到firstapp小程序的执行结果了：<br><img src="/xcx/w5.png" alt="新增"></li>
+<li>【提醒】记得在微信开发者工具的菜单》设置 》编辑设置 中，将“保存时自动编译小程序”勾选上，这样当mpvue的代码自动编译完成后，模拟器才会自动刷新界面。<br><img src="/xcx/w2.png" alt="新增"></li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><ul>
 <li>本文简要介绍使用 mpvue 开发小程序的前期准备，后面还会继续学习再介绍其他功能</li>
 </ul>
 
@@ -574,7 +586,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-count">105</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -709,7 +721,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共236.7k字</span>
+  <span class="post-count">博客全站共239.8k字</span>
 </div>
 
 
