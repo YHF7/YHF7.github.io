@@ -83,10 +83,14 @@
 <meta property="og:site_name" content="不懂IT的男孩">
 <meta property="og:description" content="前言 案例存放地:https://github.com/YHF7/Android 使用的软件是 Android Studio  组件Button/TextView id text 文本 textSize 大小 dp 为单位 background 背景色1234567&amp;lt;Button        android:id=&quot;@+id/btn1&quot;        android:layout_widt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-20T12:35:00.780Z">
+<meta property="og:image" content="http://yoursite.com/Android/a2.png">
+<meta property="og:image" content="http://yoursite.com/Android/a3.png">
+<meta property="og:image" content="http://yoursite.com/Android/a1.png">
+<meta property="og:updated_time" content="2019-03-27T11:34:37.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 学习笔记 组件&#x2F;用法&#x2F;绑定（学校课程）">
 <meta name="twitter:description" content="前言 案例存放地:https://github.com/YHF7/Android 使用的软件是 Android Studio  组件Button/TextView id text 文本 textSize 大小 dp 为单位 background 背景色1234567&amp;lt;Button        android:id=&quot;@+id/btn1&quot;        android:layout_widt">
+<meta name="twitter:image" content="http://yoursite.com/Android/a2.png">
 
 
 
@@ -347,8 +351,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-20T20:35:00+08:00">
-                2019-03-20
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-27T19:34:37+08:00">
+                2019-03-27
               </time>
             
           </span>
@@ -437,6 +441,19 @@
 <li>我们现在来吧上面几个定义的组件给他绑定一下</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TableLayout</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 声明控件对象 最好是和自己定义的id相同</span></span><br><span class="line">    TextView text1;</span><br><span class="line">    EditText edit1;</span><br><span class="line">    AutoCompleteTextView act;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 这个也很关键，这个表示设置拿一个视图文件</span></span><br><span class="line">        <span class="comment">// 我这个就是app/src/main/res/layout.dem03.xml</span></span><br><span class="line">        <span class="comment">// R为res，省去了前面的部分</span></span><br><span class="line">        setContentView(R.layout.demo03);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2. 通过id建立关系</span></span><br><span class="line">        <span class="comment">// 组件名通过id搜索 R里面的id名为text1</span></span><br><span class="line">        <span class="comment">// R说的就是res</span></span><br><span class="line">        text1=(TextView)findViewById(R.id.text1);</span><br><span class="line">        edit1=(EditText)findViewById(R.id.edit1);</span><br><span class="line">        act=(AutoCompleteTextView)findViewById(R.id.act);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 定义一个数组</span></span><br><span class="line">        String[] data = <span class="keyword">new</span> String[]&#123;<span class="string">"China"</span>,<span class="string">"Chiness"</span>,<span class="string">"Check"</span>&#125;;</span><br><span class="line">        <span class="comment">// 遍历到这个组件里面</span></span><br><span class="line">        ArrayAdapter&lt;String&gt; adapter = <span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>,android.R.layout.simple_list_item_1,data);</span><br><span class="line">        <span class="comment">// 最后添加到id里面</span></span><br><span class="line">        act.setAdapter(adapter);</span><br><span class="line"></span><br><span class="line"><span class="comment">//        edit1.setText("我是输入的数据");</span></span><br><span class="line">        <span class="comment">// 测试输出用的</span></span><br><span class="line">        Log.i(<span class="string">"abc"</span>, <span class="string">"onCreate: dddd"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 改变text1的文本，背景色，字体大小</span></span><br><span class="line">        text1.setText(<span class="string">"你个菜逼"</span>);</span><br><span class="line">        text1.setTextColor(Color.CYAN);</span><br><span class="line">        text1.setTextSize(<span class="number">30</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="CheckBox复选框"><a href="#CheckBox复选框" class="headerlink" title="CheckBox复选框"></a>CheckBox复选框</h1><ul>
+<li>CheckBox和Button一样，也是一种古老的控件，它的优点在于，不用用户去填写具体的信息，只需轻轻点击，缺点在于只有“是”和“否”两种情况，</li>
+<li>Checked属性是CheckBox最重要的属性之一，改变它的方式有三种：<br>1、XML中申明 2、代码动态改变 3、用户触摸<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;CheckBox </span><br><span class="line">       android:id=<span class="string">"@+id/cb"</span></span><br><span class="line">       android:layout_width=<span class="string">"wrap_content"</span> </span><br><span class="line">       android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">       android:checked=<span class="string">"false"</span></span><br><span class="line">       android:text=<span class="string">"已婚"</span></span><br><span class="line">       /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>它的改变将会触发OnCheckedChange事件，而您可以对应的使用OnCheckedChangeListener监听器来监听这个事件，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取CheckBox实例</span></span><br><span class="line">CheckBox cb = (CheckBox)<span class="keyword">this</span>.findViewById(R.id.cb);</span><br><span class="line"><span class="comment">//绑定监听器</span></span><br><span class="line">cb.setOnCheckedChangeListener(<span class="keyword">new</span> OnCheckedChangeListener() &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCheckedChanged</span><span class="params">(CompoundButton arg0, <span class="keyword">boolean</span> arg1)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                Toast.makeText(MyActivity.<span class="keyword">this</span>, <span class="string">"选中了"</span>:<span class="string">"取消了选中"</span> , Toast.LENGTH_LONG).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="选择显示小案例"><a href="#选择显示小案例" class="headerlink" title="选择显示小案例"></a>选择显示小案例</h3><ul>
+<li>页面<br><img src="/Android/a2.png" alt="/Android"></li>
+<li>控制<br><img src="/Android/a3.png" alt="/Android"></li>
+<li>效果<br><img src="/Android/a1.png" alt="/Android"></li>
+</ul>
+
       
     </div>
     
@@ -572,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">107</span>
+                  <span class="site-state-item-count">108</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组件"><span class="nav-number">2.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Button-TextView"><span class="nav-number">2.1.</span> <span class="nav-text">Button/TextView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EditText-文本字段"><span class="nav-number">2.2.</span> <span class="nav-text">EditText 文本字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AutoCompleteTextView-自动提示"><span class="nav-number">2.3.</span> <span class="nav-text">AutoCompleteTextView 自动提示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定组件属性控制-（app-src-main-java-com-example-yhf-tablelayout-TableLayout）后面那一段就很的项目名有关联了"><span class="nav-number">3.</span> <span class="nav-text">绑定组件属性控制 （app/src/main/java/com.example.yhf.tablelayout/TableLayout）后面那一段就很的项目名有关联了</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组件"><span class="nav-number">2.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Button-TextView"><span class="nav-number">2.1.</span> <span class="nav-text">Button/TextView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EditText-文本字段"><span class="nav-number">2.2.</span> <span class="nav-text">EditText 文本字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AutoCompleteTextView-自动提示"><span class="nav-number">2.3.</span> <span class="nav-text">AutoCompleteTextView 自动提示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绑定组件属性控制-（app-src-main-java-com-example-yhf-tablelayout-TableLayout）后面那一段就很的项目名有关联了"><span class="nav-number">3.</span> <span class="nav-text">绑定组件属性控制 （app/src/main/java/com.example.yhf.tablelayout/TableLayout）后面那一段就很的项目名有关联了</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CheckBox复选框"><span class="nav-number">4.</span> <span class="nav-text">CheckBox复选框</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择显示小案例"><span class="nav-number">4.0.1.</span> <span class="nav-text">选择显示小案例</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -707,7 +724,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共243.2k字</span>
+  <span class="post-count">博客全站共243.7k字</span>
 </div>
 
 
