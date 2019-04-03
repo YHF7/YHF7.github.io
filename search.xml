@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Flex 编写100度网页]]></title>
+    <url>%2F2019%2F04%2F03%2Fflex%E5%86%99100%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[前言 最近都没什么时间更新博客 flex不是很会，特意花了两天时间用flex重写之前写过的一个网页界面 有利有弊，整体来说还是挺方便的 案例地址 码云 效果图]]></content>
+      <categories>
+        <category>Css</category>
+      </categories>
+      <tags>
+        <tag>Css案例</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mpvue 开发插件]]></title>
     <url>%2F2019%2F03%2F27%2Fmpvue%E5%BC%80%E5%8F%91%E6%8F%92%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[前言 刚踏入mpvue这个坑 有些属性还是和vue不一样的，使用一些插件来方便开发 开始wxapp-api-interceptors 微信api拦截器 （请求拦截axios） 这个插件是用来拦截微信的api的使得运用可以像axios一样使用 https://www.npmjs.com/package/wxapp-api-interceptors 安装 1$ npm install wxapp-api-interceptors --save mpvue引用 123import wxApiInterceptors from 'wxapp-api-interceptors'; wxApiInterceptors(); // 必须在调用小程序api之前调用 设置请求拦截处理(返回拦截也是可以的) 1234567891011wxApiInterceptors(&#123; request: &#123; request(params) &#123; const host = 'https://test.com' if (!/^(http|\/\/)/.test(params.url)) &#123; params.url = host + params.url; &#125; return params; &#125;, &#125;,&#125;); vuex持久化存储 在项目开发时使用vuex在刷新后是不会存储的 https://github.com/robinvdvleuten/vuex-persistedstate 安装 1$ npm install --save vuex-persistedstate 配置 123456789101112131415161718import &#123; Store &#125; from 'vuex'import createPersistedState from 'vuex-persistedstate'import * as Cookies from 'js-cookie'const store = new Store(&#123; // ... plugins: [ createPersistedState(&#123; storage: &#123; getItem: key =&gt; Cookies.get(key), // Please see https://github.com/js-cookie/js-cookie#json, on how to handle JSON. setItem: (key, value) =&gt; Cookies.set(key, value, &#123; expires: 3, secure: true &#125;), removeItem: key =&gt; Cookies.remove(key), &#125;, &#125;), ],&#125;)]]></content>
