@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[本地向阿里云服务器传文件/简单的nginx端口代理]]></title>
+    <url>%2F2019%2F04%2F05%2F%E9%98%BF%E9%87%8C%E4%BA%91zip%2F</url>
+    <content type="text"><![CDATA[前言 既然线上已经可以跑了，那就看看着么把本地的项目放上去跑 工具 mac 已经写好的一个例子 开始使用scp传文件到服务器 本地做好的一个小案例，linux不支持传文件夹我们只好打包成zip传上去1$ scp 要传的文件路径 用户@端口号:传到系统的那个位置 安装插件解压zip 直接这样我们是无法查看zip的 所以我们只好借助里面的插件来帮助我们Linux(CentOS7)安装zip、unzip命令1$ yum install -y unzip zip 解压运行项目1$ unzip 要解压的文件 nginx端口代理 配置文件,添加代理1$ vim /usr/local/nginx/conf/nginx.conf 重启nginx服务1$ /usr/local/nginx/sbin/nginx -s reload 后记 阿里云上传文件已经nginx端口代理 欢迎进入我的博客：https://yhf7.github.io/ 如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[阿里云 Centos7 node第一个项目]]></title>
+    <url>%2F2019%2F04%2F05%2F%E9%98%BF%E9%87%8C%E4%BA%91hello%2F</url>
+    <content type="text"><![CDATA[前言 试过很多地方的战部，没有买过阿里腾讯的服务器，今天就想自己买个服务器玩一下 趁着还是学生可以以学生价格买个便宜一点服务器自己玩一下 买了下来当然是第一个Hello world那是必须的啦！ 工具 Mac os 系统 控制台 阿里云Centos7服务器 由于我直接买的是应用程序不需要我自己去安装node那我说了 懂得vim使用，Linux命令 开始购买服务器 （是学生就去把学生认证做了） 云计划 控制台查看 本地连接服务器/激活nvm 连接服务器 这个ip号就是公网的ip地址在控制台哪里可以看到的 ssh 登录用户@ip号 激活nvm 虽然内置已经安装了node等但是一开始是无法使用的 使用命令激活nvm 123$ echo ". ~/.nvm/nvm.sh" &gt;&gt; /etc/profile$ source /etc/profile 成功激活 vim编写第一个Hello wrold 项目初始化 本来就是在～了，直接创建一个text文件夹初始化项目 安装web插件（express） 为了写起来更加的方便安装的一个web插件1$ npm i express 创建文件并编写文件 vim编辑文件12345678910111213141516// vim语法i: 写入esc: 退出编辑:wq 保存并登录// 程序const express = require('express');const app = express();app.get('/',function (req,res) &#123; res.send('Hello World'); console.log('test');&#125;)console.log('test2');app.listen(8080); 项目跑起来1$ node app.js 解决无法显示页面 其实不是页面无法显示是防火墙挡住了 回到阿里云控制台把端口添加进入，再回来看页面 持久化运行项目 我们虽然是把项目跑起来了但是我们断开连接就无法访问了 默认我们系统给我们安装了pm2 那就好好的利用 一次可以允许多少个项目？ 其实只要你服务器承受的住开多少个都可以 后记 阿里云第一个hello项目记录 欢迎进入我的博客：https://yhf7.github.io/ 如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Flex 编写100度网页]]></title>
     <url>%2F2019%2F04%2F03%2Fflex%E5%86%99100%E5%BA%A6%2F</url>
     <content type="text"><![CDATA[前言 最近都没什么时间更新博客 flex不是很会，特意花了两天时间用flex重写之前写过的一个网页界面 有利有弊，整体来说还是挺方便的 案例地址 码云 效果图]]></content>
