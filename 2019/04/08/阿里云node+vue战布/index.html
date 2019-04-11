@@ -78,7 +78,7 @@
 <meta name="description" content="前言 买服务器就是为了尝试线上战布项目 前期我们已经把所有的环境都已经准备好了 买的是轻量级服务器自带配有node环境（node自带4.6我升到了8.0）和mongodb，不过我这个案例用的是mysql 所以我昨天安装了一下mysql，都准备好了今天就来把我之前的小案例放上来实现实战 我的整个案例原来完全是线下的，所以要把数据库迁移后台迁移再上前端  工具 线上 Centose7 服务器（这个系统">
 <meta name="keywords" content="服务器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里云 Centos7 Node + Vue + Mysql 线上部署七步走">
+<meta property="og:title" content="阿里云 Centos7 Node + Vue + Mysql + 自定义webapck打包 线上部署七步走">
 <meta property="og:url" content="http://yoursite.com/2019/04/08/阿里云node+vue战布/index.html">
 <meta property="og:site_name" content="不懂IT的男孩">
 <meta property="og:description" content="前言 买服务器就是为了尝试线上战布项目 前期我们已经把所有的环境都已经准备好了 买的是轻量级服务器自带配有node环境（node自带4.6我升到了8.0）和mongodb，不过我这个案例用的是mysql 所以我昨天安装了一下mysql，都准备好了今天就来把我之前的小案例放上来实现实战 我的整个案例原来完全是线下的，所以要把数据库迁移后台迁移再上前端  工具 线上 Centose7 服务器（这个系统">
@@ -92,12 +92,17 @@
 <meta property="og:image" content="http://yoursite.com/aly/nv7.png">
 <meta property="og:image" content="http://yoursite.com/aly/nv8.png">
 <meta property="og:image" content="http://yoursite.com/aly/nv9.png">
+<meta property="og:image" content="http://yoursite.com/aly/w1.png">
+<meta property="og:image" content="http://yoursite.com/aly/w2.png">
+<meta property="og:image" content="http://yoursite.com/aly/w3.png">
+<meta property="og:image" content="http://yoursite.com/aly/w4.png">
+<meta property="og:image" content="http://yoursite.com/aly/w5.png">
 <meta property="og:image" content="http://yoursite.com/aly/nv10.png">
 <meta property="og:image" content="http://yoursite.com/aly/nv11.png">
 <meta property="og:image" content="http://yoursite.com/aly/nv12.png">
-<meta property="og:updated_time" content="2019-04-08T12:12:34.371Z">
+<meta property="og:updated_time" content="2019-04-11T15:16:40.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里云 Centos7 Node + Vue + Mysql 线上部署七步走">
+<meta name="twitter:title" content="阿里云 Centos7 Node + Vue + Mysql + 自定义webapck打包 线上部署七步走">
 <meta name="twitter:description" content="前言 买服务器就是为了尝试线上战布项目 前期我们已经把所有的环境都已经准备好了 买的是轻量级服务器自带配有node环境（node自带4.6我升到了8.0）和mongodb，不过我这个案例用的是mysql 所以我昨天安装了一下mysql，都准备好了今天就来把我之前的小案例放上来实现实战 我的整个案例原来完全是线下的，所以要把数据库迁移后台迁移再上前端  工具 线上 Centose7 服务器（这个系统">
 <meta name="twitter:image" content="http://yoursite.com/aly/nv1.png">
 
@@ -135,7 +140,7 @@
 
 
 
-  <title>阿里云 Centos7 Node + Vue + Mysql 线上部署七步走 | 不懂IT的男孩</title>
+  <title>阿里云 Centos7 Node + Vue + Mysql + 自定义webapck打包 线上部署七步走 | 不懂IT的男孩</title>
   
 
 
@@ -332,7 +337,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">阿里云 Centos7 Node + Vue + Mysql 线上部署七步走</h2>
+          <h2 class="post-title" itemprop="name headline">阿里云 Centos7 Node + Vue + Mysql + 自定义webapck打包 线上部署七步走</h2>
         
 
         <div class="post-meta">
@@ -360,8 +365,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-08T20:12:34+08:00">
-                2019-04-08
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-11T23:16:40+08:00">
+                2019-04-11
               </time>
             
           </span>
@@ -433,6 +438,7 @@
 <li>Node + Mysql 环境 （不懂的看我前面文章）</li>
 <li>Node + Vue + Mysql 小案例一个(我用vue-cli打包比较方便你们随意着么高兴着么来) </li>
 <li>Navicat for MySQL 数据库迁移</li>
+<li>全局安装 node 8.0 以上版本</li>
 <li>vs code 修改代码（软件一个自己喜欢）</li>
 <li>熟悉vim</li>
 <li>熟悉控制台操作为佳</li>
@@ -470,29 +476,38 @@
 <p><img src="/aly/nv8.png" alt="npm"></p>
 </li>
 </ul>
-<h2 id="第五步变更vue信息-打包-上传"><a href="#第五步变更vue信息-打包-上传" class="headerlink" title="第五步变更vue信息/打包/上传"></a>第五步变更vue信息/打包/上传</h2><ol>
-<li><p>信息变更</p>
-<ul>
+<h2 id="第五步变更vue信息-打包-上传"><a href="#第五步变更vue信息-打包-上传" class="headerlink" title="第五步变更vue信息/打包/上传"></a>第五步变更vue信息/打包/上传</h2><h3 id="1-信息变更"><a href="#1-信息变更" class="headerlink" title="1. 信息变更"></a>1. 信息变更</h3><ul>
 <li><p>变更请求地址，因为本来我是前后分离开发使用的是axios的请求所以默认用了vuecli的代理跨域</p>
 </li>
 <li><p>在线上放在服务区里面应该是不存在跨域的但是本来就是这样写了我改一下地址和端口算了其他就不做修改</p>
 <p><img src="/aly/nv9.png" alt="npm"></p>
+<h3 id="2-打包方法（vue-cli-webpack自定义）"><a href="#2-打包方法（vue-cli-webpack自定义）" class="headerlink" title="2.打包方法（vue-cli/webpack自定义）"></a>2.打包方法（vue-cli/webpack自定义）</h3><h4 id="打包方法一-vue-cli打包方法打包文件-得到dist文件夹"><a href="#打包方法一-vue-cli打包方法打包文件-得到dist文件夹" class="headerlink" title="打包方法一 vue-cli打包方法打包文件(得到dist文件夹)"></a>打包方法一 vue-cli打包方法打包文件(得到dist文件夹)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run build</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
-<li><p>打包文件(得到dist文件夹)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run build</span><br></pre></td></tr></table></figure>
+<h5 id="打包方法二-自定义配置webpack（非vue-cli构建的项目才使用）"><a href="#打包方法二-自定义配置webpack（非vue-cli构建的项目才使用）" class="headerlink" title="打包方法二 自定义配置webpack（非vue-cli构建的项目才使用）"></a>打包方法二 自定义配置webpack（非vue-cli构建的项目才使用）</h5><ol>
+<li>安装依赖（全局安装是我的个人习惯）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 由于现在安装的都是4.29.0以上的版本了所以要一并安装webpack-cli</span></span><br><span class="line">$ cnpm i webpack webpack-cli -g</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p><img src="/aly/w1.png" alt="webpack"></p>
+<ol start="2">
+<li>配置打包文件（在项目的根目录建立webpack.config.js文件）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const path = require(<span class="string">'path'</span>);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./src/main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span>,</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'dist'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/aly/w2.png" alt="webpack"></p>
 <ol start="3">
-<li><p>上传打包文件（我们只是需要里面的文件其他都不需要）</p>
-<ul>
-<li><p>这里按照相同的方法传到线上的public文件夹里面</p>
-<p><img src="/aly/nv10.png" alt="npm"></p>
-</li>
-</ul>
+<li>打包<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npx webpack --config webpack.config.js</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<p><img src="/aly/w3.png" alt="webpack"><br><img src="/aly/w4.png" alt="webpack"></p>
+<ol start="4">
+<li>如果你不希望在控制它输入着么多想npm run dev这样多方式打开也是可以的<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run build</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/aly/w5.png" alt="webpack"></p>
+<h3 id="3-上传打包文件（我们只是需要里面的文件其他都不需要）"><a href="#3-上传打包文件（我们只是需要里面的文件其他都不需要）" class="headerlink" title="3. 上传打包文件（我们只是需要里面的文件其他都不需要）"></a>3. 上传打包文件（我们只是需要里面的文件其他都不需要）</h3><ul>
+<li>这里按照相同的方法传到线上的public文件夹里面</li>
+</ul>
+<p><img src="/aly/nv10.png" alt="npm"></p>
 <h2 id="第六步变更后端路由"><a href="#第六步变更后端路由" class="headerlink" title="第六步变更后端路由"></a>第六步变更后端路由</h2><ul>
 <li><p>配置静态资源库</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim app.js</span><br></pre></td></tr></table></figure>
@@ -751,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工具"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">3.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步把本地数据库表迁移到线上数据库"><span class="nav-number">3.1.</span> <span class="nav-text">第一步把本地数据库表迁移到线上数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步更改后端数据库连接方式与端口号"><span class="nav-number">3.2.</span> <span class="nav-text">第二步更改后端数据库连接方式与端口号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步传输到服务器"><span class="nav-number">3.3.</span> <span class="nav-text">第三步传输到服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步开启服务"><span class="nav-number">3.4.</span> <span class="nav-text">第四步开启服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步变更vue信息-打包-上传"><span class="nav-number">3.5.</span> <span class="nav-text">第五步变更vue信息/打包/上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六步变更后端路由"><span class="nav-number">3.6.</span> <span class="nav-text">第六步变更后端路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第七步开启服务查看线上网页-持久化开启"><span class="nav-number">3.7.</span> <span class="nav-text">第七步开启服务查看线上网页/持久化开启</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工具"><span class="nav-number">2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">3.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步把本地数据库表迁移到线上数据库"><span class="nav-number">3.1.</span> <span class="nav-text">第一步把本地数据库表迁移到线上数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步更改后端数据库连接方式与端口号"><span class="nav-number">3.2.</span> <span class="nav-text">第二步更改后端数据库连接方式与端口号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步传输到服务器"><span class="nav-number">3.3.</span> <span class="nav-text">第三步传输到服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步开启服务"><span class="nav-number">3.4.</span> <span class="nav-text">第四步开启服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五步变更vue信息-打包-上传"><span class="nav-number">3.5.</span> <span class="nav-text">第五步变更vue信息/打包/上传</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-信息变更"><span class="nav-number">3.5.1.</span> <span class="nav-text">1. 信息变更</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-打包方法（vue-cli-webpack自定义）"><span class="nav-number">3.5.2.</span> <span class="nav-text">2.打包方法（vue-cli/webpack自定义）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包方法一-vue-cli打包方法打包文件-得到dist文件夹"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">打包方法一 vue-cli打包方法打包文件(得到dist文件夹)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#打包方法二-自定义配置webpack（非vue-cli构建的项目才使用）"><span class="nav-number">3.5.2.1.1.</span> <span class="nav-text">打包方法二 自定义配置webpack（非vue-cli构建的项目才使用）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-上传打包文件（我们只是需要里面的文件其他都不需要）"><span class="nav-number">3.5.3.</span> <span class="nav-text">3. 上传打包文件（我们只是需要里面的文件其他都不需要）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六步变更后端路由"><span class="nav-number">3.6.</span> <span class="nav-text">第六步变更后端路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第七步开启服务查看线上网页-持久化开启"><span class="nav-number">3.7.</span> <span class="nav-text">第七步开启服务查看线上网页/持久化开启</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
@@ -784,7 +799,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共247.7k字</span>
+  <span class="post-count">博客全站共247.9k字</span>
 </div>
 
 
