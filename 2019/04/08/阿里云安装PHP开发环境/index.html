@@ -96,7 +96,10 @@
 <meta property="og:image" content="http://yoursite.com/aly/php2.png">
 <meta property="og:image" content="http://yoursite.com/aly/php3.png">
 <meta property="og:image" content="http://yoursite.com/aly/php4.png">
-<meta property="og:updated_time" content="2019-04-08T08:57:04.429Z">
+<meta property="og:image" content="http://yoursite.com/aly/php5.png">
+<meta property="og:image" content="http://yoursite.com/aly/php6.png">
+<meta property="og:image" content="http://yoursite.com/aly/php7.png">
+<meta property="og:updated_time" content="2019-04-12T01:41:23.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里云 Centos 7 安装 PHP开发环境 Apache&#x2F;PHP">
 <meta name="twitter:description" content="前言 既然搭了mysql，为什么不把php也布置上来呢 这就安装Apache，弄了一晚上也是出现了一些错误弄了几次最后战胜了它  安装 Apache检查环境 查看系统是否已经安装,我已经安装了所以会已经存在 （如果没有的直接看后面安装就好）1$ rpm -qa | grep httpd     停止服务器运行 1$ /usr/sbin/httpd -k stop  清空原有点安装包 1$ yum">
@@ -361,8 +364,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-08T16:57:04+08:00">
-                2019-04-08
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-12T09:41:23+08:00">
+                2019-04-12
               </time>
             
           </span>
@@ -517,6 +520,19 @@
 </li>
 </ol>
 <p><img src="/aly/php4.png" alt="php"></p>
+<ol start="5">
+<li>安装常用拓展依赖(由于linux中php的源包把安装依赖去除了为了后续开发方便要把常用依赖安装了)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y install php-mysql php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="/aly/php5.png" alt="php"></p>
+<ol start="6">
+<li>链接数据库测试(创建test.php,也可以下载阿里云的测试mysql)</li>
+</ol>
+<ul>
+<li><a href="https://help.aliyun.com/knowledge_detail/36302.html" target="_blank" rel="noopener">阿里云mysql测试代码地址</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$conn = @mysqli_connect(&quot;端口号&quot;,&quot;用户名&quot;,&quot;密码&quot;,&quot;数据库名&quot;);</span><br><span class="line">if (!$conn) &#123;</span><br><span class="line">        die(&quot;连接失败&quot;);</span><br><span class="line">&#125;</span><br><span class="line"> echo &quot;连接成功&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/aly/php6.png" alt="php"><br><img src="/aly/php7.png" alt="php"></p>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><ul>
 <li>安装了mysql当然也要试试PHP啦，这就是我安装apache和php的方法和解决错误方法，下一个说node+vue战布</li>
 <li><a href="https://yhf7.github.io/" target="_blank" rel="noopener">欢迎进入我的博客</a>：<a href="https://yhf7.github.io/" target="_blank" rel="noopener">https://yhf7.github.io/</a></li>
@@ -793,7 +809,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共247.9k字</span>
+  <span class="post-count">博客全站共248k字</span>
 </div>
 
 
