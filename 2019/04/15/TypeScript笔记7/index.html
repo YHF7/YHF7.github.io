@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon.ico?v=5.1.4">
+
+
+
+
+
+
+
+  <meta name="keywords" content="TypeScript 笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="不懂IT的男孩" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言 近来花了大量时间在做项目重构忽略了ts的学习，今天已经完成了工作 接着之前的学习，继续学习我们的ts，今天学枚举  介绍 使用枚举我们可以定义一些带名字的常量。 使用枚举可以清晰地表达意图或创建一组有区别的用例。 TypeScript支持数字的和基于字符串的枚举。  枚举数字枚举 我们定义了一个数字枚举， Up使用初始化为 1。 其余的成员会从 1开始自动增长。 换句话说， Directio">
+<meta name="keywords" content="TypeScript 笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript 自学笔记7 枚举">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/TypeScript笔记7/index.html">
+<meta property="og:site_name" content="不懂IT的男孩">
+<meta property="og:description" content="前言 近来花了大量时间在做项目重构忽略了ts的学习，今天已经完成了工作 接着之前的学习，继续学习我们的ts，今天学枚举  介绍 使用枚举我们可以定义一些带名字的常量。 使用枚举可以清晰地表达意图或创建一组有区别的用例。 TypeScript支持数字的和基于字符串的枚举。  枚举数字枚举 我们定义了一个数字枚举， Up使用初始化为 1。 其余的成员会从 1开始自动增长。 换句话说， Directio">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-15T13:00:54.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TypeScript 自学笔记7 枚举">
+<meta name="twitter:description" content="前言 近来花了大量时间在做项目重构忽略了ts的学习，今天已经完成了工作 接着之前的学习，继续学习我们的ts，今天学枚举  介绍 使用枚举我们可以定义一些带名字的常量。 使用枚举可以清晰地表达意图或创建一组有区别的用例。 TypeScript支持数字的和基于字符串的枚举。  枚举数字枚举 我们定义了一个数字枚举， Up使用初始化为 1。 其余的成员会从 1开始自动增长。 换句话说， Directio">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/15/TypeScript笔记7/"/>
+
+
+
+
+
+  <title>TypeScript 自学笔记7 枚举 | 不懂IT的男孩</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不懂IT的男孩</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">不忘初心，方得始终</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mypro">
+          <a href="/mypro" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/TypeScript笔记7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Detail">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/WechatIMG13.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不懂IT的男孩">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">TypeScript 自学笔记7 枚举</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T20:59:53+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-15T21:00:54+08:00">
+                2019-04-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/TypeScript/" itemprop="url" rel="index">
+                    <span itemprop="name">TypeScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>近来花了大量时间在做项目重构忽略了ts的学习，今天已经完成了工作</li>
+<li>接着之前的学习，继续学习我们的ts，今天学枚举</li>
+</ul>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><ul>
+<li>使用枚举我们可以定义一些带名字的常量。 使用枚举可以清晰地表达意图或创建一组有区别的用例。 TypeScript支持数字的和基于字符串的枚举。</li>
+</ul>
+<h1 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h1><h3 id="数字枚举"><a href="#数字枚举" class="headerlink" title="数字枚举"></a>数字枚举</h3><ul>
+<li>我们定义了一个数字枚举， Up使用初始化为 1。 其余的成员会从 1开始自动增长。 换句话说， Direction.Up的值为 1， Down为 2， Left为 3， Right为 4。</li>
+<li>如果不定义1 那就从0开始递增<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Direction &#123;</span><br><span class="line">    Up = <span class="number">1</span>,</span><br><span class="line">    Down,</span><br><span class="line">    Left,</span><br><span class="line">    Right</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> Direction &#123;</span><br><span class="line">    Up,<span class="comment">//0</span></span><br><span class="line">    Down,<span class="comment">//1</span></span><br><span class="line">    Left,<span class="comment">//2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>简单的通过枚举的属性来访问枚举成员</li>
+<li>可能会有一些报错提醒，直接运行node跑js就好了<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Response &#123;</span><br><span class="line">  No = <span class="number">0</span>,</span><br><span class="line">  Yes = <span class="number">1</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">respond</span>(<span class="params">recipient: <span class="built_in">string</span>, message: Response</span>): <span class="title">void</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Yes'</span>, message) <span class="comment">// 输出 Yes 1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">respond(<span class="string">"Princess Caroline"</span>, Response.Yes)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li>数字枚举可以被混入到 计算过的和常量成员（如下所示）。 简短地说，不带初始化器的枚举或者被放在第一的位置，或者被放在使用了数字常量或其它常量初始化了的枚举后面。 换句话说，下面的情况是不被允许的：</li>
+<li>就是说可以用但是不能放在前面<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> E &#123;</span><br><span class="line">    A = getSomeValue(),</span><br><span class="line">    B, <span class="comment">// error! 'A' is not constant-initialized, so 'B' needs an initializer</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="字符串枚举"><a href="#字符串枚举" class="headerlink" title="字符串枚举"></a>字符串枚举</h3><ul>
+<li>字符串枚举的概念很简单，但是有细微的 运行时的差别。 在一个字符串枚举里，每个成员都必须用字符串字面量，或另外一个字符串枚举成员进行初始化。</li>
+<li>由于字符串枚举没有自增长的行为，字符串枚举可以很好的序列化。 换句话说，如果你正在调试并且必须要读一个数字枚举的运行时的值，这个值通常是很难读的 - 它并不能表达有用的信息（尽管 反向映射会有所帮助），字符串枚举允许你提供一个运行时有意义的并且可读的值，独立于枚举成员的名字。<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> Direction &#123;</span><br><span class="line">    Up = <span class="string">"UP"</span>,</span><br><span class="line">    Down = <span class="string">"DOWN"</span>,</span><br><span class="line">    Left = <span class="string">"LEFT"</span>,</span><br><span class="line">    Right = <span class="string">"RIGHT"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="异构枚举"><a href="#异构枚举" class="headerlink" title="异构枚举"></a>异构枚举</h3><ul>
+<li>从技术的角度来说，枚举可以混合字符串和数字成员，但是似乎你并不会这么做：</li>
+<li>除非你真的想要利用JavaScript运行时的行为，否则我们不建议这样做。<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> BooleanLikeHeterogeneousEnum &#123;</span><br><span class="line">    No = <span class="number">0</span>,</span><br><span class="line">    Yes = <span class="string">"YES"</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="计算的和常量成员"><a href="#计算的和常量成员" class="headerlink" title="计算的和常量成员"></a>计算的和常量成员</h3><ul>
+<li>每个枚举成员都带有一个值，它可以是 常量或 计算出来的。 当满足如下条件时，枚举成员被当作是常量：<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认为数字常量 0</span></span><br><span class="line"><span class="keyword">enum</span> E &#123; X &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认为数字常量 当前是上一位的+1 , 0,1,2</span></span><br><span class="line"><span class="keyword">enum</span> E1 &#123; X, Y, Z &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> E2 &#123; <span class="comment">// 1,2,3</span></span><br><span class="line">    A = <span class="number">1</span>, B, C</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>枚举成员使用 常量枚举表达式初始化。 常数枚举表达式是TypeScript表达式的子集，它可以在编译阶段求值。 当一个表达式满足下面条件之一时，它就是一个常量枚举表达式：</p>
+<ul>
+<li>一个枚举表达式字面量（主要是字符串字面量或数字字面量）</li>
+<li>一个对之前定义的常量枚举成员的引用（可以是在不同的枚举类型中定义的）</li>
+<li>带括号的常量枚举表达式</li>
+<li>一元运算符 +, -, ~其中之一应用在了常量枚举表达式<br>常量枚举表达式做为二元运算符 +, -, *, /, %, &lt;&lt;, &gt;&gt;, &gt;&gt;&gt;, &amp;, |, ^的操作对象。 若常数枚举表达式求值后为 NaN或 Infinity，则会在编译阶段报错。</li>
+</ul>
+</li>
+</ul>
+<h4 id="运算符-（字符串无法使用）"><a href="#运算符-（字符串无法使用）" class="headerlink" title="运算符 （字符串无法使用）"></a>运算符 （字符串无法使用）</h4><ul>
+<li>| 表示两边求并集（元素相加，相同元素只出现一次）<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 数字例子</span></span><br><span class="line"><span class="keyword">enum</span> Test &#123;</span><br><span class="line">    A = <span class="number">1</span>,</span><br><span class="line">    B = <span class="number">1</span>,</span><br><span class="line">    C = A | B</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 由于两个相等所以只会保留两个</span></span><br><span class="line"><span class="comment">// C = 1 = A = B</span></span><br><span class="line"><span class="keyword">enum</span> Test &#123;</span><br><span class="line">    A = <span class="number">1</span>,</span><br><span class="line">    B = <span class="number">2</span>,</span><br><span class="line">    C = A | B</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// C = 3 = A+B</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串例子 x</span></span><br><span class="line"><span class="keyword">enum</span> Test &#123;</span><br><span class="line">    A = <span class="string">"abc"</span>,</span><br><span class="line">    B = <span class="string">"bcd"</span>,</span><br><span class="line">    C = A | B</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这样是错误的 字符串是不允许用计算属性的</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> AnimalFlags &#123;</span><br><span class="line">  None        = <span class="number">0</span>,</span><br><span class="line">  HasClaws    = <span class="number">1</span> &lt;&lt; <span class="number">0</span>, <span class="comment">// 1 x 2的0次方</span></span><br><span class="line">  CanFly      = <span class="number">1</span> &lt;&lt; <span class="number">1</span>, <span class="comment">// 1 x 2的1次方</span></span><br><span class="line">  EatsFish    = <span class="number">1</span> &lt;&lt; <span class="number">2</span>, <span class="comment">// 1 x 2的2次方</span></span><br><span class="line">  Endangered  = <span class="number">1</span> &lt;&lt; <span class="number">3</span> <span class="comment">// 1 x 2的3次方</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其实可以理解为前面的数乘以后面的数的2次方倍</li>
+<li>我们使用了左移的位运算符，将数字 1 的二进制向左移动位置得到数字 0001、0010、0100 和 1000（换成十进制结果是：1, 2, 4, 8）。当你在使用这种标记的时候，这些位运算符 | (或)、&amp; （和）、~ （非）将会是你最好的朋友</li>
+<li>其余的用个例子来说</li>
+<li>&amp;:表示两边是否其中一个是另外一个的子集，如果是返回子集，否则返回0（如果其中一个包含另外一个，返回被包含的，否则返回0）</li>
+<li>^：表示从两者的并集中去除两者的交集（把两个的元素合并到一起，如果两个中有公共元素，要将这个公共元素从合并的结果中去除）</li>
+<li>～：表示取反，返回的结果我还不知道应该是什么，以后再查一下。用法主要和“&amp;”一起使用，例如：去除其中的某个元素<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 枚举</span></span><br><span class="line"><span class="keyword">enum</span> AnimalFlags &#123;</span><br><span class="line">  None        = <span class="number">0</span>,</span><br><span class="line">  HasClaws    = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,<span class="comment">// 1</span></span><br><span class="line">  CanFly      = <span class="number">1</span> &lt;&lt; <span class="number">1</span> <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接口</span></span><br><span class="line"><span class="keyword">interface</span> Animal &#123;</span><br><span class="line">  flags: AnimalFlags; <span class="comment">// &#123;None:0,HasClaws:1,CanFly:2&#125;</span></span><br><span class="line">  [key: <span class="built_in">string</span>]: <span class="built_in">any</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printAnimalAbilities</span>(<span class="params">animal: Animal</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'+'</span>,animal)</span><br><span class="line">  <span class="keyword">var</span> animalFlags = animal.flags;</span><br><span class="line">  <span class="keyword">if</span> (animalFlags &amp; AnimalFlags.HasClaws) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'animal has claws'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (animalFlags &amp; AnimalFlags.CanFly) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'animal can fly'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (animalFlags == AnimalFlags.None) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'nothing'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值</span></span><br><span class="line"><span class="keyword">var</span> animal = &#123; flags: AnimalFlags.None &#125;;<span class="comment">// 0</span></span><br><span class="line">printAnimalAbilities(animal); <span class="comment">// nothing</span></span><br><span class="line"><span class="comment">// 两个相加，相同的不加</span></span><br><span class="line">animal.flags |= AnimalFlags.HasClaws; <span class="comment">// 1</span></span><br><span class="line">printAnimalAbilities(animal); <span class="comment">// animal has claws</span></span><br><span class="line"><span class="comment">// 清除</span></span><br><span class="line">animal.flags &amp;= ~AnimalFlags.HasClaws; <span class="comment">//0</span></span><br><span class="line">printAnimalAbilities(animal); <span class="comment">// nothing</span></span><br><span class="line"><span class="comment">// 和 = 两个的和</span></span><br><span class="line">animal.flags |= AnimalFlags.HasClaws | AnimalFlags.CanFly; <span class="comment">// 3</span></span><br><span class="line">printAnimalAbilities(animal); <span class="comment">// animal has claws, animal can fly</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line">+ &#123; flags: <span class="number">0</span> &#125;</span><br><span class="line">nothing1</span><br><span class="line">+ &#123; flags: <span class="number">1</span> &#125;</span><br><span class="line">animal has claws</span><br><span class="line">+ &#123; flags: <span class="number">0</span> &#125;</span><br><span class="line">nothing1</span><br><span class="line">+ &#123; flags: <span class="number">3</span> &#125;</span><br><span class="line">animal has claws</span><br><span class="line">animal can fly</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="联合枚举与枚举成员的类型"><a href="#联合枚举与枚举成员的类型" class="headerlink" title="联合枚举与枚举成员的类型"></a>联合枚举与枚举成员的类型</h3><ul>
+<li>存在一种特殊的非计算的常量枚举成员的子集：字面量枚举成员。 字面量枚举成员是指不带有初始值的常量枚举成员，或者是值被初始化为<ul>
+<li>任何字符串字面量（例如： “foo”， “bar”， “baz”）</li>
+<li>任何数字字面量（例如： 1, 100）</li>
+<li>应用了一元 -符号的数字字面量（例如： -1, -100）</li>
+</ul>
+</li>
+<li><p>首先，枚举成员成为了类型！ 例如，我们可以说某些成员 只能是枚举成员的值</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> ShapeKind &#123;</span><br><span class="line">    Circle,</span><br><span class="line">    Square,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Circle &#123;</span><br><span class="line">    kind: ShapeKind.Circle;</span><br><span class="line">    radius: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> Square &#123;</span><br><span class="line">    kind: ShapeKind.Square;</span><br><span class="line">    sideLength: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c: Circle = &#123;</span><br><span class="line">    kind: ShapeKind.Square,</span><br><span class="line">    <span class="comment">//    ~~~~~~~~~~~~~~~~ Error!</span></span><br><span class="line">    radius: <span class="number">100</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 改</span></span><br><span class="line"><span class="keyword">let</span> c: Circle = &#123;</span><br><span class="line">  kind: <span class="number">100</span>, <span class="comment">// 默认数字类型写个数字</span></span><br><span class="line">  <span class="comment">//    ~~~~~~~~~~~~~~~~ Error!</span></span><br><span class="line">  radius: <span class="number">100</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c)</span><br><span class="line"><span class="comment">// &#123; kind: 100, radius: 100 &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>另一个变化是枚举类型本身变成了每个枚举成员的 联合。 虽然我们还没有讨论<a href="./Advanced Types.md#union-types">联合类型</a>，但你只要知道通过联合枚举，类型系统能够利用这样一个事实，它可以知道枚举里的值的集合。 因此，TypeScript能够捕获在比较值的时候犯的愚蠢的错误。 例如：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> E &#123;</span><br><span class="line">    Foo,</span><br><span class="line">    Bar,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x: E</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x !== E.Foo || x !== E.Bar) &#123; <span class="comment">// 其实就是说第一个都没有了还判断第二个干嘛是不是傻</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//             ~~~~~~~~~~~</span></span><br><span class="line">        <span class="comment">// Error! Operator '!==' cannot be applied to types 'E.Foo' and 'E.Bar'.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个例子里，我们先检查 x是否不是 E.Foo。 如果通过了这个检查，然后 ||会发生短路效果， if语句体里的内容会被执行。 然而，这个检查没有通过，那么 x则 只能为 E.Foo，因此没理由再去检查它是否为 E.Bar。</p>
+</li>
+</ul>
+<h3 id="运行时的枚举"><a href="#运行时的枚举" class="headerlink" title="运行时的枚举"></a>运行时的枚举</h3><ul>
+<li>枚举是在运行时真正存在的对象。 例如下面的枚举：<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> E &#123;</span><br><span class="line">    X, Y, Z</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">obj: &#123; X: <span class="built_in">number</span> &#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> obj.X;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 改</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">obj: &#123; Y: <span class="built_in">number</span> &#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> obj.Y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Works, since 'E' has a property named 'X' which is a number.</span></span><br><span class="line"><span class="built_in">console</span>.log(f(E));</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1 改后</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="反向映射"><a href="#反向映射" class="headerlink" title="反向映射"></a>反向映射</h3><ul>
+<li><p>除了创建一个以属性名做为对象成员的对象之外，数字枚举成员还具有了 反向映射，从枚举值到枚举名字。 例如，在下面的例子中：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="keyword">enum</span> Enum &#123;</span><br><span class="line">    A</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a = Enum.A;</span><br><span class="line"><span class="keyword">let</span> nameOfA = Enum[a]; <span class="comment">// "A"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="keyword">var</span> Enum;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Enum</span>) </span>&#123;</span><br><span class="line">    Enum[Enum[<span class="string">"A"</span>] = <span class="number">0</span>] = <span class="string">"A"</span>;</span><br><span class="line">&#125;)(Enum || (Enum = &#123;&#125;));</span><br><span class="line"><span class="keyword">var</span> a = Enum.A;</span><br><span class="line"><span class="keyword">var</span> nameOfA = Enum[a]; <span class="comment">// "A"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成的代码中，枚举类型被编译成一个对象，它包含了正向映射（ name -&gt; value）和反向映射（ value -&gt; name）。 引用枚举成员总会生成为对属性访问并且永远也不会内联代码。</p>
+</li>
+</ul>
+<h3 id="const枚举"><a href="#const枚举" class="headerlink" title="const枚举"></a>const枚举</h3><ul>
+<li>大多数情况下，枚举是十分有效的方案。 然而在某些情况下需求很严格。 为了避免在额外生成的代码上的开销和额外的非直接的对枚举成员的访问，我们可以使用 const枚举。 常量枚举通过在枚举上使用 const修饰符来定义。</li>
+<li>常量枚举只能使用常量枚举表达式，并且不同于常规的枚举，它们在编译阶段会被删除。 常量枚举成员在使用的地方会被内联进来。 之所以可以这么做是因为，常量枚举不允许包含计算成员。<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">enum</span> Enum &#123;</span><br><span class="line">    A = <span class="number">1</span>,</span><br><span class="line">    B = A * <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">enum</span> Directions &#123;</span><br><span class="line">    Up,</span><br><span class="line">    Down,</span><br><span class="line">    Left,</span><br><span class="line">    Right</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> directions = [<span class="number">0</span> <span class="comment">/* Up */</span>, <span class="number">1</span> <span class="comment">/* Down */</span>, <span class="number">2</span> <span class="comment">/* Left */</span>, <span class="number">3</span> <span class="comment">/* Right */</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="外部枚举"><a href="#外部枚举" class="headerlink" title="外部枚举"></a>外部枚举</h3><ul>
+<li><p>外部枚举用来描述已经存在的枚举类型的形状。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="keyword">enum</span> Enum &#123;</span><br><span class="line">    A = <span class="number">1</span>,</span><br><span class="line">    B,</span><br><span class="line">    C = <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>外部枚举和非外部枚举之间有一个重要的区别，在正常的枚举里，没有初始化方法的成员被当成常数成员。 对于非常数的外部枚举而言，没有初始化方法时被当做需要经过计算的。</p>
+</li>
+</ul>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><ul>
+<li>时隔多日我又回来了，这个就是我学习Ts的第七天的笔记，欢迎更多的同行大哥指导交流</li>
+<li><a href="https://yhf7.github.io/" target="_blank" rel="noopener">欢迎进入我的博客</a>：<a href="https://yhf7.github.io/" target="_blank" rel="noopener">https://yhf7.github.io/</a></li>
+<li>如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TypeScript-笔记/" rel="tag"># TypeScript 笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/09/阿里云 Linux 与本地 文件传输/" rel="next" title="阿里云 Linux 与本地之间如何用命令传输文件和文件夹">
+                <i class="fa fa-chevron-left"></i> 阿里云 Linux 与本地之间如何用命令传输文件和文件夹
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/WechatIMG13.jpeg"
+                alt="Detail" />
+            
+              <p class="site-author-name" itemprop="name">Detail</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">116</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/8987002d387c" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG9.jpeg?raw=true" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG11.jpeg?raw=true" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/yhf7" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>码云</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5b9bafe7f265da0a9c786330" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举"><span class="nav-number">3.</span> <span class="nav-text">枚举</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字枚举"><span class="nav-number">3.0.1.</span> <span class="nav-text">数字枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串枚举"><span class="nav-number">3.0.2.</span> <span class="nav-text">字符串枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异构枚举"><span class="nav-number">3.0.3.</span> <span class="nav-text">异构枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算的和常量成员"><span class="nav-number">3.0.4.</span> <span class="nav-text">计算的和常量成员</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符-（字符串无法使用）"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">运算符 （字符串无法使用）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#联合枚举与枚举成员的类型"><span class="nav-number">3.0.5.</span> <span class="nav-text">联合枚举与枚举成员的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时的枚举"><span class="nav-number">3.0.6.</span> <span class="nav-text">运行时的枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向映射"><span class="nav-number">3.0.7.</span> <span class="nav-text">反向映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const枚举"><span class="nav-number">3.0.8.</span> <span class="nav-text">const枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部枚举"><span class="nav-number">3.0.9.</span> <span class="nav-text">外部枚举</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Detail</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共250.7k字</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  <script type="text/javascript" src="/js/src/click_love.js"></script>
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/live2d-widget-model-haruto/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+
+</html>
