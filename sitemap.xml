@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2019-04-23T14:22:30.637Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/04/23/2019-04-23%E5%BF%83%E5%BE%97/</loc>
+    
+    <lastmod>2019-04-23T14:20:56.942Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/18/%E9%98%BF%E9%87%8C%E4%BA%91Apache%E9%85%8D%E7%BD%AEhttps/</loc>
     
     <lastmod>2019-04-18T10:51:20.420Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/2019/04/16/TypeScript%E7%AC%94%E8%AE%B08/</loc>
     
     <lastmod>2019-04-16T09:42:32.342Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2019-04-15T13:02:09.255Z</lastmod>
     
   </url>
   

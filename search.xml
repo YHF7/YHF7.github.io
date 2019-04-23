@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019年2-4月开发心得]]></title>
+    <url>%2F2019%2F04%2F23%2F2019-04-23%E5%BF%83%E5%BE%97%2F</url>
+    <content type="text"><![CDATA[开发心得这段时间，参与了一些实战项目的开发，个人开发、多人协同开发都有经历，个人开发主要是自己一个人去开发，有问题解决问题但是解决问题的方法比较局限与自己的解决方法，这里多人开发优势可能会比较好，多人都会有解决问题的方案这样就可以择选更优的解决方式更有利提高，在实战开发的过程中，遇到很多自己没有尝试过的写法很多自己不懂得都得一点点的去查去理解，观看别人的源码时需要一点一点的去梳理阅读特别是那些没有注释的最为过分，与人开发比较重要的是相互的沟通，彼此包容这样才能更好的协同开发，现在终于把两个项目都写完了，确实通过项目的洗礼成长了很多，再次使用php编写后台api就显得得心应手了、小程序也熟悉了很多，使用后端常用的断点调试在前后端都是查错的好帮手，终于可以再次继续TypeScript的学习了，并完成我的elm计划（仿完整的elm前后台+后端） 半个月前买了个阿里服务器，也花了点时间备案部署网站，安装环境熟悉了node上线部署，php上线部署，并记录方法]]></content>
+      <categories>
+        <category>个人</category>
+      </categories>
+      <tags>
+        <tag>个人</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[阿里云 配置https]]></title>
     <url>%2F2019%2F04%2F18%2F%E9%98%BF%E9%87%8C%E4%BA%91Apache%E9%85%8D%E7%BD%AEhttps%2F</url>
     <content type="text"><![CDATA[前言 当我们购买了服务器各种环境都搭建php都搭好项目都放上去了 为了在小程序中使用所以需要配置https，在这之前申请证书是需要域名的所以我购买了域名 经过一系列的备案，是真的麻烦，告诫各位备案信息一定要看清楚不然也会和我一样弄好久 虽然今天备案成功但是信息通信还是需要时间不能马上就配置进入小程序 弄了一下午终于弄好，后来想吧nginx也配置了但是遇到了麻烦也没有找到安装包在哪里暂时放弃 先把这个记录下来，后面有时间再去攻破nginx的配置 配置/工具 阿里云服务器等 Apache环境安装 已购买域名，并且备案通过 熟悉vim为佳 开始申请证书 购买免费ssl证书地址 没钱的直接买免费，有钱的可以自行选配 跟着指示到ssl证书申请验证 申请验证通过后下载证书 下载apache证书 上传证书 创建存放证书目录 1$ mkdir /etc/httpd/cert 把所以证书放上去（先进入下载解压的路径） 1$ scp -r ./zerg.zip root@yhf7.top:/etc/httpd/cert 安装/配置mod_ssl 安装 1$ yum install mod_ssl openssl 配置(更加图片改) 1$ vim /etc/httpd/conf.d/ssl.conf 端口重定向(设置好就重启服务器)12345678$ vim /etc/httpd/conf/httpd.conf&lt;VirtualHost *:80&gt; ServerName yhf7.top //自己的域名：RewriteEngine on RewriteCond %&#123;SERVER_PORT&#125; !^443$ RewriteRule ^/?(.*)$ https://%&#123;SERVER_NAME&#125;/$1 [L,R] &lt;/VirtualHost&gt; 查看效果 后记 配置apache服务器https就说到这里了，下一次部署nginx，有问题欢迎私聊我 欢迎进入我的博客：https://yhf7.github.io/ 如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！]]></content>
