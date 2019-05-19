@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2019-05-19T02:17:33.114Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/05/19/vue%E9%98%BB%E6%AD%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E9%80%80/</loc>
+    
+    <lastmod>2019-05-19T02:12:12.466Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/05/14/%E5%B0%8F%E7%A8%8B%E5%BA%8F+tp5+vue/</loc>
     
-    <lastmod>2019-05-15T00:28:08.274Z</lastmod>
+    <lastmod>2019-05-19T00:45:29.225Z</lastmod>
     
   </url>
   
@@ -54,13 +68,6 @@
     <loc>http://yoursite.com/2019/04/25/TypeScript%E7%AC%94%E8%AE%B09/</loc>
     
     <lastmod>2019-04-25T07:58:09.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2019-04-23T23:40:38.695Z</lastmod>
     
   </url>
   
