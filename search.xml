@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[koa 快速形成开发环境(koa-generator)]]></title>
+    <url>%2F2019%2F05%2F24%2Fkoa%E5%BF%AB%E9%80%9F%E5%BD%A2%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[前言 写过node的人都知道，express这个轻量级web框架 但是koa是express原班人马打造，更轻量更容易拓展的流行框架 集成了一些 express 风格的中间件，不需要手动去写，省时省力 支持es6，7语法等 如何快速搭建开发环境呢？ vue有vue-cli ，koa也有koa-generator脚手架 我是mac 所以每次都加sudo 这个权限问题 win不用加 工具/资料 系统 Mac Os 10.13.3 npm 6.4.1 node 10.13.0 开始1. 全局安装脚手架 npm cnpm yarn都可以1$ sudo cnpm i -g koa-generator 2. 搭建项目 由于koa有两个版本所以生成的用法也不一样的,同样我们生成个项目明叫koaPro的看看(这里我直接连写了)koa v1 开启命令：1$ sudo koa koaPro &amp;&amp; cd koaPro &amp;&amp; sudo cnpm i koa v2 开启命令：1$ sudo koa2 koaPro &amp;&amp; cd koaPro &amp;&amp; sudo cnpm i 3. 启动koa 默认3000端口1$ sudo npm run start 后记 koa 快速开启项目就说到这了，这几天会使用koa搭后端服务，欢迎业界大佬交流学习 欢迎进入我的博客：https://yhf7.github.io/ 如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！]]></content>
+      <categories>
+        <category>Nodejs</category>
+      </categories>
+      <tags>
+        <tag>Nodejs笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue 阻止浏览器点击回退]]></title>
     <url>%2F2019%2F05%2F19%2Fvue%E9%98%BB%E6%AD%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9B%9E%E9%80%80%2F</url>
     <content type="text"><![CDATA[前言 在我们的开发过程中有时候一些页面并不喜欢被回退 也不希望被退出去其他页面，比如登录了等就不给回退到登录页面等 这时候我们应该着么做呢？第一时间我想起了路由守护 每一次的切换都会进入到路由，但是具体着么做呢？我也借鉴了网上别人的方法 现在实现了我把它记录下来 工具/资料 系统 Mac os 10.13.3 开发工具 vs code 开发项目 vue 开始第一步、锁定需要禁止回退的路由页面 给需要守护的路由在 meta 添加 allowBack 只要你那个页面不想让他回退了那你就添加就可以了 12345678910const Login = ()=&gt; import( /* webpackChunkName: "login-page" */ '@/pages/Login')//登录export default [ &#123; path: '/', name: 'Login', component: Login, meta: &#123; allowBack: false &#125; &#125;] 第二步、配置全局路由守护123456789101112131415161718192021// 全局路由守护router.beforeEach((to,from,next) =&gt; &#123; let allowBack = true // 给个默认值true // 有定义的就走路由定义了的数据 if (to.meta.allowBack !== undefined) &#123; allowBack = to.meta.allowBack &#125; if (!allowBack) &#123; history.pushState(null, null, location.href) &#125; // vuex存储数据 store.dispatch('updateAppSetting', &#123; // updateAppSetting 只是store里面的一个action， 用来改变store里的allowBack的值的，具体怎么改这个值 要根据各位的实际情况而定 allowBack: allowBack &#125;) // 登录守护 if (to.name != 'Login' &amp;&amp; (vuex.getters.getLoginKey()) != 'yhfkey') &#123; next(&#123;name: 'Login'&#125;) &#125; next()&#125;) 第三步、编写 vuex1234567891011121314151617181920212223242526import Vue from 'vue'import Vuex from 'vuex'Vue.use(Vuex)const state = &#123;&#125;// mutationsconst mutations = &#123; updateAppSetting(state,status) &#123; state.allowBack = status.allowBack &#125;&#125;// actionsconst actions = &#123; updateAppSetting(&#123;commit&#125;, status)&#123; commit('updateAppSetting', status) &#125;&#125;export default new Vuex.Store(&#123; state, mutations, actions&#125;) 第四步、在 App.vue 编写最后的守护 在 app 的 mouted 编写 onpopstate 12345678mounted() &#123; window.onpopstate = () =&gt; &#123; if (!this.allowBack) &#123; // 这个allowBack 是存在vuex里面的变量 history.go(1); &#125; &#125;;&#125; 后记 全局路由守护拒绝浏览器回退就说到这里了，欢迎更多的同行大哥指导交流 欢迎进入我的博客：https://yhf7.github.io/ 如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！]]></content>
