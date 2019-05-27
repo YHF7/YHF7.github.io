@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[koa 开发插件记录]]></title>
+    <url>%2F2019%2F05%2F27%2Fkoa%E5%BC%80%E5%8F%91%E6%8F%92%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[前言 这几天着手使用koa搭建后端服务器 使用的一些插件记录下来以后方便使用 使用 koa的框架所以路由等插件我也不写了 有一些之前express用过的就不写了 工具/资料 开发环境 阿里云 Centos 7 64位 参考网址NPM: https://www.npmjs.com/ node 8.0.0 / npm 6.9.0 / cnpm 6.0.0 开始解决跨域问题（koa2-cors） 插件轻松解决跨域问题 1$ cnpm i koa2-cors -S 配置（括号里面的对象可写可不写） 123456789const cors = require('koa2-cors')// 处理跨域问题app.use(cors(&#123; exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'], maxAge: 100, credentials: true, allowMethods: ['GET', 'POST', 'OPTIONS'], allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous'],&#125;)); es6转es5 插件加配置解决es6烦恼（node9以上的就没有这个烦恼） 1$ cnpm i babel-plugin-transform-es2015-modules-commonjs babel-register -S 配置(引入插件输出入口文件,新建start.js文件) 12345678require('babel-register') ( &#123; plugins: ['babel-plugin-transform-es2015-modules-commonjs'], &#125; )module.exports = require('./www.js') 改变启动package.json文件 处理原生node还是koa都无法解析request的body（post传值解析） 安装插件 1$ cnpm i koa-body koa-bodyparser -S 配置 123456const koaBody = require('koa-body')const bodyparser = require('koa-bodyparser')app.use(koaBody()).use(bodyparser(&#123; enableTypes:['json', 'form', 'text']&#125;)) 使用 (直接请求request里面的body就可以了，会以json格式输出) 12345router.get('/', async (ctx, next) =&gt; &#123; ctx.body = &#123; "body": ctx.request.body &#125; &#125;)]]></content>
+      <categories>
+        <category>Nodejs</category>
+      </categories>
+      <tags>
+        <tag>Nodejs笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[koa 快速形成开发环境(koa-generator)]]></title>
     <url>%2F2019%2F05%2F24%2Fkoa%E5%BF%AB%E9%80%9F%E5%BD%A2%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%2F</url>
     <content type="text"><![CDATA[前言 写过node的人都知道，express这个轻量级web框架 但是koa是express原班人马打造，更轻量更容易拓展的流行框架 集成了一些 express 风格的中间件，不需要手动去写，省时省力 支持es6，7语法等 如何快速搭建开发环境呢？ vue有vue-cli ，koa也有koa-generator脚手架 我是mac 所以每次都加sudo 这个权限问题 win不用加 工具/资料 系统 Mac Os 10.13.3 npm 6.4.1 node 10.13.0 开始1. 全局安装脚手架 npm cnpm yarn都可以1$ sudo cnpm i -g koa-generator 2. 搭建项目 由于koa有两个版本所以生成的用法也不一样的,同样我们生成个项目明叫koaPro的看看(这里我直接连写了)koa v1 开启命令：1$ sudo koa koaPro &amp;&amp; cd koaPro &amp;&amp; sudo cnpm i koa v2 开启命令：1$ sudo koa2 koaPro &amp;&amp; cd koaPro &amp;&amp; sudo cnpm i 3. 启动koa 默认3000端口1$ sudo npm run start 后记 koa 快速开启项目就说到这了，这几天会使用koa搭后端服务，欢迎业界大佬交流学习 欢迎进入我的博客：https://yhf7.github.io/ 如果有什么侵权的话，请及时添加小编微信以及qq也可以来告诉小编（905477376微信qq通用），谢谢！]]></content>
