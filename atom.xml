@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-05T09:39:08.642Z</updated>
+  <updated>2019-09-08T02:54:21.691Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何使用react-native创建自己的的第一个ios App</title>
+    <link href="http://yoursite.com/2019/09/08/react-native%E7%AC%AC%E4%B8%80%E4%B8%AA/"/>
+    <id>http://yoursite.com/2019/09/08/react-native第一个/</id>
+    <published>2019-09-08T01:28:53.189Z</published>
+    <updated>2019-09-08T02:54:21.691Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul><li>写完了项目突然好闲，而且学习了react</li><li>哪学习了react着能不去尝尝鲜rn火了很久热潮，新的热潮也来了</li><li>我现在才开始想要进军rn的念头</li><li>面对原生开发ios的人来说rn这种东西其实就是伪app</li><li>但是作为一个前端来说rn是我们离app最近的距离</li><li>我也想尝尝鲜爽一把</li><li>搞了几个小时，晚上一直出问题跑不了早上起来继续死磕最后还是成了</li><li>试过了很多方法 重置pod 设置pod源</li></ul><h1 id="工具-资料"><a href="#工具-资料" class="headerlink" title="工具/资料"></a>工具/资料</h1><ol><li>系统 macOS 10.14.5</li><li>控制台 科学上网工具</li><li>Homebrew brew 2.1.8 （这个安装工具自己查）</li><li>node 10.13.0  npm 6.11.3  yarn 1.17.3</li><li><a href="https://reactnative.cn/docs/getting-started.html" target="_blank" rel="noopener">ReactNative官网</a></li><li><a href="https://guides.cocoapods.org/using/getting-started.html" target="_blank" rel="noopener">cocoapods界面官网</a></li><li><a href="https://gems.ruby-china.com/" target="_blank" rel="noopener">ruby</a></li><li><a href="https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/" target="_blank" rel="noopener">cocoapods改源</a></li></ol><h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><ol><li><p>安装 node、watchman、flow</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ brew install node</span><br><span class="line">$ brew install watchman</span><br><span class="line">$ brew install flow</span><br><span class="line">$ sudo npm install -g yarn react-native-cli</span><br><span class="line">$</span><br></pre></td></tr></table></figure></li><li><p>去苹果的app store 下载 Xcode</p></li></ol><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><ol><li>创建(最好挂v)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ react-native init AwesomeProject</span><br></pre></td></tr></table></figure></li></ol><p><img src="/ReactNative/h1.png" alt="rn"></p><ol start="2"><li>发现错误</li></ol><ul><li>我自己是遇到了pod安装不上的错误</li><li>如图这个就是pod没装上环境需要自己手动去安装</li><li>这个pod install 是为了构建原生ios app 代理node_modules地址用的<br><img src="/ReactNative/h2.png" alt="rn"></li><li>尝试安装 pod install<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ./AwesomeProject/ios &amp;&amp; pod install</span><br></pre></td></tr></table></figure></li></ul><p><img src="/ReactNative/h3.png" alt="rn"></p><h4 id="错误情况-一"><a href="#错误情况-一" class="headerlink" title="错误情况 一"></a>错误情况 一</h4><ul><li>fatal: unable to access ‘http://…/spring-mvc.git/‘: Failed to connect to 127.0.0.1 port 1080: Connection refused</li><li>如果是遇到了无法代理1080端口的设置一下git代理<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">$ git config --global https.proxy https://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">$ git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line"></span><br><span class="line">$ git config --global --<span class="built_in">unset</span> https.proxy</span><br><span class="line"></span><br><span class="line">$ sudo npm config delete proxy</span><br></pre></td></tr></table></figure></li></ul><h4 id="错误情况-二"><a href="#错误情况-二" class="headerlink" title="错误情况 二"></a>错误情况 二</h4><ul><li>无法代理到 pod<br><img src="/ReactNative/h4.png" alt="rn"></li><li>我这里是下载包放进去 链接:<a href="https://pan.baidu.com/s/158fJx1fm3iKzxTE2mkwLXA" target="_blank" rel="noopener">https://pan.baidu.com/s/158fJx1fm3iKzxTE2mkwLXA</a>  密码:8vrp</li></ul><ol><li>解压 master包改名为master放到 ~/.cocoapods/repos 文件下（这个解压可能需要一定的时间）</li><li>解压.git文件 放到 ~/.cocoapods/repos/master文件夹下就是刚才解压的文件夹里面</li><li>回到ios文件夹 pod install</li></ol><h4 id="错误情况-三"><a href="#错误情况-三" class="headerlink" title="错误情况 三"></a>错误情况 三</h4><ul><li>这个问题我也不知道 反正是最后一次开了科学上网就可以了我也不知道为啥<br><img src="/ReactNative/h5.png" alt="rn"></li></ul><h4 id="pod-install成功的样子"><a href="#pod-install成功的样子" class="headerlink" title="pod install成功的样子"></a>pod install成功的样子</h4><p><img src="/ReactNative/h9.png" alt="rn"></p><h4 id="一次安装成功的结果"><a href="#一次安装成功的结果" class="headerlink" title="一次安装成功的结果"></a>一次安装成功的结果</h4><ul><li>如果看到如图恭喜你一次就安装成功了<br><img src="/ReactNative/h6.png" alt="rn"></li></ul><h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><ul><li><p>在项目根目录运行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> AwesomeProject</span><br><span class="line">$ react-native run-ios</span><br></pre></td></tr></table></figure></li><li><p>第一次跑不行第二次跑没问题了</p></li><li>如果中途断开了十有八九是pod的问题磕pod就可以了</li><li>图一显示的 success Successfully launched the app on the simulator </li><li>弹出图二 的样子就是成功了只是弹图二没有绿色部分还是不成</li></ul><p><img src="/ReactNative/h7.png" alt="rn"><br><img src="/ReactNative/h8.png" alt="rn"></p><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="/ReactNative/h10.png" alt="rn"></p><ul><li>修改app.js 然后在模拟器 command + r就可以了<br><img src="/ReactNative/h11.png" alt="rn"></li></ul><h3 id="运行命令总结"><a href="#运行命令总结" class="headerlink" title="运行命令总结"></a>运行命令总结</h3><ul><li><p>运行ios</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ react-native run-ios <span class="comment"># 第一次跑需要用此命令</span></span><br><span class="line">$ react-native start <span class="comment"># 后面的这样运行就好了</span></span><br><span class="line">$ sudo npm run start <span class="comment"># 或者这样用node运行</span></span><br></pre></td></tr></table></figure></li><li><p>安装的也是一样的</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ react-native run-android <span class="comment"># 第一次</span></span><br></pre></td></tr></table></figure></li></ul><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><ul><li>这就是我的第一个rn hello world 项目</li><li>死磕了好几个小时最后睡了一觉起来继续死磕就可以了哈哈哈</li><li>有什么不对或者有更好的方法可以提出来加微信我们交流交流</li><li><a href="https://yhf7.top/" target="_blank" rel="noopener">欢迎进入我的博客</a>：<a href="https://yhf7.github.io/" target="_blank" rel="noopener">https://yhf7.github.io/</a> 或 <a href="https://yhf7.top" target="_blank" rel="noopener">https://yhf7.top</a></li><li>如果有什么侵权的话，请及时添加小编微信以及 qq 也可以来告诉小编（905477376 微信 qq 通用），谢谢！</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="ReactNative" scheme="http://yoursite.com/categories/ReactNative/"/>
+    
+    
+      <category term="ReactNative" scheme="http://yoursite.com/tags/ReactNative/"/>
+    
+  </entry>
   
   <entry>
     <title>create-react-app 项目中如何部署使用redux</title>
@@ -488,31 +513,6 @@
     
     
       <category term="TypeScript 笔记" scheme="http://yoursite.com/tags/TypeScript-%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2019年2-4月开发心得</title>
-    <link href="http://yoursite.com/2019/04/23/2019-04-23%E5%BF%83%E5%BE%97/"/>
-    <id>http://yoursite.com/2019/04/23/2019-04-23心得/</id>
-    <published>2019-04-23T13:24:10.407Z</published>
-    <updated>2019-04-23T23:36:54.988Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="开发心得"><a href="#开发心得" class="headerlink" title="开发心得"></a>开发心得</h3><p>这段时间，参与了一些实战项目的开发，个人开发、多人协同开发都有经历，个人开发主要是自己一个人去开发，有问题解决问题但是解决问题的方法比较局限与自己的解决方法，这里多人开发优势可能会比较好，多人都会有解决问题的方案这样就可以择选更优的解决方式更有利提高，<br>在实战开发的过程中，遇到很多自己没有尝试过的写法很多自己不懂得都得一点点的去查去理解，观看别人的源码时需要一点一点的去梳理阅读特别是那些没有注释的最为过分，与人开发比较重要的是相互的沟通，彼此包容这样才能更好的协同开发，现在终于把两个项目都写完了，确实<br>通过项目的洗礼成长了很多，再次使用php编写后台api就显得得心应手了、小程序也熟悉了很多，使用后端常用的断点调试在前后端都是查错的好帮手，终于可以再次继续TypeScript的学习了，并完成我的elm计划（仿完整的elm前后台+后端）</p><p>半个月前买了个阿里服务器，也花了点时间备案部署网站，安装环境熟悉了node上线部署，php上线部署，并记录方法</p><p>忙碌的时候，所有的时间都用来做事，一旦闲下来好想你</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="个人" scheme="http://yoursite.com/categories/%E4%B8%AA%E4%BA%BA/"/>
-    
-    
-      <category term="个人" scheme="http://yoursite.com/tags/%E4%B8%AA%E4%BA%BA/"/>
     
   </entry>
   
