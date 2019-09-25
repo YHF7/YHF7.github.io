@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[React+TypeScript+Antd+Mock 后台管理系统]]></title>
+    <url>%2F2019%2F09%2F25%2FReact%2BTypeScript%2F</url>
+    <content type="text"><![CDATA[前言 在近段时间中Ts在互联网时代大热起来 在前段时间我学习了Ts，对于写过java的人来说ts其实学起来得心应手 但是把Ts和前端项目结合在一起是不是得心应手呢，非也 对于我这样没有经验只是简单的学习了官网以及对官网对例子进行编写执行 这其实是一次挑战，对自己技术对一个突破 我就拿到了前面刚做好的一个react项目来改成Ts的项目 与其说是改应该说是重构，从项目的搭建都是从头开始 项目地址：https://gitee.com/yhf7/ReactTypescriptAntdBackstage 工具/资料 系统 macOS 10.14.5 yarn 1.17.3 cnpm 6.0.0 npm 6.4.1 node 10.13.0 编辑器 vs code 开发版 脚手架 create-react-app npm插件 https://www.npmjs.com/ ts https://www.tslang.cn/docs/home.html 实现功能树图12345678910111213141516├── Mock // 模拟数据│ ├── user│ ├── oreder│ └── 等├── 页面 //│ ├── UI ├── 按钮、弹框、Loading、通知提醒、全局Message、Tab、标签、图片画廊（流式布局）、轮播图 // antd我们常用的抽取│ ├── 表单 ├── 登录、注册(注册常用组合)│ ├── 表格 ├── 基础表格（常用的表格） 高级表格（在基础表格上添加的一些表格属性）│ ├── 富文本 这个其实平时也是很常用到的 （插件很多挑自己喜欢的）│ ├── 城市管理 ├── 实现表格数据 开通城市 以及一些查询│ ├── 订单管理 ├── 实现表格数据 结束订单 查询订单 订单详情 │ │ ├── （订单详情页面）通过订单详情跳转 展示地图以及订单详情│ ├── 员工管理 ├── 实现表格数据以及 增删改查的组件弹框操作│ ├── 车辆地图 实现地图以及车辆信息│ ├── 图表 ├── 饼图、柱状图、折线图│ ├── 权限设置 ├── 创建角色 设置权限 用户授权 起步1. 起一个ts项目1$ create-react-app react-ts-demo --typescript 2. 安装/配置 antd等插件 安装了很多我也不太记得具体看package1$ sudo cnpm i antd axios less less-loader mockjs koa koa2-cors react-router-dom redux react-redux -S 3. 搭建mock 利用koa和mockjs构建：具体看文件中的mock文件吧 4. 变更js为tsx和建立ts的接口等 这个说起来我也不知道着么说直接去看项目吧 5. 封装API接口，以及组件等部分效果图 前面几个列表里面的都是antd的一些组件把常用的抽取出来 登录页面 主页面 ui界面其中一个 城市管理 订单管理 图表 员工管理]]></content>
+      <categories>
+        <category>TypeScript</category>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+        <tag>TypeScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何使用react-native创建自己的的第一个ios App]]></title>
     <url>%2F2019%2F09%2F08%2Freact-native%E7%AC%AC%E4%B8%80%E4%B8%AA%2F</url>
     <content type="text"><![CDATA[前言 写完了项目突然好闲，而且学习了react 哪学习了react着能不去尝尝鲜rn火了很久热潮，新的热潮也来了 我现在才开始想要进军rn的念头 面对原生开发ios的人来说rn这种东西其实就是伪app 但是作为一个前端来说rn是我们离app最近的距离 我也想尝尝鲜爽一把 搞了几个小时，晚上一直出问题跑不了早上起来继续死磕最后还是成了 试过了很多方法 重置pod 设置pod源 工具/资料 系统 macOS 10.14.5 控制台 科学上网工具 Homebrew brew 2.1.8 （这个安装工具自己查） node 10.13.0 npm 6.11.3 yarn 1.17.3 ReactNative官网 cocoapods界面官网 ruby cocoapods改源 开始安装环境 安装 node、watchman、flow 12345$ brew install node$ brew install watchman$ brew install flow$ sudo npm install -g yarn react-native-cli$ 去苹果的app store 下载 Xcode 创建项目 创建(最好挂v)1$ react-native init AwesomeProject 发现错误 我自己是遇到了pod安装不上的错误 如图这个就是pod没装上环境需要自己手动去安装 这个pod install 是为了构建原生ios app 代理node_modules地址用的 尝试安装 pod install1$ cd ./AwesomeProject/ios &amp;&amp; pod install 错误情况 一 fatal: unable to access ‘http://…/spring-mvc.git/‘: Failed to connect to 127.0.0.1 port 1080: Connection refused 如果是遇到了无法代理1080端口的设置一下git代理123456789$ git config --global https.proxy http://127.0.0.1:1080$ git config --global https.proxy https://127.0.0.1:1080$ git config --global --unset http.proxy$ git config --global --unset https.proxy$ sudo npm config delete proxy 错误情况 二 无法代理到 pod 我这里是下载包放进去 链接:https://pan.baidu.com/s/158fJx1fm3iKzxTE2mkwLXA 密码:8vrp 解压 master包改名为master放到 ~/.cocoapods/repos 文件下（这个解压可能需要一定的时间） 解压.git文件 放到 ~/.cocoapods/repos/master文件夹下就是刚才解压的文件夹里面 回到ios文件夹 pod install 错误情况 三 这个问题我也不知道 反正是最后一次开了科学上网就可以了我也不知道为啥 pod install成功的样子 一次安装成功的结果 如果看到如图恭喜你一次就安装成功了 运行项目 在项目根目录运行 12$ cd AwesomeProject$ react-native run-ios 第一次跑不行第二次跑没问题了 如果中途断开了十有八九是pod的问题磕pod就可以了 图一显示的 success Successfully launched the app on the simulator 弹出图二 的样子就是成功了只是弹图二没有绿色部分还是不成 效果图 修改app.js 然后在模拟器 command + r就可以了 运行命令总结 运行ios 123$ react-native run-ios # 第一次跑需要用此命令$ react-native start # 后面的这样运行就好了$ sudo npm run start # 或者这样用node运行 安装的也是一样的 1$ react-native run-android # 第一次 后记 这就是我的第一个rn hello world 项目 死磕了好几个小时最后睡了一觉起来继续死磕就可以了哈哈哈 有什么不对或者有更好的方法可以提出来加微信我们交流交流 欢迎进入我的博客：https://yhf7.github.io/ 或 https://yhf7.top 如果有什么侵权的话，请及时添加小编微信以及 qq 也可以来告诉小编（905477376 微信 qq 通用），谢谢！]]></content>
