@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bitbug_favicon.ico?v=5.1.4">
+
+
+
+
+
+
+
+  <meta name="keywords" content="面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="不懂IT的男孩" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言 这个面试的电话来的非常的突然似的我触不及防 但是也只好应战，在电面的过程中，我的状态非常的糟糕 很多基础知识遗忘，很多都没答上来，感觉自己这次是 gg 了 但是没关系总结问过的问题，虽然有些不记得但是把记得的记录下来 不过也是收获满满，知道自己那些方面需要努力做好准备迎接新的挑战  开始如何在原生中绑定一个 DOM 我第一想法就是 onclick ondouble 等这些鼠标事件，但是我并没">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电话面试总结">
+<meta property="og:url" content="http://yoursite.com/2019/09/30/腾讯电面记录/index.html">
+<meta property="og:site_name" content="不懂IT的男孩">
+<meta property="og:description" content="前言 这个面试的电话来的非常的突然似的我触不及防 但是也只好应战，在电面的过程中，我的状态非常的糟糕 很多基础知识遗忘，很多都没答上来，感觉自己这次是 gg 了 但是没关系总结问过的问题，虽然有些不记得但是把记得的记录下来 不过也是收获满满，知道自己那些方面需要努力做好准备迎接新的挑战  开始如何在原生中绑定一个 DOM 我第一想法就是 onclick ondouble 等这些鼠标事件，但是我并没">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-30T09:57:47.877Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="电话面试总结">
+<meta name="twitter:description" content="前言 这个面试的电话来的非常的突然似的我触不及防 但是也只好应战，在电面的过程中，我的状态非常的糟糕 很多基础知识遗忘，很多都没答上来，感觉自己这次是 gg 了 但是没关系总结问过的问题，虽然有些不记得但是把记得的记录下来 不过也是收获满满，知道自己那些方面需要努力做好准备迎接新的挑战  开始如何在原生中绑定一个 DOM 我第一想法就是 onclick ondouble 等这些鼠标事件，但是我并没">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/30/腾讯电面记录/"/>
+
+
+
+
+
+  <title>电话面试总结 | 不懂IT的男孩</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不懂IT的男孩</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">不忘初心，方得始终</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-mypro">
+          <a href="/mypro" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/腾讯电面记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Detail">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/WechatIMG13.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不懂IT的男孩">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">电话面试总结</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T15:23:44+08:00">
+                2019-09-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-30T17:57:47+08:00">
+                2019-09-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i> 热度
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>这个面试的电话来的非常的突然似的我触不及防</li>
+<li>但是也只好应战，在电面的过程中，我的状态非常的糟糕</li>
+<li>很多基础知识遗忘，很多都没答上来，感觉自己这次是 gg 了</li>
+<li>但是没关系总结问过的问题，虽然有些不记得但是把记得的记录下来</li>
+<li>不过也是收获满满，知道自己那些方面需要努力做好准备迎接新的挑战</li>
+</ul>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h3 id="如何在原生中绑定一个-DOM"><a href="#如何在原生中绑定一个-DOM" class="headerlink" title="如何在原生中绑定一个 DOM"></a>如何在原生中绑定一个 DOM</h3><ul>
+<li>我第一想法就是 onclick ondouble 等这些鼠标事件，但是我并没有说出口我不知道如何的去诉说</li>
+<li>当我回来查阅发现 js 事件绑定有 3 种方法</li>
+</ul>
+<h4 id="一、在-DOM-元素中直接绑定（就是在-html-中直接写上去）"><a href="#一、在-DOM-元素中直接绑定（就是在-html-中直接写上去）" class="headerlink" title="一、在 DOM 元素中直接绑定（就是在 html 中直接写上去）"></a>一、在 DOM 元素中直接绑定（就是在 html 中直接写上去）</h4><ul>
+<li>JavaScript 支持在标签中直接绑定事件 ，语法为： onXXX=”JavaScript Code”</li>
+<li><ol>
+<li>onXXX 为事件名称。例如，鼠标单击事件 onclick ，鼠标双击事件 ondouble，鼠标移入事件 onmouseover，鼠标移出事件 onmouseout 等</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>JavaScript Code 为处理事件的 JavaScript 代码，一般是函数</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1. 直接把函数写在html里面，onclick --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onclick</span>=<span class="string">"alert('谢谢支持')"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击我，弹出警告框"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2. 把函数写在js中调用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">onclick</span>=<span class="string">"myAlert()"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点击我，弹出警告框"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  function myAlert() &#123;</span></span><br><span class="line"><span class="undefined">    alert("你点击了按钮");</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="二、在-js-代码中绑定（就是直接在-js-中获取并操作-dom）"><a href="#二、在-js-代码中绑定（就是直接在-js-中获取并操作-dom）" class="headerlink" title="二、在 js 代码中绑定（就是直接在 js 中获取并操作 dom）"></a>二、在 js 代码中绑定（就是直接在 js 中获取并操作 dom）</h4><ul>
+<li>在 JavaScript 代码中（即<script>标签内）绑定事件可以使 JavaScript 代码与 HTML 标签分离，文档结构清晰，便于管理和开发。</li>
+<li>在 JavaScript 代码中绑定事件的语法为：<br>elementObject.onXXX=function(){<br>// 事件处理代码<br>}</li>
+<li><ol>
+<li>elementObject 为 DOM 对象，即 DOM 元素。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>onXXX 为事件名称。</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"demo"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"点我显示，dom"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  // dom.getid 通过id的方式来获取到input的dom元素并挂在一个点击事件</span></span><br><span class="line"><span class="undefined">  document.getElementById("demo").onclick = function() &#123;</span></span><br><span class="line"><span class="xml">    alert(this.getAttribute("type")); // this 指当前发生事件的HTML元素，这里是<span class="tag">&lt;<span class="name">div</span>&gt;</span>标签</span></span><br><span class="line"><span class="undefined">  &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="三、绑定事件监听函数-这个学习的时候用过之后再也没有用过了，用过-jq-的可能感觉熟悉一些"><a href="#三、绑定事件监听函数-这个学习的时候用过之后再也没有用过了，用过-jq-的可能感觉熟悉一些" class="headerlink" title="三、绑定事件监听函数(这个学习的时候用过之后再也没有用过了，用过 jq 的可能感觉熟悉一些)"></a>三、绑定事件监听函数(这个学习的时候用过之后再也没有用过了，用过 jq 的可能感觉熟悉一些)</h4><ul>
+<li>绑定事件的另一种方法是用 addEventListener() 或 attachEvent() 来绑定事件监听</li>
+</ul>
+<h5 id="addEventListener-函数语法："><a href="#addEventListener-函数语法：" class="headerlink" title="addEventListener()函数语法："></a>addEventListener()函数语法：</h5><ul>
+<li>elementObject.addEventListener(eventName,handle,useCapture);<br>| 参数 | 说明 |<br>| ————- | ———————————————————————————————————————————————- |<br>| elementObject | DOM 对象（即 DOM 元素）。 |<br>| eventName | 事件名称。注意，这里的事件名称没有“ on ”，如鼠标单击事件 click ，鼠标双击事件 doubleclick ，鼠标移入事件 mouseover，鼠标移出事件 mouseout 等。 |<br>| handle | 事件句柄函数，即用来处理事件的函数。 |<br>| useCapture | Boolean 类型，是否使用捕获，一般用 false 。这里涉及到 JavaScript 事件流的概念，后续章节将会详细讲解。 |</li>
+</ul>
+<h5 id="attachEvent-函数语法："><a href="#attachEvent-函数语法：" class="headerlink" title="attachEvent()函数语法："></a>attachEvent()函数语法：</h5><ul>
+<li>elementObject.attachEvent(eventName,handle);<br>| 参数 | 说明 |<br>| ——– | —– |<br>| elementObject | DOM 对象（即 DOM 元素）。 |<br>| eventName | 事件名称。注意，与 addEventListener()不同，这里的事件名称有“ on ”，如鼠标单击事件 onclick ，鼠标双击事件 ondoubleclick ，鼠标移入事件 onmouseover，鼠标移出事件 onmouseout 等。 |<br>| handle | 事件句柄函数，即用来处理事件的函数。 |</li>
+</ul>
+<h4 id="这是一个兼容-ie8-以下版本的兼容代码"><a href="#这是一个兼容-ie8-以下版本的兼容代码" class="headerlink" title="这是一个兼容 ie8 以下版本的兼容代码"></a>这是一个兼容 ie8 以下版本的兼容代码</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 兼容代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">obj, type, handle</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// Chrome、FireFox、Opera、Safari、IE9.0及其以上版本</span></span><br><span class="line">    obj.addEventListener(type, handle, <span class="literal">false</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// IE8.0及其以下版本</span></span><br><span class="line">      obj.attachEvent(<span class="string">"on"</span> + type, handle);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="comment">// 早期浏览器</span></span><br><span class="line">      obj[<span class="string">"on"</span> + type] = handle;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"></span><br><span class="line">addEvent(<span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>), <span class="string">"click"</span>, myAlert);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myAlert</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"又是一个警告框"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何在原生中获取-dom-元素"><a href="#如何在原生中获取-dom-元素" class="headerlink" title="如何在原生中获取 dom 元素"></a>如何在原生中获取 dom 元素</h3><ul>
+<li>获取 dom 的方法其实有很多种，在我脑海里第一个出现的是 byid byclass ，然而我并不会拼读这也太尴尬了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">通过ID获取（getElementById）</span><br><span class="line">通过name属性（getElementsByName）</span><br><span class="line">通过标签名（getElementsByTagName）</span><br><span class="line">通过类名（getElementsByClassName）</span><br><span class="line">通过选择器获取一个元素（querySelector）</span><br><span class="line">通过选择器获取一组元素（querySelectorAll）</span><br><span class="line">获取html的方法（document.documentElement） document.documentElement是专门获取html这个标签的</span><br><span class="line">获取body的方法（document.body）document.body是专门获取body这个标签的。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>通过 ID 获取（getElementById）</li>
+</ol>
+<ul>
+<li>通过 document 调用 getElementById 的方法传入一个 string 类型的 id</li>
+<li>它如果获取到了就会返回一个元素而且是只会返回一个，如果没有找到那就返回 null</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>通过 name 属性（getElementsByName）</li>
+</ol>
+<ul>
+<li>通过 document 调用 getElementByName 的方法传入一个 string 类型的 name</li>
+<li>这个 name 是啥呢，例如： input 中 <input type="hidden" name="up">，这里 name 就是这个 up</li>
+<li>一般这个多用于一些表单中的元素获取上比较多</li>
+<li>这个返回的是一个数组，如果没有那就是空数组</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementsByName(<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>通过标签名（getElementsByTagName）</li>
+</ol>
+<ul>
+<li>通过 document 调用 getElementsByTagName 的方法传入一个 string 类型的 元素名（不分大小写）</li>
+<li>得到的也是一个数组，没有依然是返回空数组</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是一个通过类型名称div给所有的div添加点击事件的操作</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"div"</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; obj.length; i++) &#123;</span><br><span class="line">  obj[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>通过类名（getElementsByClassName）</li>
+</ol>
+<ul>
+<li>通过 document 调用 getElementsByClassName 的方法传入一个 string 类型的 类名（也就是 class）</li>
+<li>也可以写连锁的类型 着么为连锁呢， div.nav.abc div 下的类名下的类名为 abc 的元素</li>
+<li>得到的也是一个数组，没有依然是返回空数组</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"abc"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> dv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"animated"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>通过选择器获取一个元素（querySelector）</li>
+</ol>
+<ul>
+<li>这是我最常用也是最喜欢的，因为别的我都记不住就记住了这个</li>
+<li>他就好像 css 一样去写变量就可以了，非常的好用</li>
+<li>通过 document 调用 querySelector 的方法传入一个 string 的值可以是 id 可以是类也可以是元素名，只要是 css 可以的它都可以</li>
+<li>它会返回它所找到的第一个元素</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">".abc"</span>);</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#abc"</span>);</span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"div"</span>);</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>通过选择器获取一组元素（querySelectorAll）</li>
+</ol>
+<ul>
+<li>这个和上面第五那个一样只不过这个是返回找到的所有元素</li>
+<li>返回值是一个类数组。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">".abc"</span>);</span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">"#abc"</span>);</span><br><span class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">"div"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="ajax-的原理以及原生如何使用"><a href="#ajax-的原理以及原生如何使用" class="headerlink" title="ajax 的原理以及原生如何使用"></a>ajax 的原理以及原生如何使用</h3><ul>
+<li>ajax 的出现,刚好解决了传统方法的缺陷。AJAX 是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</li>
+<li>XMLHttpRequest 对象: XMLHttpRequest 对象是 ajax 的基础,XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。目前所有浏览器都支持 XMLHttpRequest</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方 法</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abort()</td>
+<td>停止当前请求</td>
+</tr>
+<tr>
+<td>getAllResponseHeaders()</td>
+<td>把 HTTP 请求的所有响应首部作为键/值对返回</td>
+</tr>
+<tr>
+<td>getResponseHeader(“header”)</td>
+<td>返回指定首部的串值</td>
+</tr>
+<tr>
+<td>open(“method”,”URL”,[asyncFlag],[“userName”],[“password”])</td>
+<td>建立对服务器的调用。method 参数可以是 GET、POST 或 PUT。url 参数可以是相对 URL 或绝对 URL。这个方法还包括 3 个可选的参数，是否异步，用户名，密码</td>
+</tr>
+<tr>
+<td>send(content)</td>
+<td>向服务器发送请求</td>
+</tr>
+<tr>
+<td>setRequestHeader(“header”, “value”)</td>
+<td>把指定首部设置为所提供的值。在设置任何首部之前必须先调用 open()。设置 header 并和请求一起发送 (‘post’方法一定要 )</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>在原生中 就是通过 XMLHttpRequest 来请求 ajax 的</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// get 请求</span></span><br><span class="line"><span class="comment">//步骤一:创建异步对象</span></span><br><span class="line"><span class="keyword">var</span> ajax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">//步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端</span></span><br><span class="line">ajax.open(<span class="string">"get"</span>, <span class="string">"getStar.php?starName="</span> + name);</span><br><span class="line"><span class="comment">//步骤三:发送请求</span></span><br><span class="line">ajax.send();</span><br><span class="line"><span class="comment">//步骤四:注册事件 onreadystatechange 状态改变就会调用</span></span><br><span class="line">ajax.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (ajax.readyState == <span class="number">4</span> &amp;&amp; ajax.status == <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="comment">//步骤五 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的</span></span><br><span class="line">    <span class="built_in">console</span>.log(ajax.responseText); <span class="comment">//输入相应的内容</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// post 请求</span></span><br><span class="line"><span class="comment">//创建异步对象</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">//设置请求的类型及url</span></span><br><span class="line"><span class="comment">//post请求一定要添加请求头才行不然会报错</span></span><br><span class="line">xhr.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">xhr.open(<span class="string">"post"</span>, <span class="string">"02.post.php"</span>);</span><br><span class="line"><span class="comment">//发送请求</span></span><br><span class="line">xhr.send(<span class="string">"name=fox&amp;age=18"</span>);</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 这步为判断服务器是否正确响应</span></span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(xhr.responseText);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><ul>
+<li>JSONP(JSON with Padding) 是一种跨域请求方式。主要原理是利用了 script 标签可以跨域请求的特点，由其 src 属性发送请求到服务器，服务器返回 js 代码，网页端接受响应，然后就直接执行了，这和通过 script 标签引用外部文件的原理是一样的。</li>
+<li>JSONP 由两部分组成：回调函数和数据，回调函数一般是由网页端控制，作为参数发往服务器端，服务器端把要返回的数据拼成字符串作为函数的参数传入。</li>
+<li>比如网页端创建一个 script 标签，并给其 src 赋值为 <a href="http://www.example.com/json/?callback=process，">http://www.example.com/json/?callback=process，</a> 此时网页端就发起一个请求。服务端将要返回的数据拼好最为函数的参数传入，服务端返回的数据格式类似”process({‘name’:’example’})”，网页端接收到了响应值，因为请求者是 script，所以相当于直接调用 process 方法，并且传入了一个参数。</li>
+<li>单看响应返回的数据，JSONP 比 ajax 方式就多了一个回调函数。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myjsonp</span>(<span class="params">URL, callback, callbackname</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//给系统中创建一个全局变量，叫做callbackname，指向callback函数</span></span><br><span class="line">  <span class="comment">//定义</span></span><br><span class="line">  <span class="built_in">window</span>[callbackname] = callback;</span><br><span class="line">  <span class="comment">//创建一个script节点</span></span><br><span class="line">  <span class="keyword">var</span> oscript = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">  <span class="comment">//和image不一样，设置src并不会发出HTTP请求</span></span><br><span class="line">  oscript.src = URL;</span><br><span class="line">  oscript.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">  <span class="comment">//script标签的请求是在上树的时候发出，请求的是一个函数的执行语句</span></span><br><span class="line">  <span class="built_in">document</span>.head.appendChild(oscript);</span><br><span class="line">  <span class="comment">//为了不污染页面，瞬间把script拿掉</span></span><br><span class="line">  <span class="built_in">document</span>.head.removeChild(oscript);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line">myjsonp(</span><br><span class="line">  <span class="string">"http://sclub.jd.com/productpage/p-1217508-s-0-t-3-p-1.html?callback=abcdefg"</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"abcdefg"</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果是在jq中使用就方便很多了</span></span><br><span class="line">$.ajax(<span class="string">"test.txt"</span>, &#123;</span><br><span class="line">  <span class="comment">//JSON跨域的时候要写一个dataType，注意不是type而是dataType</span></span><br><span class="line">  dataType: <span class="string">"jsonp"</span>,</span><br><span class="line">  <span class="comment">//要定义的函数名字，因为JSONP不缺执行，缺定义</span></span><br><span class="line">  jsonpCallback: <span class="string">"fun"</span>,</span><br><span class="line">  <span class="comment">//信息回来之后执行的事情</span></span><br><span class="line">  success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data); <span class="comment">//这里得到了请求的数据</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="node-能获取到前端传过来的什么东西"><a href="#node-能获取到前端传过来的什么东西" class="headerlink" title="node 能获取到前端传过来的什么东西"></a>node 能获取到前端传过来的什么东西</h3><p>好累今晚在写</p>
+</script></li></ul>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/25/React+TypeScript/" rel="next" title="React+TypeScript+Antd+Mock 后台管理系统">
+                <i class="fa fa-chevron-left"></i> React+TypeScript+Antd+Mock 后台管理系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/WechatIMG13.jpeg"
+                alt="Detail" />
+            
+              <p class="site-author-name" itemprop="name">Detail</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">141</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/8987002d387c" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG9.jpeg?raw=true" target="_blank" title="微信">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>微信</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YHF7/my/blob/master/WechatIMG11.jpeg?raw=true" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/yhf7" target="_blank" title="码云">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>码云</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/5b9bafe7f265da0a9c786330" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何在原生中绑定一个-DOM"><span class="nav-number">2.0.1.</span> <span class="nav-text">如何在原生中绑定一个 DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、在-DOM-元素中直接绑定（就是在-html-中直接写上去）"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">一、在 DOM 元素中直接绑定（就是在 html 中直接写上去）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、在-js-代码中绑定（就是直接在-js-中获取并操作-dom）"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">二、在 js 代码中绑定（就是直接在 js 中获取并操作 dom）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Detail</span>
+
+  
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共277.6k字</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  <script type="text/javascript" src="/js/src/click_love.js"></script>
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/live2d-widget-model-haruto/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+
+</html>
